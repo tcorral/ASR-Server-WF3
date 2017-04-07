@@ -1,0 +1,1 @@
+module.exports = require("npm:angular-formly-templates-bootstrap@6.4.0/dist/angular-formly-templates-bootstrap.js");

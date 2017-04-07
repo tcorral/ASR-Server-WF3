@@ -1,0 +1,31 @@
+.layout-container {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+}
+.layout-container-child {
+    height: 100%;
+    overflow: hidden
+}
+.layout-container-child-left-column {
+    width: 50%;
+    float: left;
+    overflow-y: auto;
+    height: 100%;
+}
+.layout-container-child-right-column {
+    width: 50%;
+    float: right;
+    overflow-y: auto;
+    height: 100%;
+}
+.layout-container-child-right-column iframe {
+    width: 100%;
+    height: 100%;
+}
+.layout-container-child-left-column .grey-background {
+    background: #F0F0F0;
+}
+.btn-bottombar {
+    margin-left: 10%;
+}

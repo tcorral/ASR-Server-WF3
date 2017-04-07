@@ -1,0 +1,67 @@
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/index.common.js:18:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/index.common.js:18:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/index.common.js:18:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/index.common.js:18:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/description.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/description.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/description.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/description.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/addons.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/addons.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/addons.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/addons.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/checkbox.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/checkbox.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/checkbox.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/checkbox.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/multiCheckbox.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/multiCheckbox.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/multiCheckbox.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/multiCheckbox.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/input.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/input.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/input.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/input.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/radio.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/radio.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/radio.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/radio.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/textarea.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/textarea.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/textarea.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/textarea.js:1:17: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/select.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/select.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/select.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/select.js:1:17: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:1:15: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:1:20: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:2:20: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:2:25: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:4:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:4:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:4:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/run/index.js:4:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/index.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/index.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/index.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/types/index.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/wrappers/index.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/wrappers/index.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/wrappers/index.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly-templates-bootstrap@6.4.0/src/wrappers/index.js:1:16: Semi-colon expected

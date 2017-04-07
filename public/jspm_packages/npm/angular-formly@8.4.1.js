@@ -1,0 +1,1 @@
+module.exports = require("npm:angular-formly@8.4.1/dist/formly.js");

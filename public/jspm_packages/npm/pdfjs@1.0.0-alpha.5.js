@@ -1,0 +1,1 @@
+module.exports = require("npm:pdfjs@1.0.0-alpha.5/lib/index");

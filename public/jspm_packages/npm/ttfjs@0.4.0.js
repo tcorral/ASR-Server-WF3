@@ -1,0 +1,1 @@
+module.exports = require("npm:ttfjs@0.4.0/lib/ttf");

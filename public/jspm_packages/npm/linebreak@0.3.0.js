@@ -1,0 +1,1 @@
+module.exports = require("npm:linebreak@0.3.0/src/linebreaker");

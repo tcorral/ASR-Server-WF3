@@ -1,0 +1,1 @@
+module.exports = require("npm:brfs@1.4.3/index.js");

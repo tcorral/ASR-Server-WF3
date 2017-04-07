@@ -1,0 +1,24 @@
+{
+  "name": "ttfjs",
+  "author": {
+    "name": "Markus Ast",
+    "email": "npm.m@rkusa.st"
+  },
+  "description": "TTFjs is a TrueType font parser entirely written in JavaScript and compatible to both Node.js and the Browser.",
+  "version": "0.4.0",
+  "main": "./lib/ttf",
+  "homepage": "https://github.com/rkusa/ttfjs",
+  "keywords": ["ttf", "parse", "font", "subset"],
+  "license": "MIT",
+  "dependencies": {
+    "structjs": "0.2.x"
+  },
+  "bugs": "https://github.com/rkusa/ttfjs/issues",
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/rkusa/ttfjs.git"
+  },
+  "engines": {
+    "node": ">=0.8"
+  }
+}

@@ -1,0 +1,1 @@
+module.exports = require("bower:jquery@3.2.1/dist/jquery.js");

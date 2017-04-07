@@ -1,0 +1,1 @@
+module.exports = require("bower:bootstrap@3.3.7/dist/js/bootstrap.js");

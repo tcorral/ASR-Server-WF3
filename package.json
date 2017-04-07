@@ -1,0 +1,39 @@
+{
+  "name": "ASR-Server-WF3",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "express": "~4.14.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.2"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "public"
+    },
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.6.4",
+      "angular-bootstrap": "github:angular-ui/bootstrap-bower@^2.5.0",
+      "angular-formly": "github:formly-js/angular-formly@^8.4.1",
+      "angular-formly-templates-bootstrap": "npm:angular-formly-templates-bootstrap@^6.4.0",
+      "angular-messages": "github:angular/bower-angular-messages@^1.6.4",
+      "api-check": "bower:api-check@^7.5.5",
+      "bootstrap": "bower:bootstrap@^3.3.7",
+      "pdfjs": "npm:pdfjs@^1.0.0-alpha.5",
+      "pdfjs-dist": "bower:pdfjs-dist@^1.7.418",
+      "text": "github:systemjs/plugin-text@^0.0.9"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}

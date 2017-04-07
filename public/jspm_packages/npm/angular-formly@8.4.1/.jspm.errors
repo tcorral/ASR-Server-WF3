@@ -1,0 +1,315 @@
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:2:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:2:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.js:2:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:2:10: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:2:15: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:3:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:3:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:3:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:3:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:5:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:5:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:5:18: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-custom-validation.test.js:5:23: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:2:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:2:29: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:4:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:4:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:4:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.js:4:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.test.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.test.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.test.js:2:10: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-focus.test.js:2:15: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:4:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:4:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:4:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:4:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:5:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:5:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:5:17: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:5:22: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:6:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:6:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:6:18: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:6:23: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:7:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:7:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:7:10: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-field.test.js:7:15: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:8:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:8:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:8:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.js:8:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.test.js:5:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.test.js:5:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.test.js:5:46: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.test.js:6:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.test.js:6:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.test.js:6:10: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.controller.test.js:6:15: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:3:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:3:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:3:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.js:3:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:3:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:3:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:3:23: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:3:28: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:4:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:4:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:4:40: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:4:45: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:5:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:5:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:5:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:5:29: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:6:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:6:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:6:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:6:26: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:7:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:7:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:7:33: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:7:38: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:8:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:8:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:8:19: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:8:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:9:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:9:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:9:19: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:9:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:11:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:11:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:11:31: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:11:36: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:12:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:12:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:12:20: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:12:25: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:13:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:13:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:13:20: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:13:25: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:14:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:14:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:14:19: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:14:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:15:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:15:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:15:29: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:15:34: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:17:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:17:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:17:38: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:17:43: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:18:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:18:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:18:25: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:18:30: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:22:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:22:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:22:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.common.js:22:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:2:14: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:2:19: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:5:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:5:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:6:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:6:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:7:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:7:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:8:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:8:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:9:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:9:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:10:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:10:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:11:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:11:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:12:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:12:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:13:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:13:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:14:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:14:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:15:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:15:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:17:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:17:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:17:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.test.js:17:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:5:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:5:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:5:18: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:5:23: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:6:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:6:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:6:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/directives/formly-form.test.js:6:21: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:2:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:2:29: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:227:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:227:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:227:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyApiCheck.js:227:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:2:14: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:2:19: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:4:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:4:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:4:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.js:4:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:3:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:3:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:3:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyUsability.js:3:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:6:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:6:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:6:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:6:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:7:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:7:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:7:18: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyConfig.test.js:7:23: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyValidationMessages.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyValidationMessages.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyValidationMessages.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/providers/formlyValidationMessages.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.test.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.test.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.test.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.test.js:1:21: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:2:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:2:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyCustomTags.js:2:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:1:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:1:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:2:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:4:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:4:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:4:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.js:4:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:2:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:2:21: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:3:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:3:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:3:10: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/run/formlyNgModelAttrsManipulator.test.js:3:15: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:1:14: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:1:19: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:3:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:3:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:3:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyUtil.js:3:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyWarn.js:1:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyWarn.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyWarn.js:1:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/services/formlyWarn.js:1:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:2:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:2:10: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:2:15: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:13:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:13:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:13:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:13:16: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:15:1: Unexpected token }
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/test.utils.js:61:1: Unexpected token End of File
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/angular-fix/index.js:9:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/angular-fix/index.js:9:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/angular-fix/index.js:9:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/angular-fix/index.js:9:16: Semi-colon expected
+
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:1:14: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:1:19: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:2:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:2:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:2:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/angular-formly@8.4.1/src/index.js:2:16: Semi-colon expected

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/jspm_packages/bower/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+</head>
+
+<body>
+    <div class="layout-container" ng-include="'/partials/layout.html'"></div>
+
+    <script type="text/javascript" src="/jspm_packages/system.js"></script>
+    <script type="text/javascript" src="/config.js"></script>
+    <script type="text/javascript" src="/jspm_packages/bower/pdfjs-dist@1.7.418/build/pdf.min.js"></script>
+    <script type="text/javascript">
+        var currentUserId = "[LL_UserId /]";
+        var currentUserLogin = "[LL_UserLogin /]";
+        var currentUserFullName = "[LL_UserLastName /],[LL_UserFirstName /] ([LL_UserLogin /])";
+    </script>
+    <script type="text/javascript">
+        System.import('/scripts/app/index');
+        System.import('angular-formly-templates-bootstrap');
+    </script>
+</body>
+
+</html>

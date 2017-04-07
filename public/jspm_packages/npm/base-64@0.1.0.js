@@ -1,0 +1,1 @@
+module.exports = require("npm:base-64@0.1.0/base64.js");

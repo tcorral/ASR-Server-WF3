@@ -1,0 +1,1 @@
+module.exports = require("npm:quote-stream@0.0.0/index.js");

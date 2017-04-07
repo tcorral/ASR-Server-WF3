@@ -1,0 +1,8 @@
+MultipleErrors: C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:1:1: Unexpected reserved word import
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:1:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:1:24: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:1:29: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:3:1: Unexpected reserved word export
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:3:8: Semi-colon expected
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:3:8: Unexpected reserved word default
+C:/Users/tcasas/AppData/Local/.jspm/packages/npm/api-check@7.5.5/src/index.js:3:16: Semi-colon expected
