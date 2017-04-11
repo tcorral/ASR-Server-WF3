@@ -1,33 +1,46 @@
 import angular from 'angular';
-import constants from './constants/index';
 import 'angular-bootstrap';
-import 'angular-messages';
+import 'angular-sanitize';
+import 'angular-translate';
+import 'tameraydin/ngToast';
+import 'tameraydin/ngToast';
+
+import config from './config/index';
+
+import utils from './utils/index';
+
+import constants from './constants/index';
 import FormController from './controllers/FormController';
 import delegateFormComponent from './components/delegateForm/index';
-import featureFormComponent from './components/featureForm/index';
 import FormService from './services/FormService';
 import PDFService from './services/PDFService';
-import run from './run/index';
+import UserService from './services/UserService';
+import OTFormService from './services/OTFormService';
 
 const deps = [
-    'formly',
-    'formlyBootstrap',
-    'ui.bootstrap',
-    'ngMessages'
+  'ui.bootstrap',
+  'ui.bootstrap.tpls',
+  'pascalprecht.translate',
+  'ngToast'
 ];
 
-PDFService.$inject = ['$window', '$q', '$http', 'devConfig'];
-FormController.$inject = ['FormService', 'PDFService', 'devConfig'];
-FormService.$inject = ['$window', '$http', 'devConfig', 'context', 'postBus'];
+config.$inject = ['$translateProvider', 'ngToastProvider', '$locationProvider'];
+PDFService.$inject = ['$window', '$q', '$http', 'configEnv'];
+FormController.$inject = ['FormService', 'PDFService', 'configEnv'];
+FormService.$inject = ['$window', '$http', 'configEnv', 'context', 'postBus'];
+UserService.$inject = ['$http', 'configEnv'];
+OTFormService.$inject = ['$q', 'configEnv'];
 
 angular
-    .module('app', deps)
-    .controller(FormController)
-    .constant(constants)
-    .service(PDFService)
-    .service(FormService)
-    .component(delegateFormComponent.name, delegateFormComponent.component)
-    .component(featureFormComponent.name, featureFormComponent.component)
-    .run();
+  .module('formApp', deps)
+  .config(config)
+  .constant(constants)
+  .controller(FormController)
+  .service(PDFService)
+  .service(FormService)
+  .service(UserService)
+  .service(OTFormService)
+  .component(delegateFormComponent.component.name, delegateFormComponent.component.component)
+  .service(delegateFormComponent.services);
 
-angular.bootstrap(document.body, ['app']);
+angular.bootstrap(document.querySelector('.layout-container'), ['formApp']);

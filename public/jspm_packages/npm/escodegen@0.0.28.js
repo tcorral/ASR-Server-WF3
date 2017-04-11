@@ -1,1 +1,0 @@
-module.exports = require("npm:escodegen@0.0.28/escodegen.js");

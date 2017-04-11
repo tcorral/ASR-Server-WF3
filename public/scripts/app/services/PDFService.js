@@ -1,6 +1,6 @@
 class PDFService {
-    constructor($window, $q, $http, devConfig) {
-        this.config = devConfig;
+    constructor($window, $q, $http, configEnv) {
+        this.config = configEnv;
         this.$q = $q;
         this.$http = $http;
         this.$window = $window;

@@ -1,1 +1,0 @@
-module.exports = require("npm:node-uuid@1.4.8/uuid.js");

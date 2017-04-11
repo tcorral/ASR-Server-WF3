@@ -1,7 +1,7 @@
 class BehandelaarController {
-    constructor($scope, FormService, devConfig) {
+    constructor($scope, FormService, configEnv) {
         FormService
-            .getUserByLogin(devConfig.currentUserLogin)
+            .getUserByLogin(configEnv.currentUserLogin)
             .then(function (response) {
                 $scope.model.behandelaar = response;
             });

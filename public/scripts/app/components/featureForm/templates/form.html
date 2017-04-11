@@ -1,4 +1,34 @@
-<!--<form class="form-horizontal" ng-submit="$ctrl.onSubmit()" novalidate ng-if="$ctrl.contextIsKenmerk()">-->
-    <!--<formly-form model="$ctrl.model" fields="$ctrl.fields" form="$ctrl.form" options="$ctrl.options"></formly-form>-->
-    <!--{{$ctrl.model | json}}-->
-<!--</form>-->
+<form name="$ctrl.containerForm" id="mainForm" ng-if="$ctrl.formFactory.displayForm">
+    <ontbrekende-paginas max-pages="maxpages"></ontbrekende-paginas>
+    <div class="alert alert-danger" role="alert" ng-if="$ctrl.warning.display">
+        {{$ctrl.warning.text}}
+    </div>
+    <documenten-form ng-repeat="range in $ctrl.documentFactoryData track by $index" data="range" index="$index"
+                     update-document-factory-data="$ctrl.updateDocumentFactoryData(factoryData)"></documenten-form>
+    <toast></toast>
+
+    <nav class="navbar navbar-primary navbar-fixed-bottom" style="min-height:0px; margin-bottom: 2px; align: left">
+        <div>
+            <div class="btn-toolbar" role="toolbar" style="margin-left: 10%">
+
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.closeForm()">
+                    <span class="glyphicon glyphicon-pause" aria-hidden="true"></span> {{'Close' | translate}}
+                </button>
+                <button type="button" class="btn"
+                        ng-class="{ 'btn-success': $ctrl.dataHasBeenChanged, 'btn-primary': !$ctrl.dataHasBeenChanged }"
+                        ng-click="$ctrl.saveForm()">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> {{'Save' | translate}}
+                </button>
+                <button type="button" class="btn"
+                        ng-class="{ 'btn-success': $ctrl.isFormDataValid(), 'btn-primary': !$ctrl.isFormDataValid() }"
+                        ng-click="$ctrl.validateOrSaveAndFinish()">
+                    <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> {{'Archive' | translate}}
+                </button>
+                <button type="button" class="btn btn-danger"
+                        ng-click="$ctrl.openPrullenbakModal()">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{'Trash' | translate}}
+                </button>
+            </div>
+        </div>
+    </nav>
+</form>

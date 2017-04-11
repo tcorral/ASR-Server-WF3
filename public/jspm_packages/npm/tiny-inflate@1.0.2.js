@@ -1,1 +1,0 @@
-module.exports = require("npm:tiny-inflate@1.0.2/index.js");

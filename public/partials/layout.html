@@ -1,58 +1,13 @@
 <div class="layout-container-child" ng-controller="FormController as formCtrl">
     <div class="layout-container-child-left-column">
-        <div class="panel panel-primary" ng-if="!formCtrl.contextIsKenmerk()">
-            <div class="panel-heading"> DISPATCH</div>
-            <div class="panel-body grey-background" ng-show="!formCtrl.hideSection">
-                <delegate-form form="formCtrl.form"></delegate-form>
-            </div>
-        </div>
-        <div class="panel panel-primary" ng-if="formCtrl.contextIsKenmerk()"
-             ng-show="formCtrl.hasDocumentAnyUndefinedPage()">
-            <div class="panel-heading">ONTBREKENDE PAGINA'S</div>
-            <div class="panel-body grey-background">
-                <div class="btn-group btn-group-justified">
-                    <button type="button" class="btn btn-warning btn-xs"
-                            ng-repeat="page in formCtrl.getUndefinedPages(formCtrl.model, formCtrl.PDFpages) | limitTo:formCtrl.config.pageLimit"
-                            ng-click="formCtrl.setDocumentRangeTo(page)"
-                            ng-bind="page">
-                    </button>
-                    <button type="button" class="btn btn-warning btn-xs disabled"
-                            ng-show="formCtrl.hasDocumentMorePagesThanLimit()">+{{formCtrl.getRemainingUndefinedPagesOverLimit()}}
-                    </button>
-                </div>
-            </div>
-        </div>
-        <feature-form form="formCtrl.form" context-is-kenmerk="formCtrl.contextIsKenmerk()"></feature-form>
-        <div ng-if="false">
-            DEVELOPER TOOLS: <br/>
-            dispatch model:
-            <pre>{{dm.model | json}}</pre>
-            kenmerken model:
-            <pre>{{vm.model | json}}</pre>
-        </div>
+        <delegate-form display="formCtrl.showDelegateForm"></delegate-form>
+
+        <feature-form display="!formCtrl.showDelegateForm"></feature-form>
     </div>
-    <div class="layout-container-child-right-column">
-        <iframe ng-src="{{formCtrl.viewerUrl}}"></iframe>
+
+    <div style="width:50%; height: 100%; float:right;">
+        <iframe ng-src="{{formCtrl.viewerUrl}}" width="100%" height="100%"></iframe>
     </div>
+
 </div>
-<nav class="navbar navbar-primary navbar-fixed-bottom" style="min-height:0px; margin-bottom: 2px; align: left">
-    <div>
-        <div class="btn-toolbar btn-bottombar" role="toolbar">
-            <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-cancel" aria-hidden="true"></span> Annuleer
-            </button>
-            <button type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-share-alt" aria-hidden="true" ng-if="contextIsKenmerk()"></span> Delegeer naar
-            </button>
-            <button type="button" class="btn btn-primary" ng-show="formCtrl.form.$invalid || formCtrl.form.$pristine">
-                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Archiveer
-            </button>
-            <button type="button" class="btn btn-success" ng-hide="formCtrl.form.$invalid || vm.form.$pristine">
-                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Archiveer
-            </button>
-            <button type="button" class="btn btn-danger" uib-popover="I appeared on mouse enter!" popover-trigger="mouseenter" ng-click="logVM()">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Prullenbak
-            </button>
-        </div>
-    </div>
-</nav>
+

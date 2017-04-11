@@ -10,7 +10,7 @@ WorkspaceCategoryController.$inject = ['$scope', 'FormService'];
 BusinessWorkspaceController.$inject = ['$scope', 'FormService'];
 MapNameController.$inject = ['$scope', 'FormService'];
 DocumentTypeController.$inject = ['$scope', 'FormService'];
-BehandelaarController.$inject = ['$scope', 'FormService', 'devConfig'];
+BehandelaarController.$inject = ['$scope', 'FormService', 'configEnv'];
 
 export default {
     files: [

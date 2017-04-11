@@ -1,1 +1,0 @@
-module.exports = require("npm:static-eval@0.2.4/index.js");

@@ -1,11 +1,13 @@
-class FormController {
-    constructor(FormService, PDFService, devConfig) {
-        const ctrl = this;
+import EventBus from 'krasimir/EventBus';
 
+class FormController {
+    constructor(FormService, PDFService, configEnv) {
+        const ctrl = this;
         ctrl.FormService = FormService;
         ctrl.PDFService = PDFService;
+        ctrl.showDelegate = true;
         ctrl.viewerUrl = '';
-        ctrl.config = devConfig;
+        ctrl.config = configEnv;
         ctrl.form = null;
         ctrl.model = {
             documentranges: [
@@ -29,6 +31,10 @@ class FormController {
                     ctrl.viewerUrl = PDFInfo.viewUrl;
                     ctrl.PDFpages = ctrl.model.documentranges[0].rangeto = PDFInfo.pages;
                 });
+
+          EventBus.addEventListener("delegate-form:sent", function () {
+            ctrl.showDelegate = false;
+          });
         }
 
         init();

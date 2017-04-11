@@ -4,8 +4,6 @@ var fs = require('fs');
 var router = express.Router();
 var url = require('url');
 
-console.log(path.join(__dirname, '..',  'json-mocks', 'openPDFbyWorkID.json'));
-
 /* GET home page. */
 router.get('/llisapi.dll', function(req, res, next) {
     var urlParts = url.parse(req.url, true);
@@ -17,14 +15,27 @@ router.get('/llisapi.dll', function(req, res, next) {
                 res.json(json);
             }
             if(query.filter) {
-                console.log(query.filter);
-                var json = require(path.join(__dirname, '..',  'json-mocks', 'autoCompleteGroupWR', query.filter + '.json'));
-                res.json(json);
+                switch(query.objId) {
+                    case "113694":
+                        var json = require(path.join(__dirname, '..',  'json-mocks', 'autoCompleteUserWR', query.filter + '.json'));
+                        res.json(json);
+                        break;
+                    case "113695":
+                        var json = require(path.join(__dirname, '..',  'json-mocks', 'autoCompleteGroupWR', query.filter + '.json'));
+                        res.json(json);
+                        break;
+                }
+
             }
         }
     } else {
         res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
     }
+});
+
+router.post('/llisapi.dll', function (req, res, next) {
+    console.log(req.body);
+    res.json({});
 });
 
 //http://xecm-ot.business.finl.fortis/otcs/llisapi.dll?filter=cog&func=ll&objAction=RunReport&objId=113695

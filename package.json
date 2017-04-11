@@ -21,13 +21,13 @@
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.6.4",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@^2.5.0",
-      "angular-formly": "github:formly-js/angular-formly@^8.4.1",
-      "angular-formly-templates-bootstrap": "npm:angular-formly-templates-bootstrap@^6.4.0",
-      "angular-messages": "github:angular/bower-angular-messages@^1.6.4",
-      "api-check": "bower:api-check@^7.5.5",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.6.4",
+      "angular-translate": "github:angular-translate/bower-angular-translate@^2.15.1",
       "bootstrap": "bower:bootstrap@^3.3.7",
-      "pdfjs": "npm:pdfjs@^1.0.0-alpha.5",
-      "pdfjs-dist": "bower:pdfjs-dist@^1.7.418",
+      "json": "github:systemjs/plugin-json@^0.3.0",
+      "krasimir/EventBus": "github:krasimir/EventBus@master",
+      "mozilla/pdfjs-dist": "github:mozilla/pdfjs-dist@^1.8.173",
+      "tameraydin/ngToast": "github:tameraydin/ngToast@^2.0.0",
       "text": "github:systemjs/plugin-text@^0.0.9"
     },
     "devDependencies": {

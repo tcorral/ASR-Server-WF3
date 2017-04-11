@@ -1,1 +1,0 @@
-module.exports = require("npm:structjs@0.2.1/lib/struct");

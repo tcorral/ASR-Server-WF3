@@ -1,0 +1,80 @@
+{
+  "actualRows": 10,
+  "filteredRows": 10,
+  "myRows": [
+    {
+      "ID": 1002,
+      "Name": "otadmin@otds.admin",
+      "FirstName": null,
+      "LastName": null,
+      "MiddleName": null
+    },
+    {
+      "ID": 52804,
+      "Name": "tte001fi",
+      "FirstName": "Theo",
+      "LastName": "Tergouw van",
+      "MiddleName": "T."
+    },
+    {
+      "ID": 52814,
+      "Name": "DGO001",
+      "FirstName": "Dick",
+      "LastName": "Gort",
+      "MiddleName": "D."
+    },
+    {
+      "ID": 4083381,
+      "Name": "ypo0001",
+      "FirstName": "Yolanda",
+      "LastName": "Pommeren-Galesloot",
+      "MiddleName": "A.Y."
+    },
+    {
+      "ID": 10781031,
+      "Name": "SAPADMIN",
+      "FirstName": "SAP",
+      "LastName": "Admin - Do not Delete (Contact Laura)",
+      "MiddleName": null
+    },
+    {
+      "ID": 52258,
+      "Name": "moo001fi",
+      "FirstName": "Marianne",
+      "LastName": "Oosteveen",
+      "MiddleName": "M.J.A."
+    },
+    {
+      "ID": 52477,
+      "Name": "tbo001fi",
+      "FirstName": "Teus",
+      "LastName": "Bor",
+      "MiddleName": "T.J."
+    },
+    {
+      "ID": 52915,
+      "Name": "PMTPI",
+      "FirstName": "Anja",
+      "LastName": "Pieterman",
+      "MiddleName": "J.J."
+    },
+    {
+      "ID": 52586,
+      "Name": "LVI004",
+      "FirstName": "Linda",
+      "LastName": "Vilsterman",
+      "MiddleName": "LC"
+    },
+    {
+      "ID": 52917,
+      "Name": "het001fi",
+      "FirstName": "Henny",
+      "LastName": "Ettekoven",
+      "MiddleName": "H."
+    }
+  ],
+  "sourceID": 113683,
+  "success": true,
+  "totalRows": 10,
+  "totalSourceRows": 10
+}

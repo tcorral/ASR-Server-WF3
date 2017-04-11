@@ -2,26 +2,70 @@
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/jspm_packages/bower/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/style.css"/>
-    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/img/cgcustom/workflows/ASRFormKenmerken/jspm_packages/bower/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/img/cgcustom/workflows/ASRFormKenmerken/jspm_packages/github/tameraydin/ngToast@2.0.0/dist/ngToast.css">
+    <link rel="stylesheet" href="/img/cgcustom/workflows/ASRFormKenmerken/styles/main.css"/>
 </head>
 
 <body>
     <div class="layout-container" ng-include="'/partials/layout.html'"></div>
 
-    <script type="text/javascript" src="/jspm_packages/system.js"></script>
-    <script type="text/javascript" src="/config.js"></script>
-    <script type="text/javascript" src="/jspm_packages/bower/pdfjs-dist@1.7.418/build/pdf.min.js"></script>
+    <script type="text/javascript" src="/img/cgcustom/workflows/ASRFormKenmerken/jspm_packages/system.js"></script>
+    <script type="text/javascript" src="/img/cgcustom/workflows/ASRFormKenmerken/config.js"></script>
+    <script type="text/javascript" src="/img/cgcustom/workflows/ASRFormKenmerken/vendor/pdfjs/build/pdf.js"></script>
     <script type="text/javascript">
         var currentUserId = "[LL_UserId /]";
         var currentUserLogin = "[LL_UserLogin /]";
         var currentUserFullName = "[LL_UserLastName /],[LL_UserFirstName /] ([LL_UserLogin /])";
     </script>
     <script type="text/javascript">
-        System.import('/scripts/app/index');
-        System.import('angular-formly-templates-bootstrap');
+        System.import('/img/cgcustom/workflows/ASRFormKenmerken/scripts/app/index');
     </script>
+    <form name="llForm" id="llForm" role="form">
+        <INPUT TYPE="HIDDEN" NAME="func" VALUE="[LL_FUNC /]">
+        <INPUT TYPE="HIDDEN" NAME="LL_FUNC_VALUES" VALUE="[LL_FUNC_VALUES /]">
+        <INPUT TYPE="HIDDEN" NAME="LL_AttrFieldName" VALUE="">
+        <INPUT TYPE="HIDDEN" NAME="LL_AttrFieldIndex" VALUE="">
+        <INPUT TYPE="HIDDEN" NAME="LL_WFATTURL" VALUE="[LL_WFATTURL /]">
+        <INPUT  TYPE="text" NAME="_1_1_2_1" TITLE="BusinessWorkspace" ID="_1_1_2_1" VALUE="[LL_FormTag_1_1_2_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_3_1" TITLE="SapObject" ID="_1_1_3_1" VALUE="[LL_FormTag_1_1_3_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_21_1" TITLE="DocumenttypeGroep" ID="_1_1_21_1" VALUE="[LL_FormTag_1_1_21_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_4_1" TITLE="DocumentType" ID="_1_1_4_1" VALUE="[LL_FormTag_1_1_4_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_ID" VALUE="[LL_FormTag_1_1_7_1 /]">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_SavedName" VALUE="[LL_FormTag_1_1_7_1_SavedName /]">
+        <INPUT  TYPE="TEXT" NAME="_1_1_7_1_Name" ID="_1_1_7_1_Name" VALUE="[LL_FormTag_1_1_7_1_SavedName /]" ALT="Select User" SIZE="23">
+        <INPUT  TYPE="text" NAME="_1_1_6_1" TITLE="FollowupType" ID="_1_1_6_1" VALUE="[LL_FormTag_1_1_6_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_25_1" TITLE="FollowupDays" ID="_1_1_25_1" VALUE="[LL_FormTag_1_1_25_1 /]" SIZE="32" MAXLENGTH="254">
+        [LL_LOOP_BEGIN_1_1_8 /]
+        <INPUT  TYPE="text" NAME="_1_1_8_9_1" TITLE="rngDocumentName" ID="_1_1_8_9_1" VALUE="[LL_FormTag_1_1_8_9_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_10_1" TITLE="rngRange" ID="_1_1_8_10_1" VALUE="[LL_FormTag_1_1_8_10_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_14_1" value="1"  ONCLICK="markDirty();">
+        <INPUT  TYPE="text" NAME="_1_1_8_12_1" TITLE="rngWorkflowType" ID="_1_1_8_12_1" VALUE="[LL_FormTag_1_1_8_12_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_13_1" TITLE="rngOmschrijving" ID="_1_1_8_13_1" VALUE="[LL_FormTag_1_1_8_13_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_15_1" TITLE="rngBusinessWorkspace" ID="_1_1_8_15_1" VALUE="[LL_FormTag_1_1_8_15_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_16_1" TITLE="rngSapObject" ID="_1_1_8_16_1" VALUE="[LL_FormTag_1_1_8_16_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_22_1" TITLE="rngDocumenttypeGroep" ID="_1_1_8_22_1" VALUE="[LL_FormTag_1_1_8_22_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  type="text" NAME="_1_1_8_36_1" TITLE="rngFolderID" id="_1_1_8_1_36_1" value="[LL_FormTag_1_1_8_36_1 /]" size="20" maxlength="20">
+        <INPUT  TYPE="text" NAME="_1_1_8_17_1" TITLE="rngDocumenttype" ID="_1_1_8_17_1" VALUE="[LL_FormTag_1_1_8_17_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_18_1" value="1"  ONCLICK="markDirty();">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_ID" VALUE="[LL_FormTag_1_1_8_19_1 /]">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_SavedName" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]">
+        <INPUT  TYPE="TEXT" NAME="_1_1_8_19_1_Name" ID="_1_1_8_19_1_Name" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]" ALT="Select User" SIZE="23">
+        <INPUT  TYPE="text" NAME="_1_1_8_20_1" TITLE="rngFollowupType" ID="_1_1_8_20_1" VALUE="[LL_FormTag_1_1_8_20_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_26_1" TITLE="rngFollowupDays" ID="_1_1_8_26_1" VALUE="[LL_FormTag_1_1_8_26_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_33_1" TITLE="rngFolluwpDescription" ID="_1_1_8_33_1" VALUE="[LL_FormTag_1_1_8_33_1 /]" SIZE="80" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_35_1" TITLE="rngFollowUpDate" ID="_1_1_8_35_1" VALUE="[LL_FormTag_1_1_8_35_1 /]" SIZE="80" MAXLENGTH="254">
+        [LL_LOOP_END_1_1_8 /]
+        <INPUT  TYPE="text" NAME="_1_1_23_1" TITLE="nextStep" ID="_1_1_23_1" VALUE="[LL_FormTag_1_1_23_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_27_1_ID" VALUE="[LL_FormTag_1_1_27_1 /]">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_27_1_SavedName" VALUE="[LL_FormTag_1_1_27_1_SavedName /]">
+        <INPUT  TYPE="TEXT" NAME="_1_1_27_1_Name" ID="_1_1_27_1_Name" VALUE="[LL_FormTag_1_1_27_1_SavedName /]" ALT="Select User" SIZE="23">
+        <INPUT  TYPE="text" NAME="_1_1_28_1" TITLE="Postbus" ID="_1_1_28_1" VALUE="[LL_FormTag_1_1_28_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_30_1_ID" VALUE="[LL_FormTag_1_1_30_1 /]">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_30_1_SavedName" VALUE="[LL_FormTag_1_1_30_1_SavedName /]">
+        <INPUT  TYPE="TEXT" NAME="_1_1_30_1_Name" ID="_1_1_30_1_Name" VALUE="[LL_FormTag_1_1_30_1_SavedName /]" ALT="Select User" SIZE="23">
+        <TEXTAREA CLASS="valueEditable multiline" ID="_1_1_31_1" NAME="_1_1_31_1" TITLE="Opmerkingen" WRAP="soft" ROWS="5" COLS="80" >[LL_FormTag_1_1_31_1 /]</TEXTAREA>
+    </form>
 </body>
 
 </html>

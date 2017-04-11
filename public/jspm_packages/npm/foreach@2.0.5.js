@@ -1,1 +1,0 @@
-module.exports = require("npm:foreach@2.0.5/index.js");
