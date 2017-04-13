@@ -17,6 +17,8 @@ function config($translateProvider, ngToastProvider, $locationProvider) {
       enabled: true,
       requireBase: false
     });
+    
+    $translateProvider.preferredLanguage('nl');
 }
 
 export default config;

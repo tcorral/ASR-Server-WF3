@@ -50,7 +50,7 @@ class DelegateFormController {
   }
 
   isDelegateButtonActive() {
-    return (this.model.delegate || this.model.practitionersGroup);
+    return ((this.model.delegate && this.model.delegate.value) || (this.model.practitionersGroup && this.model.practitionersGroup.value));
   }
 
   findUser(query) {
@@ -101,7 +101,7 @@ class DelegateFormController {
   }
 
   acceptAssignment() {
-    console.log(' accept assignment ');
+    this.display = false;
   }
 
 }

@@ -1,0 +1,1 @@
+module.exports = require("github:tameraydin/ngToast@2.0.0/dist/ngToast.js");

@@ -5,6 +5,25 @@ function getConfigEnvironment(environments) {
   return configs[environments[subdomain]]|| configs['dev'];
 }
 
+function addZeros(value) {
+  if(value < 10) {
+    return '0' + value;
+  }
+  return value;
+}
+
+function getMonth(date) {
+  var month = date.getMonth() + 1;
+  return addZeros(month);
+}
+function getDate(date) {
+  var date = date.getDate();
+  return addZeros(date);
+}
+function getFormattedDate(date) {
+  return getMonth(date) + '/' + getDate(date) + '/' + date.getFullYear();
+}
+
 const workflowtypeOptions = [
   {
     name: "Post",
@@ -130,222 +149,107 @@ const mailbox = [
   }
 ];
 
-const otMapping = {
-  dev: {
-    '_1_1_31_1': function(config) {
-      return config.settings.opmerkingen;
-    },
-    '_1_1_23_1': function (form, params, config) {
-      return '';
-    },
-    'LL_FUNC_VALUES': function (config) {
-      var funcValues = config.params['LL_FUNC_VALUES'];
-      var split = funcValues.value.split(',');
-      return split[7] = "'LL_NextURL'='" + config.scriptHome +"/OK.txt'";
-    },
-    'repeat': {
-      '_1_1_8_{{index}}_9_1': function(config) {
-        return (config.form.documentNaam || '');
-      },
-      '_1_1_8_{{index}}_10_1': function(form, params, config) {
-        return ((form.rangeStart || 0) + '-' + (form.rangeEnd || 0));
-      },
-      '_1_1_8_{{index}}_12_1': function(form, params, config) {
-        return (form.factuur ? 'Factuur' : 'Post');
-      },
-      '_1_1_8_{{index}}_13_1': function(form, params, config) {
-        return (form.omschrijving || '')
-      },
-      '_1_1_8_{{index}}_14_1': function(form, params, config) {
-        return 1;
-      },
-      '_1_1_8_{{index}}_14_1_Exists': function(form, params, config) {
-        return 1;
-      },
-      '_1_1_8_{{index}}_15_1': function(form, params, config) {
-        return (form.businessWorkspace ? form.businessWorkspace.value : '');
-      },
-      '_1_1_8_{{index}}_16_1': function(form, params, config) {
-        return (form.workspaceCategory || '');
-      },
-      '_1_1_8_{{index}}_17_1': function(form, params, config) {
-        return (form.documentType || '');
-      },
-      '_1_1_8_{{index}}_22_1': function(form, params, config) {
-        return (form.mapName || '');
-      },
-      '_1_1_8_{{index}}_36_1': function(form, params, config) {
-        return (form.docTypeGroupValue || '');
-      },
-      '_1_1_8_{{index}}_18_1': function(form, params, config) {
-        return (form.followUp);
-      },
-      '_1_1_8_{{index}}_19_1_Name': function(form, params, config) {
-        return (form.behandelaar ? form.behandelaar.name : '');
-      },
-      '_1_1_8_{{index}}_19_1_SavedName': function(form, params, config) {
-        return (form.behandelaar ? form.behandelaar.name : '');
-      },
-      '_1_1_8_{{index}}_19_1_ID': function(form, params, config) {
-        return (form.behandelaar ? form.behandelaar.value : '');
-      },
-      '_1_1_8_{{index}}_20_1': function(form, params, config) {
-        return '1';
-      },
-      '_1_1_8_{{index}}_26_1': function(form, params, config) {
-        return (form.followUpBinnen || '');
-      },
-      '_1_1_8_{{index}}_33_1': function(form, params, config) {
-        return (form.followUpBeschrijving || '');
-      },
-      '_1_1_8_{{index}}_35_1': function (form, params, config) {
-
-      }
+const otMappingSetter = {
+  single: {
+    func: function (value) {
+      var parts = value.split(',');
+      parts[7] = "'LL_NextURL'='/img/cgcustom/workflows/ASRFormKenmerken/OK.txt'"
+      return parts.join(',');
     }
   },
-  acc: {
-    '_1_1_31_1': function(form) {
-
+  loop: {
+    rngRange: function (range) {
+      return range.rangeStart + '-' + range.rangeEnd;
     },
-    '_1_1_8_{{index}}_9_1': function(form) {
-      return 1;
+    rngBusinessWorkspace: function (businessWorkspace) {
+      return businessWorkspace.value;
     },
-    '_1_1_8_{{index}}_10_1': function(form) {
-      return ((form.rangeStart || 0) + '-' + (form.rangeEnd || 0));
-    },
-    '_1_1_8_{{index}}_12_1': function(form) {
-      return (form.factuur ? 'Factuur' : 'Post');
-    },
-    '_1_1_8_{{index}}_13_1': function(form) {
-      return (form.omschrijving || '')
-    },
-    '_1_1_8_{{index}}_14_1': function(form) {
-      return 1;
-    },
-    '_1_1_8_{{index}}_14_1_Exists': function(form) {
-      return 1;
-    },
-    '_1_1_8_{{index}}_15_1': function(form) {
-
-    },
-    '_1_1_8_{{index}}_16_1': function(form) {
-      return (form.workspaceCategory || '');
-    },
-    '_1_1_8_{{index}}_17_1': function(form) {
-      return (form.documentType || '');
-    },
-    '_1_1_8_{{index}}_22_1': function(form) {
-      return (form.mapName || '');
-    },
-    '_1_1_8_{{index}}_36_1': function(form) {
-      return (form.docTypeGroupValue || '');
-    },
-    '_1_1_8_{{index}}_18_1': function(form) {
-      return (form.followUp);
-    },
-    '_1_1_8_{{index}}_19_1_Name': function(form) {
-      return (form.behandelaar ? form.behandelaar.name : '');
-    },
-    '_1_1_8_{{index}}_19_1_SavedName': function(form) {
-      return (form.behandelaar ? form.behandelaar.name : '');
-    },
-    '_1_1_8_{{index}}_19_1_ID': function(form) {
-      return (form.behandelaar ? form.behandelaar.value : '');
-    },
-    '_1_1_8_{{index}}_20_1': function(form) {
-      return '1';
-    },
-    '_1_1_8_{{index}}_26_1': function(form) {
-      return (form.followUpBinnen || '');
-    },
-    '_1_1_8_{{index}}_33_1': function(form) {
-      return (form.followUpBeschrijving || '');
-    },
-    '_1_1_8_{{index}}_35_1': function (form) {
-
-    },
-    'LL_FUNC_VALUES': function (form) {
-
-    },
-    '_1_1_23_1': function (form) {
-      return '';
-    }
-  },
-  pro: {
-    '_1_1_31_1': function(form) {
-
-    },
-    '_1_1_8_{{index}}_9_1': function(form) {
-      return 1;
-    },
-    '_1_1_8_{{index}}_10_1': function(form) {
-      return ((form.rangeStart || 0) + '-' + (form.rangeEnd || 0));
-    },
-    '_1_1_8_{{index}}_12_1': function(form) {
-      return (form.factuur ? 'Factuur' : 'Post');
-    },
-    '_1_1_8_{{index}}_13_1': function(form) {
-      return (form.omschrijving || '')
-    },
-    '_1_1_8_{{index}}_14_1': function(form) {
-      return 1;
-    },
-    '_1_1_8_{{index}}_14_1_Exists': function(form) {
-      return 1;
-    },
-    '_1_1_8_{{index}}_15_1': function(form) {
-
-    },
-    '_1_1_8_{{index}}_16_1': function(form) {
-      return (form.workspaceCategory || '');
-    },
-    '_1_1_8_{{index}}_17_1': function(form) {
-      return (form.documentType || '');
-    },
-    '_1_1_8_{{index}}_22_1': function(form) {
-      return (form.mapName || '');
-    },
-    '_1_1_8_{{index}}_36_1': function(form) {
-      return (form.docTypeGroupValue || '');
-    },
-    '_1_1_8_{{index}}_18_1': function(form) {
-      return (form.followUp);
-    },
-    '_1_1_8_{{index}}_19_1_Name': function(form) {
-      return (form.behandelaar ? form.behandelaar.name : '');
-    },
-    '_1_1_8_{{index}}_19_1_SavedName': function(form) {
-      return (form.behandelaar ? form.behandelaar.name : '');
-    },
-    '_1_1_8_{{index}}_19_1_ID': function(form) {
-      return (form.behandelaar ? form.behandelaar.value : '');
-    },
-    '_1_1_8_{{index}}_20_1': function(form) {
-      return '1';
-    },
-    '_1_1_8_{{index}}_26_1': function(form) {
-      return (form.followUpBinnen || '');
-    },
-    '_1_1_8_{{index}}_33_1': function(form) {
-      return (form.followUpBeschrijving || '');
-    },
-    '_1_1_8_{{index}}_35_1': function (form) {
-
-    },
-    'LL_FUNC_VALUES': function (form) {
-
-    },
-    '_1_1_23_1': function (form) {
-      return '';
+    rngFollowUpDate: function (date) {
+      return getFormattedDate(date);
     }
   }
 };
+const otMappingGetter = {
+  single: {
+    Opmerkingen: function (input) {
+      return input.value;
+    },
+    AcceptAssignmentCurrentUserFullName: function (input) {
+      return input.value;
+    },
+    AcceptAssignmentCurrentUserId: function (input) {
+      return input.value;
+    },
+    func: function (input) {
+      return input.value;
+    }
+  },
+  loop: {
+    rngDocumentName: function (input) {
+      return input.value || '';
+    },
+    rngRange: function (input) {
+      var rangeParts = input.value.split('-');
+      return {
+        rangeStart: parseInt(rangeParts[0], 10),
+        rangeEnd: parseInt(rangeParts[1], 10)
+      };
+    },
+    rngDelete: function (input) {
+      return input.checked;
+    },
+    rngWorkflowType: function (input) {
+      return input.value === 'Factuur';
+    },
+    rngOmschrijving: function (input) {
+      return input.value;
+    },
+    rngBusinessWorkspace: function (input){
+      return {
+        name: '',
+        value: input.value
+      };
+    },
+    rngSapObject: function (input) {
+      return input.value;
+    },
+    rngDocumenttype: function (input) {
+      return input.value;
+    },
+    rngDocumenttypeGroep: function (input) {
+      return input.value;
+    },
+    rngFolderID: function (input) {
+      return input.value;
+    },
+    rngBehandelaarID: function (input) {
+      return input.value;
+    },
+    rngBehandelaarName: function (input){
+      return input.value;
+    },
+    followUp: function (input) {
+      return input.checked;
+    },
+    rngFollowupDays: function (input) {
+      return parseInt(input.value, 10);
+    },
+    rngFolluwpDescription: function (input) {
+      return input.value;
+    },
+    rngFollowUpDate: function (input) {
+      return new Date((input.value || ''));
+    }
+  }
+}
+
 
 export default {
   workflowtypeOptions,
   configEnv: getConfigEnvironment(environments),
   context,
   mailbox,
-  otMapping,
-  Events
+  Events,
+  otMappingGetter,
+  otMappingSetter
 }

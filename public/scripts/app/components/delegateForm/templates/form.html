@@ -32,7 +32,7 @@
                                 ng-model="$ctrl.model.mailbox"
                                 ng-change="$ctrl.getPracticionersGroup($ctrl.model.mailbox.value)"
                                 ng-options="item as item.name for item in $ctrl.fields.mailbox"
-                                ng-disabled="$ctrl.model.delegate"></select>
+                                ng-disabled="$ctrl.model.delegate.value"></select>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                                 ng-options="item as item.name for item in $ctrl.fields.practitionersGroup"
                                 ng-disabled="!$ctrl.fields.mailbox ||
                                               $ctrl.fields.mailbox.length === 0 ||
-                                              $ctrl.model.delegate"></select>
+                                              $ctrl.model.delegate.value"></select>
                     </div>
                 </div>
             </div>
@@ -66,9 +66,10 @@
             </button>
             <button type="button" class="btn btn-success"
                     ng-click="$ctrl.acceptAssignment()">
+                    <!--ng-click="$ctrl.acceptAssignment()">-->
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{'Accept assignment' | translate}}
             </button>
-            <button type="button" class="btn" ng-class="{'btn-success': $ctrl.isDelegateButtonActive(), 'btn-primary': !$ctrl.isDelegateButtonActive()}"
+            <button type="button" class="btn btn-primary" ng-class="{'btn-success': $ctrl.isDelegateButtonActive()}"
                     ng-disabled="!$ctrl.isDelegateButtonActive()"
                     ng-click="$ctrl.delegateWorkflow()">
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> {{'Delegate assignment' | translate}}

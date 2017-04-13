@@ -31,15 +31,15 @@
         <INPUT  TYPE="text" NAME="_1_1_3_1" TITLE="SapObject" ID="_1_1_3_1" VALUE="[LL_FormTag_1_1_3_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_21_1" TITLE="DocumenttypeGroep" ID="_1_1_21_1" VALUE="[LL_FormTag_1_1_21_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_4_1" TITLE="DocumentType" ID="_1_1_4_1" VALUE="[LL_FormTag_1_1_4_1 /]" SIZE="32" MAXLENGTH="254">
-        <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_ID" VALUE="[LL_FormTag_1_1_7_1 /]">
-        <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_SavedName" VALUE="[LL_FormTag_1_1_7_1_SavedName /]">
-        <INPUT  TYPE="TEXT" NAME="_1_1_7_1_Name" ID="_1_1_7_1_Name" VALUE="[LL_FormTag_1_1_7_1_SavedName /]" ALT="Select User" SIZE="23">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_ID" TITLE="AcceptAssignmentCurrentUserId" VALUE="[LL_FormTag_1_1_7_1 /]"><!--Added title-->
+        <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_SavedName" TITLE="AcceptAssignmentCurrentUserFullName" VALUE="[LL_FormTag_1_1_7_1_SavedName /]"><!--Added title-->
+        <INPUT  TYPE="TEXT" NAME="_1_1_7_1_Name" TITLE="AcceptAssignmentCurrentUserFullName" ID="_1_1_7_1_Name" VALUE="[LL_FormTag_1_1_7_1_SavedName /]" ALT="Select User" SIZE="23">
         <INPUT  TYPE="text" NAME="_1_1_6_1" TITLE="FollowupType" ID="_1_1_6_1" VALUE="[LL_FormTag_1_1_6_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_25_1" TITLE="FollowupDays" ID="_1_1_25_1" VALUE="[LL_FormTag_1_1_25_1 /]" SIZE="32" MAXLENGTH="254">
         [LL_LOOP_BEGIN_1_1_8 /]
         <INPUT  TYPE="text" NAME="_1_1_8_9_1" TITLE="rngDocumentName" ID="_1_1_8_9_1" VALUE="[LL_FormTag_1_1_8_9_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_8_10_1" TITLE="rngRange" ID="_1_1_8_10_1" VALUE="[LL_FormTag_1_1_8_10_1 /]" SIZE="32" MAXLENGTH="254">
-        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_14_1" value="1"  ONCLICK="markDirty();">
+        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_14_1" TITLE="rngDelete" value="1"  ONCLICK="markDirty();">
         <INPUT  TYPE="text" NAME="_1_1_8_12_1" TITLE="rngWorkflowType" ID="_1_1_8_12_1" VALUE="[LL_FormTag_1_1_8_12_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_8_13_1" TITLE="rngOmschrijving" ID="_1_1_8_13_1" VALUE="[LL_FormTag_1_1_8_13_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_8_15_1" TITLE="rngBusinessWorkspace" ID="_1_1_8_15_1" VALUE="[LL_FormTag_1_1_8_15_1 /]" SIZE="32" MAXLENGTH="254">
@@ -47,10 +47,30 @@
         <INPUT  TYPE="text" NAME="_1_1_8_22_1" TITLE="rngDocumenttypeGroep" ID="_1_1_8_22_1" VALUE="[LL_FormTag_1_1_8_22_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  type="text" NAME="_1_1_8_36_1" TITLE="rngFolderID" id="_1_1_8_1_36_1" value="[LL_FormTag_1_1_8_36_1 /]" size="20" maxlength="20">
         <INPUT  TYPE="text" NAME="_1_1_8_17_1" TITLE="rngDocumenttype" ID="_1_1_8_17_1" VALUE="[LL_FormTag_1_1_8_17_1 /]" SIZE="32" MAXLENGTH="254">
-        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_18_1" value="1"  ONCLICK="markDirty();">
-        <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_ID" VALUE="[LL_FormTag_1_1_8_19_1 /]">
+        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_18_1" TITLE="followUp" value="1"  ONCLICK="markDirty();">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_ID" TITLE="rngBehandelaarID" VALUE="[LL_FormTag_1_1_8_19_1 /]"><!--Added title-->
         <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_SavedName" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]">
-        <INPUT  TYPE="TEXT" NAME="_1_1_8_19_1_Name" ID="_1_1_8_19_1_Name" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]" ALT="Select User" SIZE="23">
+        <INPUT  TYPE="TEXT" NAME="_1_1_8_19_1_Name" TITLE="rngBehandelaarName" ID="_1_1_8_19_1_Name" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]" ALT="Select User" SIZE="23"><!--Added title-->
+        <INPUT  TYPE="text" NAME="_1_1_8_20_1" TITLE="rngFollowupType" ID="_1_1_8_20_1" VALUE="[LL_FormTag_1_1_8_20_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_26_1" TITLE="rngFollowupDays" ID="_1_1_8_26_1" VALUE="[LL_FormTag_1_1_8_26_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_33_1" TITLE="rngFolluwpDescription" ID="_1_1_8_33_1" VALUE="[LL_FormTag_1_1_8_33_1 /]" SIZE="80" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_35_1" TITLE="rngFollowUpDate" ID="_1_1_8_35_1" VALUE="[LL_FormTag_1_1_8_35_1 /]" SIZE="80" MAXLENGTH="254">
+        [LL_LOOP_END_1_1_8 /]
+        [LL_LOOP_BEGIN_1_1_8 /]
+        <INPUT  TYPE="text" NAME="_1_1_8_9_1" TITLE="rngDocumentName" ID="_1_1_8_9_1" VALUE="[LL_FormTag_1_1_8_9_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_10_1" TITLE="rngRange" ID="_1_1_8_10_1" VALUE="[LL_FormTag_1_1_8_10_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_14_1" TITLE="rngDelete" value="1"  ONCLICK="markDirty();">
+        <INPUT  TYPE="text" NAME="_1_1_8_12_1" TITLE="rngWorkflowType" ID="_1_1_8_12_1" VALUE="[LL_FormTag_1_1_8_12_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_13_1" TITLE="rngOmschrijving" ID="_1_1_8_13_1" VALUE="[LL_FormTag_1_1_8_13_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_15_1" TITLE="rngBusinessWorkspace" ID="_1_1_8_15_1" VALUE="[LL_FormTag_1_1_8_15_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_16_1" TITLE="rngSapObject" ID="_1_1_8_16_1" VALUE="[LL_FormTag_1_1_8_16_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  TYPE="text" NAME="_1_1_8_22_1" TITLE="rngDocumenttypeGroep" ID="_1_1_8_22_1" VALUE="[LL_FormTag_1_1_8_22_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT  type="text" NAME="_1_1_8_36_1" TITLE="rngFolderID" id="_1_1_8_1_36_1" value="[LL_FormTag_1_1_8_36_1 /]" size="20" maxlength="20">
+        <INPUT  TYPE="text" NAME="_1_1_8_17_1" TITLE="rngDocumenttype" ID="_1_1_8_17_1" VALUE="[LL_FormTag_1_1_8_17_1 /]" SIZE="32" MAXLENGTH="254">
+        <INPUT TYPE="CHECKBOX" NAME="_1_1_8_18_1" TITLE="followUp" value="1"  ONCLICK="markDirty();">
+        <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_ID" TITLE="rngBehandelaarID" VALUE="[LL_FormTag_1_1_8_19_1 /]"><!--Added title-->
+        <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_SavedName" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]">
+        <INPUT  TYPE="TEXT" NAME="_1_1_8_19_1_Name" TITLE="rngBehandelaarName" ID="_1_1_8_19_1_Name" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]" ALT="Select User" SIZE="23"><!--Added title-->
         <INPUT  TYPE="text" NAME="_1_1_8_20_1" TITLE="rngFollowupType" ID="_1_1_8_20_1" VALUE="[LL_FormTag_1_1_8_20_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_8_26_1" TITLE="rngFollowupDays" ID="_1_1_8_26_1" VALUE="[LL_FormTag_1_1_8_26_1 /]" SIZE="32" MAXLENGTH="254">
         <INPUT  TYPE="text" NAME="_1_1_8_33_1" TITLE="rngFolluwpDescription" ID="_1_1_8_33_1" VALUE="[LL_FormTag_1_1_8_33_1 /]" SIZE="80" MAXLENGTH="254">

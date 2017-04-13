@@ -1,11 +1,11 @@
 import EventBus from 'krasimir/EventBus';
 
 class FormController {
-    constructor(FormService, PDFService, configEnv) {
+    constructor(FormService, PDFService, configEnv, OTFormService) {
         const ctrl = this;
         ctrl.FormService = FormService;
         ctrl.PDFService = PDFService;
-        ctrl.showDelegate = true;
+        ctrl.showDelegateForm = true;
         ctrl.viewerUrl = '';
         ctrl.config = configEnv;
         ctrl.form = null;
@@ -86,6 +86,10 @@ class FormController {
 
     onSubmit() {
         alert(JSON.stringify(this.model, null, 2));
+    }
+
+    toggleForms() {
+        ctrl.showDelegateForm = !ctrl.showDelegateForm;
     }
 }
 

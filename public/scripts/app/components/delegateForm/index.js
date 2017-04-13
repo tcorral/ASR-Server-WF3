@@ -10,11 +10,11 @@ export default {
       name: 'delegateForm',
       component: {
         template: template,
-        controller: DelegateFormController
+        controller: DelegateFormController,
+        bindings: {
+          display: '='
+        }
       },
-      bindings: {
-        display: '='
-      }
-    },
-    services: { DelegateFormService }
+      services: { DelegateFormService }
+    }
 };

@@ -12,6 +12,8 @@ import utils from './utils/index';
 import constants from './constants/index';
 import FormController from './controllers/FormController';
 import delegateFormComponent from './components/delegateForm/index';
+import featureFormComponent from './components/featureForm/index';
+import unselectedPagesFormComponent from './components/unselectedPagesForm/index';
 import FormService from './services/FormService';
 import PDFService from './services/PDFService';
 import UserService from './services/UserService';
@@ -26,10 +28,10 @@ const deps = [
 
 config.$inject = ['$translateProvider', 'ngToastProvider', '$locationProvider'];
 PDFService.$inject = ['$window', '$q', '$http', 'configEnv'];
-FormController.$inject = ['FormService', 'PDFService', 'configEnv'];
+FormController.$inject = ['FormService', 'PDFService', 'configEnv', 'OTFormService'];
 FormService.$inject = ['$window', '$http', 'configEnv', 'context', 'postBus'];
 UserService.$inject = ['$http', 'configEnv'];
-OTFormService.$inject = ['$q', 'configEnv'];
+OTFormService.$inject = ['$q', 'configEnv', 'otMappingGetter'];
 
 angular
   .module('formApp', deps)
@@ -40,7 +42,10 @@ angular
   .service(FormService)
   .service(UserService)
   .service(OTFormService)
+  .component(featureFormComponent.component.name, featureFormComponent.component.component)
   .component(delegateFormComponent.component.name, delegateFormComponent.component.component)
-  .service(delegateFormComponent.services);
+  .component(unselectedPagesFormComponent.component.name, unselectedPagesFormComponent.component.component)
+  .service(delegateFormComponent.component.services)
+  .service(unselectedPagesFormComponent.component.services);
 
 angular.bootstrap(document.querySelector('.layout-container'), ['formApp']);

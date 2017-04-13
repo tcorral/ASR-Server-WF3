@@ -1,11 +1,8 @@
-import constants from '../constants';
-
 class FeatureFormController {
     constructor() {
-        console.log('ein');
-        this.fields = constants.fields;
-        this.model = {};
-        this.options = {};
+        const ctrl = this;
+        ctrl.documentRanges = [];
+        ctrl.maxPages = 0;
     }
 }
 
