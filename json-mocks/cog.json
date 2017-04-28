@@ -1,0 +1,85 @@
+{
+  "actualRows": 19,
+  "filteredRows": 19,
+  "myRows": [
+    {
+      "ID": 1267584,
+      "Name": "COG Beheer"
+    },
+    {
+      "ID": 2696713,
+      "Name": "COG Regio Winkelcentra"
+    },
+    {
+      "ID": 2695613,
+      "Name": "COG Verzekeringen"
+    },
+    {
+      "ID": 1267647,
+      "Name": "COG-Aan- en Verkoop"
+    },
+    {
+      "ID": 7537183,
+      "Name": "COG-Contracten"
+    },
+    {
+      "ID": 1266108,
+      "Name": "COG-Directie"
+    },
+    {
+      "ID": 1267648,
+      "Name": "COG-Funds"
+    },
+    {
+      "ID": 1267583,
+      "Name": "COG-Inkoop"
+    },
+    {
+      "ID": 1266327,
+      "Name": "COG-Kantoren"
+    },
+    {
+      "ID": 1332464,
+      "Name": "COG-Postverderling"
+    },
+    {
+      "ID": 1265997,
+      "Name": "COG-Reio Midden"
+    },
+    {
+      "ID": 1266217,
+      "Name": "COG-Regio Noord"
+    },
+    {
+      "ID": 1265998,
+      "Name": "COG-Regio V&D"
+    },
+    {
+      "ID": 1266107,
+      "Name": "COG-Regio Zuid"
+    },
+    {
+      "ID": 1266234,
+      "Name": "COG-Service"
+    },
+    {
+      "ID": 1266440,
+      "Name": "COG-TAM"
+    },
+    {
+      "ID": 1268307,
+      "Name": "COG-Teammanager"
+    },
+    {
+      "ID": 12666233,
+      "Name": "COG-TPM"
+    },
+    {
+      "ID": 1266236,
+      "Name": "COG-WOZ"
+    }
+  ],
+  "sourceID": 113687,
+  "success": true,
+  "totalRows": 19
+}

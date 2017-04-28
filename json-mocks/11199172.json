@@ -1,0 +1,42 @@
+{
+   "actualRows":8,
+   "filteredRows":8,
+   "myRows":[
+      {
+         "DataID":104731,
+         "Path":"01. Eigendom & Kadastraal "
+      },
+      {
+         "DataID":11199194,
+         "Path":"01. Eigendom & Kadastraal:TEST "
+      },
+      {
+         "DataID":11309384,
+         "Path":"01. Eigendom & Kadastraal:test2 "
+      },
+      {
+         "DataID":11310573,
+         "Path":"01. Eigendom & Kadastraal:test2:TestA "
+      },
+      {
+         "DataID":11310504,
+         "Path":"01. Eigendom & Kadastraal:test2:TestB "
+      },
+      {
+         "DataID":11310669,
+         "Path":"01. Eigendom & Kadastraal:test2:TestC "
+      },
+      {
+         "DataID":11310668,
+         "Path":"01. Eigendom & Kadastraal:test3 "
+      },
+      {
+         "DataID":11310757,
+         "Path":"01. Eigendom & Kadastraal:test3:testD "
+      }
+   ],
+   "sourceID":11356344,
+   "success":true,
+   "totalRows":8,
+   "totalSourceRows":8
+}

@@ -11,14 +11,14 @@ class PDFService {
         const deferred = this.$q.defer();
         let workid = '';
         let searchElements;
-        if(this.$window.location.search) {
-            searchElements =  this.$window.location.search.match(/workid=([^&]*)/);
+        if (this.$window.location.search) {
+            searchElements = this.$window.location.search.match(/workid=([^&]*)/);
             workid = searchElements.length > 1 ? searchElements[1] : '';
         }
         // http://xecm-ot.business.finl.fortis/octs/llisapi.dll?func:ll&objId=113689&objAction=RunReport&workid=11309374
         this
             .$http({
-                url: this.config.cgiUrlPrefix,   /*This is empty on purpose because we are pinging current url*/
+                url: this.config.cgiUrlPrefix, /*This is empty on purpose because we are pinging current url*/
                 params: {
                     func: 'll',
                     objId: this.config.getworkflowattachmentService,

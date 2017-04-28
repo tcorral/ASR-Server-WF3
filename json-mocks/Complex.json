@@ -1,0 +1,73 @@
+{
+   "actualRows":21,
+   "filteredRows":21,
+   "myRows":[
+      {
+         "Name":"Beeldmateriaal"
+      },
+      {
+         "Name":"Beheer landelijk"
+      },
+      {
+         "Name":"Beleid"
+      },
+      {
+         "Name":"Eigendom & Kadastraal"
+      },
+      {
+         "Name":"Financiële administratie"
+      },
+      {
+         "Name":"Fiscaal & juridische zaken"
+      },
+      {
+         "Name":"Garantieverklaringen en certificaten"
+      },
+      {
+         "Name":"Huurders algemeen"
+      },
+      {
+         "Name":"Marketing & Verhuur"
+      },
+      {
+         "Name":"Onderhoud aanbesteding"
+      },
+      {
+         "Name":"Onderhoud inspectie"
+      },
+      {
+         "Name":"Onderhoudscontracten"
+      },
+      {
+         "Name":"Promotie"
+      },
+      {
+         "Name":"Servicekosten"
+      },
+      {
+         "Name":"Subsidie"
+      },
+      {
+         "Name":"Techniek"
+      },
+      {
+         "Name":"Vaste lasten"
+      },
+      {
+         "Name":"Vereniging van Eigenaren"
+      },
+      {
+         "Name":"Vertrouwelijke informatie"
+      },
+      {
+         "Name":"Verzekeringen & schade"
+      },
+      {
+         "Name":"Winkeliersvereniging & Huurdersvereniging"
+      }
+   ],
+   "sourceID":113684,
+   "success":true,
+   "totalRows":21,
+   "totalSourceRows":21
+}

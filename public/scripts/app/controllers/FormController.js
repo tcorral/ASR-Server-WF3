@@ -23,21 +23,19 @@ class FormController {
         };
         ctrl.PDFpages = Number.MAX_SAFE_INTEGER;
         ctrl.cachedUndefinedPages = [];
+    }
 
-        function init() {
-            PDFService
-                .getPDFInfo()
-                .then(function (PDFInfo) {
-                    ctrl.viewerUrl = PDFInfo.viewUrl;
-                    ctrl.PDFpages = ctrl.model.documentranges[0].rangeto = PDFInfo.pages;
-                });
+    $onInit() {
+        this.PDFService
+            .getPDFInfo()
+            .then((PDFInfo) => {
+                this.viewerUrl = PDFInfo.viewUrl;
+                this.PDFpages = this.model.documentranges[0].rangeto = PDFInfo.pages;
+            });
 
-          EventBus.addEventListener("delegate-form:sent", function () {
-            ctrl.showDelegate = false;
-          });
-        }
-
-        init();
+        EventBus.addEventListener("delegate-form:sent", () => {
+            this.showDelegate = false;
+        });
     }
 
     setDocumentRangeTo(page) {
@@ -67,7 +65,7 @@ class FormController {
         return res2;
     }
 
-    hasDocumentMorePagesThanLimit () {
+    hasDocumentMorePagesThanLimit() {
         return this.cachedUndefinedPages.length > this.config.pageLimit;
     }
 

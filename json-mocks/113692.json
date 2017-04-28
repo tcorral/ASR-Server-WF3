@@ -1,0 +1,92 @@
+{
+   "actualRows":11,
+   "ACTUALUSERID":11340831,
+   "APPSUPPORTDIR":"\/img\/csapplications\/",
+   "DATE":"Apr 18 2017",
+   "DATETICK":"1493174",
+   "DATETIME":"2017\/04\/18 17:37:01",
+   "DBTYPE":"MSSQL",
+   "filteredRows":11,
+   "HTTPCOOKIE":"A<1,?,'BrowseSettings'='hCbEZODQAHDwqRqH38ZR4OolxzWpuWg7A1hbUx1yIzuRaHUG6XpdFBKvbMl52nvkrQqxu2OD80E%3D','LLCookie'='MDzv0UnEZy%2FW0wbJTQGivXd5oFUzQceKcvy%2F158kqrnZ8AlJ9OB3CGk5gXGEr6Y0kXpRaA9EVyI2SOL063YAzAwkgAHhA2bQN8liMCsIgG2b%2F81t7DarqA%3D%3D','LLTZCookie'=0>",
+   "ISSUBWEBREPORT":"false",
+   "ISSYSADMIN":true,
+   "LANGUAGE":"USA",
+   "LIBPATH":"\/img\/webreports\/library\/",
+   "LIVEREPORTNAME":"LR SAP object",
+   "MYID":113692,
+   "myRows":[
+      {
+         "Name":"Aankoop"
+      },
+      {
+         "Name":"Bedrijf"
+      },
+      {
+         "Name":"Bestelling"
+      },
+      {
+         "Name":"Complex"
+      },
+      {
+         "Name":"Contract"
+      },
+      {
+         "Name":"Crediteur"
+      },
+      {
+         "Name":"Gebouw"
+      },
+      {
+         "Name":"Huurobject"
+      },
+      {
+         "Name":"Investering, TKO"
+      },
+      {
+         "Name":"Verkoop"
+      },
+      {
+         "Name":"Zakenpartner"
+      }
+   ],
+   "MYURL":"\/otcs\/llisapi.dll?func=ll&objId=113692&objAction=RunReport",
+   "NEXTURL":"",
+   "OWNERID":-2000,
+   "PARENTID":110170,
+   "RKTENGINEENABLED":"true",
+   "RTL":"false",
+   "SOURCEID":113686,
+   "SOURCENAME":"LR SAP object",
+   "SUBTAGVERSIONS":"A<1,?,'A2UTF8'='1.0.0','ABS'='1.0.0','ADD'='1.0.0','ADDVAR'='1.0.0','APPPROPERTY'='1.0.0','ASSOC'='1.0.0','ASSOCACTION'='1.0.0','AUDITACTION'='1.0.0','AUDITINFO'='1.0.0','AVERAGE'='1.0.0','BITCHECK'='1.0.0','CAMELCASE'='1.0.0','CAPITALIZE'='1.0.0','CAT'='1.0.0','CATACTION'='1.0.0','CATINFO'='1.0.0','CHILDREN'='1.0.0','COLLAPSE'='1.0.0','COMPRESS'='1.0.0','CONCATVAR'='1.0.0','CSAPPLICATIONINSTALLED'='1.0.0','CTCREATEBUSINESSWORKSPACE'='1.0.0','CTDELAY'='1.0.0','CTDELETE'='1.0.0','CTDOWNLOAD'='1.0.0','CTFOLLOWUP'='1.0.0','CURRENTVAL'='1.0.0','DATE'='1.0.0','DATEDEC'='1.0.0','DATEDIFF'='1.0.0','DATEINC'='1.0.0','DATEINTEGER'='1.0.0','DEC'='1.0.0','DECODE'='1.0.0','DECSTR'='1.0.0','DEF'='1.0.0','DIVIDE'='1.0.0','DMEMBERSHIP'='1.0.0','EACH'='1.0.0','EMAILINFO'='1.0.0','ENCSTR'='1.0.0','ESCAPECSV'='1.0.0','ESCAPEHTML'='1.0.0','ESCAPESTR'='1.0.0','ESCAPEURL'='1.0.0','ESCAPEWR'='1.0.0','ESCAPEXML'='1.0.0','EVAL'='1.0.0','EVEN'='1.0.0','FETCHURL'='1.0.0','FIELDS'='1.0.0','FILTER'='1.0.0','FORMACTION'='1.0.0','FORMINFO'='1.0.0','FROMJSON'='1.0.0','FROMLIST'='1.0.0','GETCVID'='1.0.0','GETTEXT'='1.0.0','HIDE'='1.0.0','HTMLCR'='1.0.0','IMEMBERSHIP'='1.0.0','INC'='1.0.0','INDEXOF'='1.0.0','INSPECT'='1.0.0','INT'='1.0.0','INTLIST'='1.0.0','ISMODULEINSTALLED'='1.0.0','LENGTH'='1.0.0','LIST'='1.0.0','LLURL'='1.0.0','LLURL_ADDITEM'='1.0.0','LLURL_ADDITEM_CS10'='1.0.0','LLURL_DROPDOWNLIST'='1.0.0','LLURL_FEATURED'='1.0.0','LLURL_FORMS'='1.0.0','LLURL_FUNCTIONMENU'='1.0.0','LLURL_GIF'='1.0.0','LLURL_HYPERLINKTRAIL'='1.0.0','LLURL_INFO'='1.0.0','LLURL_RENDITION'='1.0.0','LLURL_SEARCHSIDEBAR'='1.0.0','LLURL_SIDEBAR'='1.0.0','LLURL_SUBTYPEFILTER'='1.0.0','LOWER'='1.0.0','LPAD'='1.0.0','MAX'='1.0.0','MIN'='1.0.0','MODULUS'='1.0.0','MULTIPLY'='1.0.0','NEXT'='1.0.0','NODEACTION'='1.0.0','NODEACTION_FAVORITE'='1.0.0','NODEACTION_RENAME'='1.0.0','NODEACTION_RESTORE'='1.0.0','NODEINFO'='1.0.0','ODD'='1.0.0','ODDEVEN'='1.0.0','ONERROR'='1.0.0','PARSECSV'='1.0.0','PATCHANGE'='1.0.0','PATFIND'='1.0.0','PERMACTION'='1.0.0','PERMCHECK'='1.0.0','PERMINFO'='1.0.0','PERMTOASSOC'='1.0.0','PLUCK'='1.0.0','PLURALIZE'='1.0.0','POACTION'='1.0.0','POCOPY'='1.0.0','POINFO'='1.0.0','PREV'='1.0.0','QUOTE'='1.0.0','RANGE'='1.0.0','REAL'='1.0.0','REC'='1.0.0','RECARRAY'='1.0.0','RECORD'='1.0.0','REDIRECT'='1.0.0','REPLACE'='1.0.0','RMACTION'='1.0.0','RMACTION_RMCLASSIFICATION'='1.0.0','RMCLASS'='1.0.0','RMHOLDACTION'='1.0.0','RMHOLDINFO'='1.0.0','RMINFO'='1.0.0','RMPERMCHECK'='1.0.0','RMTYPE'='1.0.0','ROUND'='1.0.0','RPAD'='1.0.0','RSI'='1.0.0','RSISCHEDULE'='1.0.0','RUNSHELL'='1.0.0','RUNSQL'='1.0.0','RUNSWR'='1.0.0','RUNTEMPLATE'='1.0.0','SAMPLE'='1.0.1','SCACTION'='1.0.0','SCINFO'='1.0.0','SCUSERACTION'='1.0.0','SCUSERINFO'='1.0.0','SECURETOKEN'='1.0.0','SEPARATE'='1.0.0','SETEMAILATTACH'='1.0.0','SETFORM'='1.0.0','SETVAR'='1.0.0','SETWFATTACH'='1.0.0','SETWFATTR'='1.0.0','SETWFCOMMENT'='1.0.0','SETWFFORM'='1.0.0','SETWFINFO'='1.0.0','SETWFTASKINFO'='1.0.0','SHOW'='1.0.0','SLICE'='1.0.0','STATUS'='1.0.0','STRIP'='1.0.0','STRIPHTML'='1.0.0','SUBMITFORM'='1.0.0','SUBSTR'='1.0.0','SUBTRACT'='1.0.0','SUM'='1.0.0','TABS'='1.0.0','TAGPARM'='1.0.0','TIMESINCE'='1.0.0','TODATE'='1.0.0','TOJSON'='1.0.0','TOLIST'='1.0.0','TRIM'='1.0.0','TRUNC'='1.0.0','TZOFFSET'='1.0.0','UNESCAPESTR'='1.0.0','UNESCAPEURL'='1.0.0','UPPER'='1.0.0','URLTOPOST'='1.0.0','USERACTION'='1.0.0','USERINFO'='1.0.0','USERINFO_MEMBERS'='1.0.0','USERINGROUP'='1.0.0','USERPREF'='1.0.0','USERPREFACTION'='1.0.0','VALIDATE'='1.0.0','VALUES'='1.0.0','VERINFO'='1.0.0','VERSIONACTION'='1.0.0','VERSIONCAT'='1.0.0','WEBDAVURL'='1.0.0','WFACTION'='1.0.0','WFATTR'='1.0.0','WFCOMMENTS'='1.0.0','WFDBLOOKUP'='1.0.0','WFESIGNINFO'='1.0.0','WFFORM'='1.0.0','WFINFO'='1.0.0','WFTASKACTION'='1.0.0','WFTASKINFO'='1.0.0','XLATE'='1.0.0'>",
+   "SUBVERSION":"Content Server 10.5 Service Pack 1 Update 2016-09 (version 10.5.0.2214) (webreports 10.5.0 +pat105001288-RJS:10.0.2)",
+   "success":true,
+   "SUPPORTDIR":"\/img\/",
+   "TIMEZONE":"",
+   "TOTALROWS":11,
+   "TOTALSOURCEROWS":11,
+   "TRIGGER":"",
+   "TRIGGERADDEDCATEGORIES":"",
+   "TRIGGERCATEGORYVALUECHANGES":"",
+   "TRIGGERDELETEDCATEGORIES":"",
+   "TRIGGERDESTPARENTID":"",
+   "TRIGGERID":"",
+   "TRIGGERNEWID":"",
+   "TRIGGERNEWNAME":"",
+   "TRIGGEROLDNAME":"",
+   "TRIGGERSOURCEPARENTID":"",
+   "URLDOMAIN":"xecm-ot.business.finl.fortis",
+   "URLPREFIX":"\/otcs\/llisapi.dll",
+   "URLPREFIXFULL":"http:\/\/xecm-ot.business.finl.fortis\/otcs\/llisapi.dll",
+   "URLPROTOCOL":"http:\/\/",
+   "USAGE":[
+      "2017\/04\/18 17:37:00",
+      50,
+      12,
+      ""
+   ],
+   "USERFULLNAME":"Tomas  Corral (TCORRAL)",
+   "USERID":11340831,
+   "USERNAME":"TCORRAL",
+   "WEBDAVDIR":"\/webdav\/",
+   "WEBREPORTNAME":"WR SAP Object"
+}

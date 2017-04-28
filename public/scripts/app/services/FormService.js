@@ -14,8 +14,8 @@ class FormService {
         let searchElements;
         let contextName;
         let i;
-        if(this.$window.location.search) {
-            searchElements =  this.$window.location.search.match(/taskid=([^&]*)/);
+        if (this.$window.location.search) {
+            searchElements = this.$window.location.search.match(/taskid=([^&]*)/);
             taskid = searchElements.length > 1 ? searchElements[1] : '';
         }
 

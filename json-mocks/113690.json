@@ -1,0 +1,43 @@
+{
+   "actualRows":11,
+   "filteredRows":11,
+   "myRows":[
+      {
+         "Name":"Bestemmingsplan"
+      },
+      {
+         "Name":"Correspondentie & aantekeningen"
+      },
+      {
+         "Name":"Eigendomsbewijs"
+      },
+      {
+         "Name":"Huisnummerbesluit"
+      },
+      {
+         "Name":"Kadastraal bericht"
+      },
+      {
+         "Name":"Kadastrale kaart"
+      },
+      {
+         "Name":"Kadastrale recherche"
+      },
+      {
+         "Name":"Monument"
+      },
+      {
+         "Name":"Onder en overmaat"
+      },
+      {
+         "Name":"Ruilverkaveling akte van toedeling"
+      },
+      {
+         "Name":"Splitsingsakte"
+      }
+   ],
+   "sourceID":113682,
+   "success":true,
+   "totalRows":11,
+   "totalSourceRows":11
+}

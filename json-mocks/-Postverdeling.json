@@ -1,0 +1,58 @@
+{
+  "actualRows": 12,
+  "filteredRows": 12,
+  "myRows": [
+    {
+      "ID": 1306774,
+      "Name": "ALG-a.s.r. Property Fund"
+    },
+    {
+      "ID": 1315743,
+      "Name": "ALG-Directie a.s.r. vv"
+    },
+    {
+      "ID": 1306773,
+      "Name": "ALG-Directie F&R"
+    },
+    {
+      "ID": 1317243,
+      "Name": "ALG-Directie KM & PB"
+    },
+    {
+      "ID": 1314722,
+      "Name": "ALG-F&R-BRM\/IC"
+    },
+    {
+      "ID": 1318664,
+      "Name": "ALG-F&R-Finance vv"
+    },
+    {
+      "ID": 1317242,
+      "Name": "ALG-F&R-Financiele administratie"
+    },
+    {
+      "ID": 1312146,
+      "Name": "ALG-Juridische Zaken"
+    },
+    {
+      "ID": 1318665,
+      "Name": "ALG-KM & PB"
+    },
+    {
+      "ID": 1314723,
+      "Name": "ALG-Marketing"
+    },
+    {
+      "ID": 1318666,
+      "Name": "ALG-Postverdeling"
+    },
+    {
+      "ID": 1315742,
+      "Name": "ALG-Research"
+    }
+  ],
+  "sourceID": 113687,
+  "success": true,
+  "totalRows": 12,
+  "totalSourceRows": 12
+}

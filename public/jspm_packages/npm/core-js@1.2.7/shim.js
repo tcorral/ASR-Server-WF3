@@ -1,4 +1,4 @@
-/* */ 
+/* */
 require('./modules/es5');
 require('./modules/es6.symbol');
 require('./modules/es6.object.assign');

@@ -1,0 +1,112 @@
+{
+   "actualRows":17,
+   "filteredRows":17,
+   "myRows":[
+      {
+         "BWS":"Complex",
+         "DocGroup":"Garantieverklaringen en certificaten",
+         "DocType":"Energiecertificaten",
+         "Checked":1
+      },
+      {
+         "BWS":"Complex",
+         "DocGroup":"Garantieverklaringen en certificaten",
+         "DocType":"Garantieverklaringen",
+         "Checked":1
+      },
+      {
+         "BWS":"Complex",
+         "DocGroup":"Garantieverklaringen en certificaten",
+         "DocType":"Meetcertificaten",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Deurwaarder",
+         "DocType":"Afdoening",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Deurwaarder",
+         "DocType":"Afdrachten",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Deurwaarder",
+         "DocType":"Faillissement toewijzing vordering",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Deurwaarder",
+         "DocType":"Opdrachtbrief",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Overeenkomst & bijlagen",
+         "DocType":"Machtiging automatische incasso",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Zekerheden",
+         "DocType":"Inkomensgegevens",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Zekerheden",
+         "DocType":"Legitimatie",
+         "Checked":1
+      },
+      {
+         "BWS":"Gebouw",
+         "DocGroup":"Garantieverklaringen en certificaten",
+         "DocType":"Garantieverklaringen",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Deurwaarder",
+         "DocType":"Vonnis",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Overeenkomst & bijlagen",
+         "DocType":"Allonge & wijzigingsovereenkomst",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Overeenkomst & bijlagen",
+         "DocType":"Overeenkomst",
+         "Checked":1
+      },
+      {
+         "BWS":"Contract",
+         "DocGroup":"Zekerheden",
+         "DocType":"Credit check",
+         "Checked":1
+      },
+      {
+         "BWS":"Gebouw",
+         "DocGroup":"Garantieverklaringen en certificaten",
+         "DocType":"Energiecertificaten",
+         "Checked":1
+      },
+      {
+         "BWS":"Gebouw",
+         "DocGroup":"Garantieverklaringen en certificaten",
+         "DocType":"Meetcertificaten",
+         "Checked":1
+      }
+   ],
+   "sourceID":14488970,
+   "success":true,
+   "totalRows":17,
+   "totalSourceRows":17
+}

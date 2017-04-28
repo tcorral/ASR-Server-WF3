@@ -1,17 +1,14 @@
-<form name="$ctrl.containerForm" id="mainForm" ng-if="$ctrl.display">
-    <unselected-pages-form limit="$ctrl.maxPages" document-ranges="$ctrl.documentRanges"></unselected-pages-form>
-    <div class="alert alert-danger" role="alert" ng-if="$ctrl.warning.display">
-        {{$ctrl.warning.text}}
-    </div>
-    <documenten-form ng-repeat="range in $ctrl.documentFactoryData track by $index" data="range" index="$index"
-                     update-document-factory-data="$ctrl.updateDocumentFactoryData(factoryData)"></documenten-form>
-    <toast></toast>
+<form name="$ctrl.featureForm" ng-if="$ctrl.display">
+    <unselected-pages-form limit="13"></unselected-pages-form>
+    <div class="alert alert-danger" role="alert" ng-if="$ctrl.warning.display">{{$ctrl.warning.text}}</div>
+    <documents-form></documents-form>
+    <close-modal class="hidden"></close-modal>
 
     <nav class="navbar navbar-primary navbar-fixed-bottom" style="min-height:0px; margin-bottom: 2px; align: left">
         <div>
             <div class="btn-toolbar" role="toolbar" style="margin-left: 10%">
 
-                <button type="button" class="btn btn-primary" ng-click="$ctrl.closeForm()">
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.openCloseModal('close')">
                     <span class="glyphicon glyphicon-pause" aria-hidden="true"></span> {{'Close' | translate}}
                 </button>
                 <button type="button" class="btn"
@@ -25,10 +22,11 @@
                     <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> {{'Archive' | translate}}
                 </button>
                 <button type="button" class="btn btn-danger"
-                        ng-click="$ctrl.openPrullenbakModal()">
+                        ng-click="$ctrl.openCloseModal('discard')">
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{'Trash' | translate}}
                 </button>
             </div>
         </div>
     </nav>
 </form>
+<toast></toast>

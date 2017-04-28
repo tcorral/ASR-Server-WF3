@@ -1,10 +1,18 @@
-html { height:100%; }
+html {
+    height: 100%;
+}
 
-body { font-size: 12px;line-height:13px ;font-family: Helvetica, Arial; height: 100%; }
+body {
+    font-size: 12px;
+    line-height: 13px;
+    font-family: Helvetica, Arial;
+    height: 100%;
+}
 
 #llForm {
     display: none;
 }
+
 .print-section {
     page-break-inside: avoid;
 }
@@ -13,10 +21,10 @@ body { font-size: 12px;line-height:13px ;font-family: Helvetica, Arial; height: 
     .cs-section-header {
         font: 15px Helvetica, Arial;
         font-weight: bold;
-        height:35px;
-        background-color:#5484c3 !important;
-        padding-top:10px;
-        color:#fff !important;
+        height: 35px;
+        background-color: #5484c3 !important;
+        padding-top: 10px;
+        color: #fff !important;
         -webkit-print-color-adjust: exact;
     }
 }
@@ -25,26 +33,25 @@ body { font-size: 12px;line-height:13px ;font-family: Helvetica, Arial; height: 
     .cs-section-header {
         font: 15px Helvetica, Arial;
         font-weight: bold;
-        height:35px;
-        background-color:#5484c3 !important;
-        padding-top:10px;
+        height: 35px;
+        background-color: #5484c3 !important;
+        padding-top: 10px;
         -webkit-print-color-adjust: exact;
-        color:#FFF !important;
+        color: #FFF !important;
         text-shadow: 0 0 3px #FFF !important;
     }
 }
 
 .cs-form-section {
-    border-color:#ddd;
+    border-color: #ddd;
     border-style: solid;
-    border-width:0px;
-    background: linear-gradient(to bottom, rgba(242,239,250,0.21), rgba(84,123,195,0.21)) ;
+    border-width: 0px;
+    background: linear-gradient(to bottom, rgba(242, 239, 250, 0.21), rgba(84, 123, 195, 0.21));
     /*background-gradient: #e8effa - top; #5484c3 - bottom; -90 degrees;*/
 }
 
-
 .cs-form-border-active {
-    background: linear-gradient(to bottom, rgba(242,239,250,0.11), rgba(84,123,195,0.11)) ;
+    background: linear-gradient(to bottom, rgba(242, 239, 250, 0.11), rgba(84, 123, 195, 0.11));
 }
 
 .cs-label {
@@ -56,44 +63,41 @@ body { font-size: 12px;line-height:13px ;font-family: Helvetica, Arial; height: 
 @media print {
     .cs-label-column {
         /*	font-size: 75%;	 */
-        width:150px;
+        width: 150px;
     }
 }
 
 @media screen {
     .cs-label-column {
         /*	font-size: 75%;	 */
-        width:250px;
+        width: 250px;
     }
 }
 
-
-
 .cs-form-row {
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
 
 .cs-form-button-group {
-    margin-top:30px;
-    padding-left:13px;
+    margin-top: 30px;
+    padding-left: 13px;
 }
-
 
 .cs-form-button {
     /*	background-color:#96AFCF; */
     border-radius: 20px 20px 20px 20px;
 }
 
-
-select.ng-invalid,input.ng-invalid {
+select.ng-invalid, input.ng-invalid {
     /*	border: 1px solid red;*/
 }
-select.ng-valid,input.ng-valid {
+
+select.ng-valid, input.ng-valid {
     /*  border: 1px solid green; */
 }
-select.ng-invalid-item,input.ng-invalid-item {
+
+select.ng-invalid-item, input.ng-invalid-item {
     border: 1px solid red;
 }
 
@@ -105,12 +109,12 @@ select.ng-invalid-item,input.ng-invalid-item {
     color: orange;
 }
 
-
 [ng\:cloak], [ng-cloak], .ng-cloak {
     display: none !important;
 }
+
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -119,7 +123,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.number-input{
+.number-input {
     padding: 6px 8px;
 }
 
@@ -139,15 +143,14 @@ input[type=number]::-webkit-outer-spin-button {
     page-break-inside: avoid;
 }
 
-
 @media screen {
     .cs-section-header {
         font: 15px Helvetica, Arial;
         font-weight: bold;
-        height:35px;
-        background-color:#5484c3 !important;
-        padding-top:10px;
-        color:#fff !important;
+        height: 35px;
+        background-color: #5484c3 !important;
+        padding-top: 10px;
+        color: #fff !important;
         -webkit-print-color-adjust: exact;
     }
 }
@@ -156,25 +159,25 @@ input[type=number]::-webkit-outer-spin-button {
     .cs-section-header {
         font: 15px Helvetica, Arial;
         font-weight: bold;
-        height:35px;
-        background-color:#5484c3 !important;
-        padding-top:10px;
+        height: 35px;
+        background-color: #5484c3 !important;
+        padding-top: 10px;
         -webkit-print-color-adjust: exact;
-        color:#FFF !important;
+        color: #FFF !important;
         text-shadow: 0 0 3px #FFF !important;
     }
 }
 
 .cs-form-section {
-    border-color:#ddd;
+    border-color: #ddd;
     border-style: solid;
-    border-width:0px;
-    background: linear-gradient(to bottom, rgba(242,239,250,0.21), rgba(84,123,195,0.21)) ;
+    border-width: 0px;
+    background: linear-gradient(to bottom, rgba(242, 239, 250, 0.21), rgba(84, 123, 195, 0.21));
     /*background-gradient: #e8effa - top; #5484c3 - bottom; -90 degrees;*/
 }
 
 .cs-form-border-active {
-    background: linear-gradient(to bottom, rgba(242,239,250,0.11), rgba(84,123,195,0.11)) ;
+    background: linear-gradient(to bottom, rgba(242, 239, 250, 0.11), rgba(84, 123, 195, 0.11));
 }
 
 .cs-label {
@@ -186,25 +189,25 @@ input[type=number]::-webkit-outer-spin-button {
 @media print {
     .cs-label-column {
         /*	font-size: 75%;	 */
-        width:150px;
+        width: 150px;
     }
 }
 
 @media screen {
     .cs-label-column {
         /*	font-size: 75%;	 */
-        width:250px;
+        width: 250px;
     }
 }
 
 .cs-form-row {
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .cs-form-button-group {
-    margin-top:30px;
-    padding-left:13px;
+    margin-top: 30px;
+    padding-left: 13px;
 }
 
 .cs-form-button {
@@ -212,18 +215,22 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 20px 20px 20px 20px;
 }
 
-select.ng-invalid,input.ng-invalid {
+select.ng-invalid, input.ng-invalid {
     /*	border: 1px solid red;*/
 }
-select.ng-valid,input.ng-valid {
+
+select.ng-valid, input.ng-valid {
     /*  border: 1px solid green; */
 }
-select.ng-invalid-item,input.ng-invalid-item {
+
+select.ng-invalid-item, input.ng-invalid-item {
     border: 2px solid red;
 }
+
 .cs-form-error {
     border: 2px solid red;
 }
+
 .cs-form-warning-text {
     color: orange;
 }
@@ -250,21 +257,22 @@ label {
 
 .dn-group {
     padding: 0 15px !important;
-    display:table !important;
+    display: table !important;
 }
 
 .dn-input {
-    width:inherit !important;
+    width: inherit !important;
     display: table-cell !important;
 }
 
 .dn-date {
     display: table-cell !important;
-    width:90px;
+    width: 90px;
 }
+
 .dn-doctype {
     display: table-cell !important;
-    width:275px;
+    width: 275px;
 }
 
 .dn-name {
@@ -282,32 +290,76 @@ option {
     width: 100%;
     padding: 0px;
 }
+
 .layout-container-child {
     height: 100%;
     overflow: hidden
 }
+
 .layout-container-child-left-column {
     width: 50%;
     float: left;
     overflow-y: auto;
     height: 100%;
 }
+
 .layout-container-child-right-column {
     width: 50%;
     float: right;
     overflow-y: auto;
     height: 100%;
 }
+
 .layout-container-child-right-column iframe {
     width: 100%;
     height: 100%;
 }
-.layout-container-child-left-column .grey-background {
-    background: #F0F0F0;
+
+.grey-background {
+    background: #F0F0F0
 }
+
 .layout-container-child-left-column .hg40 {
     height: 40px;
 }
+
 .btn-bottombar {
     margin-left: 10%;
+}
+
+.btn-page {
+    width: 40px;
+    margin: 0 5px;
+}
+
+.m-bottom-30 {
+    margin-bottom: 30px;
+}
+
+.m-top-minus-4 {
+    margin-top: -4px
+}
+
+.input-range {
+    padding: 6px;
+    width: 40px;
+}
+
+.m-top-15 {
+    margin-top: 15px
+}
+
+.document-naam-input {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    z-index: 2
+}
+
+.required-document-naam {
+    padding-left: 20px !important;
+}
+
+.panel, .panel-heading {
+    border-radius: 0;
 }

@@ -1,0 +1,38 @@
+
+{
+   "actualRows":9,
+   "filteredRows":9,
+   "myRows":[
+      {
+         "Name":"Correspondentie & aantekeningen"
+      },
+      {
+         "Name":"Eigendomsbewijs"
+      },
+      {
+         "Name":"Kadastraal bericht"
+      },
+      {
+         "Name":"Kadastrale kaart"
+      },
+      {
+         "Name":"Kadastrale recherche"
+      },
+      {
+         "Name":"Monument"
+      },
+      {
+         "Name":"Onder en overmaat"
+      },
+      {
+         "Name":"Ruilverkaveling akte van toedeling"
+      },
+      {
+         "Name":"Splitsingsakte"
+      }
+   ],
+   "sourceID":113682,
+   "success":true,
+   "totalRows":9,
+   "totalSourceRows":9
+}

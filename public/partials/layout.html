@@ -1,11 +1,11 @@
-<div class="layout-container-child" ng-controller="FormController as formCtrl">
+<div class="layout-container-child" ng-controller="FormController as $ctrl">
     <div class="layout-container-child-left-column">
-        <delegate-form display="formCtrl.showDelegateForm"></delegate-form>
-        <feature-form display="!formCtrl.showDelegateForm"></feature-form>
+        <delegate-form display="$ctrl.showDelegateForm"></delegate-form>
+        <feature-form display="!$ctrl.showDelegateForm"></feature-form>
     </div>
 
     <div style="width:50%; height: 100%; float:right;">
-        <iframe ng-src="{{formCtrl.viewerUrl}}" width="100%" height="100%"></iframe>
+        <iframe ng-src="{{$ctrl.viewerUrl}}" width="100%" height="100%"></iframe>
     </div>
 
 </div>
