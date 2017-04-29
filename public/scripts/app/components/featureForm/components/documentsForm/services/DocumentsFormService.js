@@ -12,12 +12,12 @@ class DocumentsFormService {
         service.SessionService = SessionService;
     }
 
-    getValidStartRange(pages, value) {
-        return this.UnselectedPagesService.getValidStartRange(pages, value);
+    getValidStartRange(pages, value, index) {
+        return this.UnselectedPagesService.getValidStartRange(pages, value, index);
     }
 
-    getValidEndRange(pages, value) {
-        return this.UnselectedPagesService.getValidEndRange(pages, value);
+    getValidEndRange(pages, value, index) {
+        return this.UnselectedPagesService.getValidEndRange(pages, value, index);
     }
 
     getMaxPageRange() {

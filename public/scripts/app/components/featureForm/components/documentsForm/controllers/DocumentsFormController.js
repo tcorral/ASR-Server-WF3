@@ -87,7 +87,7 @@ class DocumentsFormController {
             .DocumentsFormService
             .getMaxPageRange()
             .then(maxPages => {
-                const validStartRange = this.DocumentsFormService.getValidStartRange(maxPages);
+                const validStartRange = this.DocumentsFormService.getValidStartRange(maxPages, value, index);
                 document.rngRange.rangeStart = validStartRange;
             });
     }
@@ -104,7 +104,7 @@ class DocumentsFormController {
             .DocumentsFormService
             .getMaxPageRange()
             .then(maxPages => {
-                const validEndRange = this.DocumentsFormService.getValidEndRange(maxPages, value);
+                const validEndRange = this.DocumentsFormService.getValidEndRange(maxPages, value, index);
                 document.rngRange.rangeEnd = validEndRange;
             });
     }

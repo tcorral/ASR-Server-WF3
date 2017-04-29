@@ -7,7 +7,6 @@ class UnselectedPagesService {
         service.PDFService = PDFService;
         service.isValidRange = true;
         service.pages = 0;
-
         function init() {
             service.documents = OTFormService.getDocuments();
         }
@@ -37,44 +36,133 @@ class UnselectedPagesService {
         }
     }
 
-    getValidStartRange(pages, value) {
-        const unselectedPages = this.getUnselectedPages(pages);
-        let fixedValue;
-        let numberFixedValue;
-        if(!unselectedPages.length) {
-            if(value < 1) {
-                fixedValue = 1;
-            } else if(value > pages) {
-                fixedValue = pages;
+    getRangesFromDocuments(pages, index) {
+        index = typeof index === 'number' ? index : -1;
+        const documents = this.OTFormService.getDocuments();
+        let lastPage;
+        let currentRange = [];
+        let usedPages = [];
+        const repeatedValues = {};
+        const possibleRanges = [];
+        
+        documents.forEach(function (document, _index) {
+            const start = document.rngRange.rangeStart;
+            const end = document.rngRange.rangeEnd;
+            for(let page = start; page <= end; page++) {
+                if(usedPages.indexOf(page) === -1) {
+                    if(index !== _index) {
+                        usedPages.push(page);
+                    }
+                } else {
+                    repeatedValues['_' + _index] = [page];
+                }
             }
-        } else {
-            fixedValue = unselectedPages[0] || 1;
+        });
+
+        for(let page = 1; page < pages; page++) {
+            if(usedPages.indexOf(page) === -1) { // La pagina no esta usada.
+                if(lastPage && ((page - lastPage) > 1)) {
+                    possibleRanges.push(currentRange);
+                    currentRange = [];
+                } else {
+                    currentRange.push(page);
+                    lastPage = page;
+                }
+            }
         }
-        numberFixedValue = parseInt(fixedValue, 10);
-        return isNaN(numberFixedValue) ? 1 : numberFixedValue;
+
+        if(currentRange.length) {
+            possibleRanges.push(currentRange);
+        }
+
+        return possibleRanges;
     }
 
-    getValidEndRange(pages, value) {
+    getRangesFromUndefinedPages(pages) {
         const unselectedPages = this.getUnselectedPages(pages);
-        let fixedValue;
-        let numberFixedValue;
-        if(!unselectedPages.length) {
-            if(value < 1) {
-                fixedValue = 1;
+        let lastPage;
+        let currentRange = [];
+        const possibleRanges = [];
+        unselectedPages.forEach(function (page) {
+            if(lastPage && ((page - lastPage) > 1)) {
+                possibleRanges.push(currentRange);
+                currentRange = [];
+            }
+            currentRange.push(page);
+            lastPage = page;
+        });
+
+        if(currentRange.length) {
+            possibleRanges.push(currentRange);
+        }
+
+        return possibleRanges;
+    }
+
+    getValidStartRange(pages, value, index) {
+        value = value || 0;
+        const documents = this.OTFormService.getDocuments();
+        const document = documents[index];
+        const possibleRanges = this.getRangesFromUndefinedPages(pages);
+        const rangesFromDocuments = this.getRangesFromDocuments(pages, index);
+        const nextPossibleRange = possibleRanges[0] || rangesFromDocuments[0];
+
+        if(document && (document.rngRange.rangeStart > document.rngRange.rangeEnd)) {
+            value = document.rngRange.rangeEnd;
+        } else if(nextPossibleRange && nextPossibleRange.length) {
+            if(value < nextPossibleRange[0]) {
+                value = nextPossibleRange[0];
+            } else if(value < 1) {
+                value = 1;
             } else if(value > pages) {
-                fixedValue = pages;
+                value = pages;
             }
         } else {
-            if(value < unselectedPages[0] - 1) {
-                fixedValue = unselectedPages[0];
+            if(value < 1) {
+                value = 1;
             } else if(value > pages) {
-                fixedValue = pages;
-            } else {
-                fixedValue = value;
+                value = pages;
             }
         }
-        numberFixedValue = parseInt(fixedValue, 10);
-        return isNaN(numberFixedValue) ? pages : numberFixedValue;
+        
+        return value;
+    }
+
+    getValidEndRange(pages, value, index) {
+        value = value || pages;
+        const documents = this.OTFormService.getDocuments();
+        const document = documents[index];
+        const unselectedPages = this.getUnselectedPages(pages);
+        const possibleRanges = this.getRangesFromUndefinedPages(pages);
+        const rangesFromDocuments = this.getRangesFromDocuments(pages, index);
+        const nextPossibleRange = possibleRanges[0] || rangesFromDocuments[0];
+        const lenPossibleRange = nextPossibleRange.length;
+
+        if(value > pages) {
+            value = pages;
+        } 
+
+        if(document && (document.rngRange.rangeEnd < document.rngRange.rangeStart)) {
+            value = document.rngRange.rangeStart;
+        } else if(nextPossibleRange && lenPossibleRange) {
+            if(value < nextPossibleRange[lenPossibleRange -1]) {
+                value = nextPossibleRange[lenPossibleRange -1];
+            } else if(value > nextPossibleRange[lenPossibleRange -1]) {
+                value = nextPossibleRange[lenPossibleRange -1];
+            } else if(value < 1) {
+                value = 1;
+            } else if(value > pages) {
+                value = pages;
+            }
+        } else {
+            if(value < 1) {
+                value = 1;
+            } else if(value > pages) {
+                value = pages;
+            }
+        }
+
+        return value;
     }
 
     getDocuments() {

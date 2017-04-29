@@ -37,7 +37,7 @@ class UnselectedPagesService {
         }
     }
 
-    getValidStartRange(pages, value) {
+    getValidStartRange(pages, value, index) {
         const unselectedPages = this.getUnselectedPages(pages);
         let fixedValue;
         let numberFixedValue;
@@ -54,7 +54,7 @@ class UnselectedPagesService {
         return isNaN(numberFixedValue) ? 1 : numberFixedValue;
     }
 
-    getValidEndRange(pages, value) {
+    getValidEndRange(pages, value, index) {
         const unselectedPages = this.getUnselectedPages(pages);
         let fixedValue;
         let numberFixedValue;
