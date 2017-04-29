@@ -196,6 +196,15 @@ const otMappingSetter = {
         rngFolderID: function (value) {
             return value || 0;
         },
+        rngBehandelaarID: function (obj) {
+            return obj.value;
+        },
+        rngBehandelaarName: function (value, document) {
+            return document.rngBehandelaarID.name;
+        },
+        rngBehandelaarSavedName: function (value, document) {
+            return document.rngBehandelaarID.name;
+        },
         rngWorkflowType: function (value) {
             return value ? 'Factuur' : 'Post';
         },
