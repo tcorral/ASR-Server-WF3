@@ -1,5 +1,6 @@
 import angular from 'angular';
 import Utils from '../utils/index';
+import EventBus from 'krasimir/EventBus';
 
 class OTFormService {
     constructor($q, configEnv, otMappingGetter, otMappingSetter, conditionalExcludeDataFields) {

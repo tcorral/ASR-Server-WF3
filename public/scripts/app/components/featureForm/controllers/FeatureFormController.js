@@ -1,10 +1,12 @@
 import EventBus from 'krasimir/EventBus';
 
 class FeatureFormController {
-    constructor($filter, $window, ngToast, FeatureFormService) {
+    constructor($scope, $filter, $window, ngToast, FeatureFormService) {
         const ctrl = this;
         ctrl.display = false;
+        ctrl.dataHasBeenChanged = false;
         ctrl.maxPages = 0;
+        ctrl.$scope = $scope;
         ctrl.$filter = $filter;
         ctrl.$window = $window;
         ctrl.ngToast = ngToast;
@@ -18,6 +20,26 @@ class FeatureFormController {
         EventBus.addEventListener('assignment:accepted', () => {
             this.display = true;
         });
+        this.$scope.$watch((scope) => { 
+            var form = this.featureForm;
+            if(form) {
+                return this.featureForm.$dirty;
+            }
+        }, (newVal, oldVal) => {
+            console.log('-----', newVal, oldVal);
+            if (typeof newVal !== 'undefined' && newVal === true) {
+                this.dataHasBeenChanged = true;
+            }
+        });
+    }
+
+    isFormDataValid() {
+        var form = this.featureForm;
+        var result = false;
+        if(form) {
+            result = this.featureForm.$valid;
+        }
+        return result;
     }
 
     openCloseModal(type) {
@@ -30,6 +52,8 @@ class FeatureFormController {
             .saveForm()
             .then(() => {
                 this.ngToast.create(this.$filter('translate')('Workflow is saved'));
+                this.dataHasBeenChanged = false;
+                this.featureForm.$setPristine();
             });
     }
 
@@ -41,6 +65,8 @@ class FeatureFormController {
                 .then((urlParams) => {
                     this.ngToast.create(this.$filter('translate')('Workflow is complete, you will be redirected'));
                     this.$window.location = decodeURIComponent(urlParams.nexturl.split('&')[6].split('=')[1]);
+                    this.dataHasBeenChanged = false;
+                    this.featureForm.$setPristine();
                 });
         }
     }

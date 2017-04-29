@@ -37,7 +37,7 @@ PDFService.$inject = ['$window', '$q', '$http', 'configEnv'];
 FormController.$inject = ['FormService', 'PDFService', 'configEnv', 'OTFormService'];
 FormService.$inject = ['$window', '$http', 'configEnv', 'context', 'postBus'];
 UserService.$inject = ['$http', 'configEnv'];
-OTFormService.$inject = ['$q', 'configEnv', 'otMappingGetter'];
+OTFormService.$inject = ['$q', 'configEnv', 'otMappingGetter', 'otMappingSetter', 'conditionalExcludeDataFields'];
 SessionService.$inject = ['$filter', '$timeout', '$log', 'MessageService'];
 
 const formAppModule = angular

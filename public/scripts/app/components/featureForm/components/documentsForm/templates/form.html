@@ -1,5 +1,5 @@
 <div class="panel panel-primary" ng-repeat="document in $ctrl.documents track by $index">
-    <div class="panel-heading">'{{"RANGE DIVISION" | translate}}: {{ $ctrl.documents.length - $index }} {{"of" | translate}} {{
+    <div class="panel-heading">'{{"RANGE DIVISION" | translate}}: {{ $ctrl.documents - $index }} {{"of" | translate}} {{
         $ctrl.getDocuments().length}}
         <div class="pull-right m-top-minus-4">
             <button class="btn btn-primary btn-xs" ng-disabled="!$ctrl.isPossibleToAddAnotherRange()" ng-click="$ctrl.addNewForm($index)">

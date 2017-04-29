@@ -137,11 +137,6 @@ class DocumentsFormController {
         
         return result;
     } 
-    
-    // hasDocNameInvalidCharactersError(index) {
-    //     const instanceName = 'documentType[' + $index + ']';
-    //     nameForm.$invalid && nameForm.$dirty
-    // }
 
     existInputAndHasBeenModified(name, $index) {
         const instanceName = name + '[' + $index + ']';
@@ -384,6 +379,7 @@ class DocumentsFormController {
                     this.clearBusinessWorkspace(index);
                     this.clearDocName(index);
                     this.clearDescription(index);
+                    
                 }
             });
     }

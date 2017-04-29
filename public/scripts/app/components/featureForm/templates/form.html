@@ -1,4 +1,4 @@
-<form name="$ctrl.featureForm" ng-if="$ctrl.display">
+<form name="$ctrl.featureForm" ng-if="$ctrl.display" check-change>
     <unselected-pages-form limit="13"></unselected-pages-form>
     <div class="alert alert-danger" role="alert" ng-if="$ctrl.warning.display">{{$ctrl.warning.text}}</div>
     <documents-form></documents-form>

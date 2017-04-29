@@ -5,7 +5,7 @@ import documentsFormComponent from './components/documentsForm/index';
 import closeModalComponent from './components/closeModal/index';
 import template from './templates/form.html!text';
 
-FeatureFormController.$inject = ['$filter', '$window', 'ngToast', 'FeatureFormService'];
+FeatureFormController.$inject = ['$scope', '$filter', '$window', 'ngToast', 'FeatureFormService'];
 FeatureFormService.$inject = ['$q', '$http', 'configEnv', '$location', 'OTFormService', 'DelegateFormService'];
 
 export default {
