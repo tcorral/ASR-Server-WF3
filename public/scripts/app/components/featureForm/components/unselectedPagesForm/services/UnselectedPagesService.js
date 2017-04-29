@@ -44,7 +44,7 @@ class UnselectedPagesService {
         let usedPages = [];
         const repeatedValues = {};
         const possibleRanges = [];
-        
+
         documents.forEach(function (document, _index) {
             const start = document.rngRange.rangeStart;
             const end = document.rngRange.rangeEnd;
@@ -59,8 +59,8 @@ class UnselectedPagesService {
             }
         });
 
-        for(let page = 1; page < pages; page++) {
-            if(usedPages.indexOf(page) === -1) { // La pagina no esta usada.
+        for(let page = 1; page <= pages; page++) {
+            if(usedPages.indexOf(page) === -1) { 
                 if(lastPage && ((page - lastPage) > 1)) {
                     possibleRanges.push(currentRange);
                     currentRange = [];
@@ -100,12 +100,13 @@ class UnselectedPagesService {
     }
 
     getValidStartRange(pages, value, index) {
-        value = value || 0;
         const documents = this.OTFormService.getDocuments();
         const document = documents[index];
         const possibleRanges = this.getRangesFromUndefinedPages(pages);
         const rangesFromDocuments = this.getRangesFromDocuments(pages, index);
         const nextPossibleRange = possibleRanges[0] || rangesFromDocuments[0];
+        
+        value = value || 0; // If value is undefined or null it's set to 0;
 
         if(document && (document.rngRange.rangeStart > document.rngRange.rangeEnd)) {
             value = document.rngRange.rangeEnd;
@@ -129,7 +130,6 @@ class UnselectedPagesService {
     }
 
     getValidEndRange(pages, value, index) {
-        value = value || pages;
         const documents = this.OTFormService.getDocuments();
         const document = documents[index];
         const unselectedPages = this.getUnselectedPages(pages);
@@ -138,6 +138,7 @@ class UnselectedPagesService {
         const nextPossibleRange = possibleRanges[0] || rangesFromDocuments[0];
         const lenPossibleRange = nextPossibleRange.length;
 
+        value = value || pages;
         if(value > pages) {
             value = pages;
         } 
@@ -145,7 +146,7 @@ class UnselectedPagesService {
         if(document && (document.rngRange.rangeEnd < document.rngRange.rangeStart)) {
             value = document.rngRange.rangeStart;
         } else if(nextPossibleRange && lenPossibleRange) {
-            if(value < nextPossibleRange[lenPossibleRange -1]) {
+            if(value > nextPossibleRange[lenPossibleRange -1]) {
                 value = nextPossibleRange[lenPossibleRange -1];
             } else if(value > nextPossibleRange[lenPossibleRange -1]) {
                 value = nextPossibleRange[lenPossibleRange -1];
