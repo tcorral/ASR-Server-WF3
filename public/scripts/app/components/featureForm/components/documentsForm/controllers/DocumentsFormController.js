@@ -57,6 +57,7 @@ class DocumentsFormController {
         console.log('isFormHidden:', result);
         return result;
     }
+    
     checkPopulatedFields() {
         const lenDocuments = this.documents.length;
         let document;
