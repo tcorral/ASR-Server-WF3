@@ -57,7 +57,7 @@ class DocumentsFormController {
         console.log('isFormHidden:', result);
         return result;
     }
-    
+
     checkPopulatedFields() {
         const lenDocuments = this.documents.length;
         let document;
@@ -182,6 +182,15 @@ class DocumentsFormController {
         return placeholder;
     }
 
+    hasFollowUpdateRequiredError(document, $index) {
+        const instanceName = 'followUpDate[' + $index + ']';
+        let result = false;
+        if(this.existInputAndHasBeenModified(name, $index)) {
+            result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required);
+        }
+        return result;
+    }
+
     getDocumentNamePlaceholder($index) {
         var placeholder = this.$filter('translate')('Document name');
         if(this.hasInputError($index, 'docName', 'pattern')) {
@@ -193,7 +202,7 @@ class DocumentsFormController {
 
     hasInputError($index, name, errorName) {
         const field = this.form[name + '[' + $index + ']'];
-        return (field.$error[errorName] && field.$dirty);
+        return (field && field.$error[errorName] && field.$dirty);
     }
 
     hasRequiredError(name, $index) {
