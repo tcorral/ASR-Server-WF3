@@ -61,9 +61,8 @@ class DocumentsFormController {
     checkPopulatedFields() {
         const ctrl = this;
         const lenDocuments = this.documents.length;
-        let document;
         for (let i = 0; i < lenDocuments; i++) {
-            document = this.documents[i];
+            let document = this.documents[i];
             ctrl
                 .getDocTypeGroupOptions(i)
                 .then(() => {
