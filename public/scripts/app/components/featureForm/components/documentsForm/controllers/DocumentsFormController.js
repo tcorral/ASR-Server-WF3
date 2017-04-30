@@ -27,11 +27,11 @@ class DocumentsFormController {
         ctrl.names = [];
         ctrl.nameFields = {
             docNameDocType: '',
-            docNameTimestamp: new Date().toISOString().substring(0, 10).replace("-","").replace("-",""),
+            docNameTimestamp: new Date().toISOString().substring(0, 10).replace("-", "").replace("-", ""),
             docName: ''
         };
     }
-    
+
     $onInit() {
         this.documents = this.getDocuments();
         this.checkPopulatedFields();
@@ -45,13 +45,13 @@ class DocumentsFormController {
 
     getDocTypePattern(document) {
         var pattern = null;
-        if(this.isFormHidden(document)) {
-            pattern =  this.validationPatterns.doctypePattern;
+        if (this.isFormHidden(document)) {
+            pattern = this.validationPatterns.doctypePattern;
         }
         return pattern;
     }
 
-    
+
     isFormHidden(document) {
         var result = (this.isCheckboxSelected(document.rngDelete) || this.isCheckboxSelected(document.rngWorkflowType));
         console.log('isFormHidden:', result);
@@ -59,29 +59,39 @@ class DocumentsFormController {
     }
 
     checkPopulatedFields() {
+        const ctrl = this;
         const lenDocuments = this.documents.length;
         let document;
-        for(let i = 0; i < lenDocuments; i++) {
+        for (let i = 0; i < lenDocuments; i++) {
             document = this.documents[i];
-            this.getDocTypeGroupOptions(i);
-            this
-                .getBusinessWorkspaceName(i, document)
+            ctrl
+                .getDocTypeGroupOptions(i)
                 .then(() => {
-                    this.setupDocumentType(i);
+                    ctrl
+                        .getBusinessWorkspaceName(i, document)
+                        .then(() => {
+                            ctrl
+                                .setupDocumentType(i)
+                                .then(() => {
+                                    ctrl
+                                        .getDocumentTypeOptions(i)
+                                        .then(() => {
+                                            ctrl.extractDocName(i, document); 
+                                            ctrl.combineDocNameFields(i);
+                                        });
+                                });
+                        });
                 });
-            this.getDocumentTypeOptions(i);
-            this.extractDocName(i, document);
-            this.combineDocNameFields(i);
-        }
+        };
     }
 
     getBusinessWorkspaceName(index, document) {
         return this
-                .DocumentsFormService
-                .getBusinessWorkspaceName(index)
-                .then((name) => {
-                    document.rngBusinessWorkspace.name = name;
-                });
+            .DocumentsFormService
+            .getBusinessWorkspaceName(index)
+            .then((name) => {
+                document.rngBusinessWorkspace.name = name;
+            });
     }
 
     extractDocName(index, document) {
@@ -90,10 +100,10 @@ class DocumentsFormController {
         this.names[index].docName = document.rngDocumentName.substr(splitIndex);
     }
 
-    fixStartRange(index, eventOrValue){
+    fixStartRange(index, eventOrValue) {
         const document = this.OTFormService.getDocument(index);
         let value;
-        if(eventOrValue.target) {
+        if (eventOrValue.target) {
             value = parseInt(eventOrValue.target.value, 10);
         } else {
             value = eventOrValue;
@@ -107,10 +117,10 @@ class DocumentsFormController {
             });
     }
 
-    fixEndRange(index, eventOrValue){
+    fixEndRange(index, eventOrValue) {
         const document = this.OTFormService.getDocument(index);
         let value;
-        if(eventOrValue.target) {
+        if (eventOrValue.target) {
             value = parseInt(eventOrValue.target.value, 10);
         } else {
             value = eventOrValue;
@@ -125,33 +135,34 @@ class DocumentsFormController {
     }
 
     setForm(obj) {
-        if(obj) {
+        if (obj) {
             this.form = obj.target;
         }
     }
 
     hasDocNameRequiredError(index) {
         const fieldNames = {
-            timestamp: 'docNameTimestamp['+ index + ']',
-            doctype: 'docNameDocType['+ index + ']',
-            docname: 'docName['+ index + ']'
-        };c
+            timestamp: 'docNameTimestamp[' + index + ']',
+            doctype: 'docNameDocType[' + index + ']',
+            docname: 'docName[' + index + ']'
+        };
+        c
         let name;
         let result = false;
 
-        if(this.form && this.form.$dirty && this.names[$index].docName) {
-            for(let key in fieldNames) {
-                if(fieldNames.hasOwnProperty(key)) {
+        if (this.form && this.form.$dirty && this.names[$index].docName) {
+            for (let key in fieldNames) {
+                if (fieldNames.hasOwnProperty(key)) {
                     name = fieldNames[key];
-                    if(Boolean(this.form[name] && this.form[name].$error) === true) {
+                    if (Boolean(this.form[name] && this.form[name].$error) === true) {
                         return true;
                     }
                 }
             }
         }
-        
+
         return result;
-    } 
+    }
 
     existInputAndHasBeenModified(name, $index) {
         const instanceName = name + '[' + $index + ']';
@@ -160,7 +171,7 @@ class DocumentsFormController {
 
     getBusinessWorkspacePlaceholder($index) {
         var placeholder = '';
-        if(this.hasRequiredError('businessWorkspace', $index)) {
+        if (this.hasRequiredError('businessWorkspace', $index)) {
             placeholder = this.$filter('translate')('Select a valid') + ' ' + this.$filter('translate')('Business Workspace');
         }
         return placeholder;
@@ -168,7 +179,7 @@ class DocumentsFormController {
 
     getBehandelaarPlaceholder($index) {
         var placeholder = '';
-        if(this.hasBehandelaarRequiredError($index)) {
+        if (this.hasBehandelaarRequiredError($index)) {
             placeholder = this.$filter('translate')('This field is required.');
         }
         return placeholder;
@@ -176,7 +187,7 @@ class DocumentsFormController {
 
     getFollowUpDatePlaceholder($index) {
         var placeholder = '';
-        if(this.hasFollowUpdateRequiredError(document, $index)) {
+        if (this.hasFollowUpdateRequiredError(document, $index)) {
             placeholder = this.$filter('translate')('This field is required.');
         }
         return placeholder;
@@ -185,7 +196,7 @@ class DocumentsFormController {
     hasFollowUpdateRequiredError(document, $index) {
         const instanceName = 'followUpDate[' + $index + ']';
         let result = false;
-        if(this.existInputAndHasBeenModified(name, $index)) {
+        if (this.existInputAndHasBeenModified(name, $index)) {
             result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required);
         }
         return result;
@@ -193,9 +204,9 @@ class DocumentsFormController {
 
     getDocumentNamePlaceholder($index) {
         var placeholder = this.$filter('translate')('Document name');
-        if(this.hasInputError($index, 'docName', 'pattern')) {
+        if (this.hasInputError($index, 'docName', 'pattern')) {
             placeholder = this.$filter('translate')('There are invalid characters');
-        } else if(this.hasInputError($index, 'docName', 'required')) {
+        } else if (this.hasInputError($index, 'docName', 'required')) {
             placeholder = this.$filter('translate')('This field is required.');
         }
     }
@@ -208,7 +219,7 @@ class DocumentsFormController {
     hasRequiredError(name, $index) {
         const instanceName = name + '[' + $index + ']';
         let result = false;
-        if(this.existInputAndHasBeenModified(name, $index)) {
+        if (this.existInputAndHasBeenModified(name, $index)) {
             result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required);
         }
         return result;
@@ -217,7 +228,7 @@ class DocumentsFormController {
     hasDocTypeRequiredError(document, $index) {
         const instanceName = 'documentType[' + $index + ']';
         let result = false;
-        if(this.existInputAndHasBeenModified(name, $index)) {
+        if (this.existInputAndHasBeenModified(name, $index)) {
             result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required && document.rngDocumenttype !== '');
         }
         return result;
@@ -226,7 +237,7 @@ class DocumentsFormController {
     hasBehandelaarRequiredError($index) {
         const instanceName = 'behandelaar[' + $index + ']';
         let result = false;
-        if(this.existInputAndHasBeenModified(name, $index)) {
+        if (this.existInputAndHasBeenModified(name, $index)) {
             result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required);
         }
         return result;
@@ -235,16 +246,16 @@ class DocumentsFormController {
     hasFollowUpBinnenRequiredError(document, $index) {
         const instanceName = 'followUpBinnen[' + $index + ']';
         let result = false;
-        if(this.existInputAndHasBeenModified(name, $index)) {
-            result =  Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required && document.rngFollowupDays !== '');
+        if (this.existInputAndHasBeenModified(name, $index)) {
+            result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required && document.rngFollowupDays !== '');
         }
         return result;
     }
-    
+
     hasWorkspaceRequiredError(document, $index) {
         const instanceName = 'workspaceCategorie[' + $index + ']';
         let result = false;
-        if(this.existInputAndHasBeenModified(name, $index)) {
+        if (this.existInputAndHasBeenModified(name, $index)) {
             result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required && document.rngSapObject !== '');
         }
         return result;
@@ -255,8 +266,8 @@ class DocumentsFormController {
         let selectedOption;
         const input = document.querySelector('[name="' + instanceName + '"]');
         let result = false;
-        if(this.existInputAndHasBeenModified(name, $index)) {
-            if(input.nodeName.toLowerCase() === 'select') {
+        if (this.existInputAndHasBeenModified(name, $index)) {
+            if (input.nodeName.toLowerCase() === 'select') {
                 selectedOption = input.options[input.selectedIndex]
                 result = Boolean(selectedOption.getAttribute('label') == null || selectedOption.getAttribute('label').length === 0);
             } else {
@@ -276,12 +287,12 @@ class DocumentsFormController {
         return Boolean(document[name]);
     }
 
-    isDeleteButtonDisabled(){
+    isDeleteButtonDisabled() {
         const documents = this.OTFormService.getDocuments();
-        return documents.length ===1;
+        return documents.length === 1;
     }
 
-    isDatatypeGroupDisabled(index){
+    isDatatypeGroupDisabled(index) {
         const document = this.OTFormService.getDocument(index);
         return Boolean(!document.rngSapObject || !this.isBusinessWorkspaceValid(index));
     }
@@ -309,21 +320,21 @@ class DocumentsFormController {
         const document = this.OTFormService.getDocument(index);
         let exclusion;
         let result = false;
-        for(let i = 0, len = this.documentNamePatterns.length; i < len; i++) {
+        for (let i = 0, len = this.documentNamePatterns.length; i < len; i++) {
             exclusion = this.documentNamePatterns[i];
-            if(exclusion.BWS === document.rngSapObject &&
+            if (exclusion.BWS === document.rngSapObject &&
                 exclusion.DocGroup === document.rngDocumenttypeGroep &&
                 exclusion.DocType === document.rngDocumenttype) {
-					result = true;
-                    break;
-                }
+                result = true;
+                break;
+            }
         }
         return result;
     }
 
     setupDocumentType(index) {
         const document = this.OTFormService.getDocument(index);
-        if(document) {
+        if (document) {
             this.fields.docNameDocType = document.rngDocumenttype
         }
         return this.getDoctypeSubfolderOptions(index);
@@ -331,11 +342,11 @@ class DocumentsFormController {
 
     getDocumentNamePatterns() {
         return this
-                .DocumentsFormService
-                .getDocumentNamePatterns()
-                .then((documentNamePatterns) => {
-                    this.documentNamePatterns = documentNamePatterns;
-                });
+            .DocumentsFormService
+            .getDocumentNamePatterns()
+            .then((documentNamePatterns) => {
+                this.documentNamePatterns = documentNamePatterns;
+            });
     }
 
     toggleDatePicker() {
@@ -344,13 +355,13 @@ class DocumentsFormController {
 
     clearBusinessWorkspace(index) {
         return this
-                .DocumentsFormService
-                .clearBusinessWorkspace(index);
+            .DocumentsFormService
+            .clearBusinessWorkspace(index);
     }
 
     combineDocNameFields(index) {
         const document = this.OTFormService.getDocument(index);
-        if(this.names[index]) {
+        if (this.names[index]) {
             this.names[index].docNameDocType = document.rngDocumenttype;
             document.rngDocumentName = this.names[index].docNameTimestamp + " " + (this.names[index].docNameDocType || '') + " " + (this.names[index].docName || '');
         }
@@ -379,31 +390,31 @@ class DocumentsFormController {
         const document = this.OTFormService.getDocument(index);
         return Boolean(document && document.rngBusinessWorkspace && document.rngBusinessWorkspace.name && document.rngBusinessWorkspace.value);
     }
-    
+
     getDocumentTypeOptions(index) {
         return this
-                .DocumentsFormService
-                .getDocTypeOptions(index)
-                .then(doctypeOptions => {
-                    this.fields.doctypeOptions = doctypeOptions;
-                });
+            .DocumentsFormService
+            .getDocTypeOptions(index)
+            .then(doctypeOptions => {
+                this.fields.doctypeOptions = doctypeOptions;
+            });
     }
 
     getDoctypeSubfolderOptions(index) {
         const document = this.OTFormService.getDocument(index);
         return this
-                .DocumentsFormService
-                .getDoctypeSubfolder(index)
-                .then(subfolderId =>{
-                    document.rngFolderID = subfolderId;
-                    this.targetFolderDisabled[index] = false;
-                    this
-                        .DocumentsFormService
-                        .getSubfolderOptions(index)
-                        .then(subfolderOptions => {
-                            this.fields.doctypeSubfolderOptions = subfolderOptions;
-                        });
-                });
+            .DocumentsFormService
+            .getDoctypeSubfolder(index)
+            .then(subfolderId => {
+                document.rngFolderID = subfolderId;
+                this.targetFolderDisabled[index] = false;
+                this
+                    .DocumentsFormService
+                    .getSubfolderOptions(index)
+                    .then(subfolderOptions => {
+                        this.fields.doctypeSubfolderOptions = subfolderOptions;
+                    });
+            });
     }
 
     isCheckboxSelected(value) {
@@ -412,7 +423,7 @@ class DocumentsFormController {
     }
 
     isTargetFolderDisabled($index) {
-        if(this.targetFolderDisabled[$index] == null) {
+        if (this.targetFolderDisabled[$index] == null) {
             return true;
         } else {
             return this.targetFolderDisabled[$index];
@@ -420,7 +431,7 @@ class DocumentsFormController {
     }
 
     clearDocName(index) {
-        if(this.names[index]) {
+        if (this.names[index]) {
             this.names[index].docName = '';
             this.names[index].docNameDocType = '';
         }
@@ -438,11 +449,11 @@ class DocumentsFormController {
             .getDocTypeGroupOptions(index)
             .then((docTypeGroupOptions) => {
                 this.fields.docTypeGroupOptions = docTypeGroupOptions;
-                if(clean) {
+                if (clean) {
                     this.clearBusinessWorkspace(index);
                     this.clearDocName(index);
                     this.clearDescription(index);
-                    
+
                 }
             });
     }
