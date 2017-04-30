@@ -26,7 +26,6 @@ class FeatureFormController {
                 return this.featureForm.$dirty;
             }
         }, (newVal, oldVal) => {
-            console.log('-----', newVal, oldVal);
             if (typeof newVal !== 'undefined' && newVal === true) {
                 this.dataHasBeenChanged = true;
             }

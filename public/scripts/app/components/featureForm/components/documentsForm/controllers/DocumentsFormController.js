@@ -43,6 +43,20 @@ class DocumentsFormController {
         EventBus.dispatch('form:get');
     }
 
+    getDocTypePattern(document) {
+        var pattern = null;
+        if(this.isFormHidden(document)) {
+            pattern =  this.validationPatterns.doctypePattern;
+        }
+        return pattern;
+    }
+
+    
+    isFormHidden(document) {
+        var result = (this.isCheckboxSelected(document.rngDelete) || this.isCheckboxSelected(document.rngWorkflowType));
+        console.log('isFormHidden:', result);
+        return result;
+    }
     checkPopulatedFields() {
         const lenDocuments = this.documents.length;
         let document;
@@ -142,6 +156,45 @@ class DocumentsFormController {
         const instanceName = name + '[' + $index + ']';
         return this.form && this.form[instanceName] && this.form[instanceName].$dirty;
     }
+
+    getBusinessWorkspacePlaceholder($index) {
+        var placeholder = '';
+        if(this.hasRequiredError('businessWorkspace', $index)) {
+            placeholder = this.$filter('translate')('Select a valid') + ' ' + this.$filter('translate')('Business Workspace');
+        }
+        return placeholder;
+    }
+
+    getBehandelaarPlaceholder($index) {
+        var placeholder = '';
+        if(this.hasBehandelaarRequiredError($index)) {
+            placeholder = this.$filter('translate')('This field is required.');
+        }
+        return placeholder;
+    }
+
+    getFollowUpDatePlaceholder($index) {
+        var placeholder = '';
+        if(this.hasFollowUpdateRequiredError(document, $index)) {
+            placeholder = this.$filter('translate')('This field is required.');
+        }
+        return placeholder;
+    }
+
+    getDocumentNamePlaceholder($index) {
+        var placeholder = this.$filter('translate')('Document name');
+        if(this.hasInputError($index, 'docName', 'pattern')) {
+            placeholder = this.$filter('translate')('There are invalid characters');
+        } else if(this.hasInputError($index, 'docName', 'required')) {
+            placeholder = this.$filter('translate')('This field is required.');
+        }
+    }
+
+    hasInputError($index, name, errorName) {
+        const field = this.form[name + '[' + $index + ']'];
+        return (field.$error[errorName] && field.$dirty);
+    }
+
     hasRequiredError(name, $index) {
         const instanceName = name + '[' + $index + ']';
         let result = false;

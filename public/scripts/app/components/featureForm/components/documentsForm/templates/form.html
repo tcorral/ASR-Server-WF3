@@ -1,5 +1,5 @@
 <div class="panel panel-primary" ng-repeat="document in $ctrl.documents track by $index">
-    <div class="panel-heading">'{{"RANGE DIVISION" | translate}}: {{ $ctrl.documents - $index }} {{"of" | translate}} {{
+    <div class="panel-heading">'{{"RANGE DIVISION" | translate}}: {{ $ctrl.documents.length - $index }} {{"of" | translate}} {{
         $ctrl.getDocuments().length}}
         <div class="pull-right m-top-minus-4">
             <button class="btn btn-primary btn-xs" ng-disabled="!$ctrl.isPossibleToAddAnotherRange()" ng-click="$ctrl.addNewForm($index)">
@@ -15,6 +15,7 @@
         </div>
     </div>
     <div class="panel-body grey-background" ng-hide="$ctrl.isCollapsed($index)">
+        <!--=== {{$ctrl.isFormHidden(document)}} ===-->
         <div class="row">
             <div>
                 <span class="form-group">
@@ -59,7 +60,7 @@
                 </span>
             </div>
         </div>
-        <div ng-hide="$ctrl.isCheckboxSelected(document.rngDelete) || $ctrl.isCheckboxSelected(document.rngWorkflowType)">
+        <div ng-hide="$ctrl.isFormHidden(document)">
             <div class="m-top-15">
                 <div class="form-horizontal">
                     <!-- workspace category -->
@@ -71,11 +72,11 @@
                                     name="workspaceCategorie[{{$index}}]"
                                     ng-model="document.rngSapObject"
                                     ng-options="item.value as item.name for item in $ctrl.fields.workspaceCategoryOptions"
-                                    ng-change="$ctrl.getDocTypeGroupOptions($index, true)">
+                                    ng-change="$ctrl.getDocTypeGroupOptions($index, true)"
+                                    ng-required="!$ctrl.isFormHidden(document)">
+                                    <option class="tex-danger" ng-if="$ctrl.hasWorkspaceRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Workspace Category' | translate}}</option>
                             </select>
                         </div>
-                        <span ng-if="$ctrl.hasWorkspaceRequiredError(document, $index);"
-                                class="text-danger">{{'This field is required.' | translate}}</span>
                     </div>
                     <!-- business-workspace -->
                     <div novalidate class="form-group"
@@ -91,13 +92,11 @@
                                     ng-model="document.rngBusinessWorkspace"
                                     uib-typeahead="item as item.name for item in $ctrl.fields.businessWorkspaceOptions"
                                     class="form-control"
+                                    ng-class="{'has-error': $ctrl.hasError('businessWorkspace', $index)}"
+                                    placeholder="{{$ctrl.getBusinessWorkspacePlaceholder($index)}}"
                                     ng-keyup="$ctrl.getBusinessWorkspaceOptions($parent.$index)"
                                     ng-disabled="!$ctrl.isDataSetInDocument($index, 'rngSapObject')"
-                                    required>
-                            <span ng-if="$ctrl.hasRequiredError('businessWorkspace', $index)"
-                                    class="text-danger">{{'This field is required.' | translate}}</span>
-                            <span ng-if="$ctrl.hasError('businessWorkspace', $index)"
-                                    class="text-danger">{{'There are invalid characters' | translate}}.</span>
+                                    ng-required="!$ctrl.isFormHidden(document)">
                         </div>
                         <div ng-if="$ctrl.isBusinessWorkspaceValid($index)">
                             <div class="col-sm-9" novalidate>
@@ -128,11 +127,10 @@
                                     ng-options="item.value as item.name for item in $ctrl.fields.docTypeGroupOptions"
                                     ng-disabled="$ctrl.isDatatypeGroupDisabled($index)"
                                     ng-change="$ctrl.getDocumentTypeOptions($index);"
-                                    required>
+                                    ng-required="!$ctrl.isFormHidden(document)">
+                                    <option class="text-danger" ng-if="$ctrl.hasRequiredError('docTypeGroup', $index)" value="">{{ 'Select a valid'  | translate}} {{'Document type group' | translate}}</option>
                             </select>
                         </div>
-                        <span ng-if="$ctrl.hasRequiredError('docTypeGroup', $index)"
-                                class="text-danger col-xs-10">{{'This field is required.' | translate}}</span>
                     </div>
                     <!-- doc type -->
                     <div class="form-group" novalidate
@@ -146,10 +144,10 @@
                                     ng-options="item.value as item.name for item in $ctrl.fields.doctypeOptions"
                                     ng-disabled="!$ctrl.isDataSetInDocument($index, 'rngDocumenttypeGroep')"
                                     ng-change="$ctrl.setupDocumentType($index)"
-                                    required>
+                                    ng-required="!$ctrl.isFormHidden(document)">
+                                    <option class="text-danger" ng-if="$ctrl.hasDocTypeRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Document Type' | translate}}</option>
                             </select>
                         </div>
-                        <span ng-if="$ctrl.hasDocTypeRequiredError(document, $index)" class="text-danger">{{'This field is required.' | translate}}</span>
                     </div>
                     <!-- Target folder -->
                     <div class="form-group" novalidate
@@ -162,9 +160,9 @@
                                     ng-model="document.rngFolderID"
                                     ng-options="item.value as item.name for item in $ctrl.fields.doctypeSubfolderOptions"
                                     ng-disabled="$ctrl.isTargetFolderDisabled($index)">
+                                    <option class="text-danger" ng-if="$ctrl.hasDocTypeRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Target folder' | translate}}</option>
                             </select>
                         </div>
-                        <span ng-if="$ctrl.hasDocTypeRequiredError(document, $index)" class="text-danger">{{'This field is required.' | translate}}</span>
                     </div>
 
                     <div class="form-group" novalidate>
@@ -180,7 +178,7 @@
                                         placeholder="JJJJMMDD"
                                         ng-change="$ctrl.combineDocNameFields($index)"
                                         ng-pattern="$ctrl.validationPatterns.timestampPattern"
-                                        required>
+                                        ng-required="!$ctrl.isFormHidden(document)">
                             </span>
                             <span class="dn-doctype"
                                     ng-class="{'has-error': $ctrl.hasError('docNameDocType', $index)}">
@@ -189,11 +187,10 @@
                                         name="docNameDocType[{{$index}}]"
                                         ng-model="$ctrl.names[$index].docNameDocType"
                                         ng-disabled="$ctrl.isDoctypeDisabled($index)"
-                                        ng-pattern="$ctrl.validationPatterns.doctypePattern"
                                         class="form-control dn-input"
-                                        placeholder="Documenttype"
+                                        placeholder="{{ 'Document Type' | translate}}'"
                                         ng-change="$ctrl.combineDocNameFields($index)"
-                                        required>
+                                        ng-required="!$ctrl.isFormHidden(document)">
                             </span>
                             <span class="dn-name"
                                     ng-class="{'has-error': $ctrl.hasError('docName', $index)}">
@@ -204,17 +201,10 @@
                                         ng-model="$ctrl.names[$index].docName"
                                         ng-pattern="$ctrl.validationPatterns.docnamePattern"
                                         class="form-control dn-name"
-                                        placeholder="Documentnaam"
+                                        placeholder="{{$ctrl.getDocumentNamePlaceholder($index)}}"
+                                        maxlength="20"
                                         ng-change="$ctrl.combineDocNameFields($index)"
-                                        ng-required="true">
-                            </span>
-                        </div>
-                        <div class="col-xs-offset-2">
-                            <span ng-if="(nameForm.$error.required && !$ctrl.docName && nameForm.$dirty)"
-                                    class="text-danger required-document-naam">{{'This field is required.' | translate}}</span>
-                            <span ng-if="nameForm.$invalid && nameForm.$dirty"
-                                    class="text-danger">
-                                {{'There are invalid characters' | translate}}
+                                        ng-required="!$ctrl.isFormHidden(document)">
                             </span>
                         </div>
                     </div>
@@ -248,13 +238,10 @@
                                         name="behandelaar[{{$index}}]"
                                         ng-model="document.rngBehandelaarID"
                                         class="form-control"
-                                        required
+                                        ng-required="!$ctrl.isFormHidden(document)"
                                         uib-typeahead="item as item.name for item in $ctrl.findUser($viewValue)"
+                                        placeholder="{{$ctrl.getBehandelaarPlaceholder($index)}}"
                                         ng-pattern="$ctrl.validationPatterns.behandelaarPattern">
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-2">
-                                <span ng-if="$ctrl.hasBehandelaarRequiredError($index)"
-                                        class="text-danger">{{'This field is required.' | translate}}</span>
                             </div>
                         </div>
                         <div class="form-group"
@@ -282,12 +269,8 @@
                                             ng-click="$ctrl.toggleDatePicker()"
                                             popup-placement="top-left"
                                             format="dd-MM-yyyy"
-                                    />
+                                            placeholder="{{$ctrl.getFollowUpDatePlaceholder($index)}}">
                                 </div>
-                            </div>
-                            <div class="col-sm-9 col-sm-offset-2">
-                                <span ng-if="$ctrl.hasFollowUpdateRequiredError(document, $index)"
-                                        class="text-danger">{{'This field is required.' | translate}}</span>
                             </div>
                         </div>
                         <div class="form-group"
@@ -298,10 +281,9 @@
                                 <select class="form-control" ng-model="document.rngFollowupDays"
                                         ng-options="item.value as item.name for item in $ctrl.fields.followUpOptions"
                                         ng-required="document.followUp">
+                                        <option class="tex-danger" ng-if="$ctrl.hasFollowUpBinnenRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Follow up reminder' | translate}}</option>
                                 </select>
                             </div>
-                            <span ng-if="$ctrl.hasFollowUpBinnenRequiredError(document, $index)"
-                                    class="text-danger">{{'This field is required.' | translate}}</span>
                         </div>
                         <div class="form-group" novalidate>
                             <label class="col-xs-2 control-label">{{'Follow up description' | translate}}</label>
