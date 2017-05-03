@@ -3,73 +3,63 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet"
-          href="/img/cgcustom/workflows/ASRFormKenmerken/jspm_packages/bower/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+          href="/img/cgcustom/workflows/ASRFormFactuur/jspm_packages/bower/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet"
-          href="/img/cgcustom/workflows/ASRFormKenmerken/jspm_packages/github/tameraydin/ngToast@2.0.0/dist/ngToast.css">
-    <link rel="stylesheet" href="/img/cgcustom/workflows/ASRFormKenmerken/styles/main.css"/>
+          href="/img/cgcustom/workflows/ASRFormFactuur/jspm_packages/github/tameraydin/ngToast@2.0.0/dist/ngToast.css">
+    <link rel="stylesheet" href="/img/cgcustom/workflows/ASRFormFactuur/styles/main.css"/>
 </head>
 
 <body>
-<div class="layout-container" ng-include="'/img/cgcustom/workflows/ASRFormKenmerken/partials/layout.html'"></div>
-<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormKenmerken/jspm_packages/system.js"></script>
-<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormKenmerken/jspm_packages/system.js"></script>
-<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormKenmerken/config.js"></script>
-<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormKenmerken/vendor/pdfjs/build/pdf.js"></script>
+<div class="layout-container" ng-include="'/img/cgcustom/workflows/ASRFormFactuur/partials/layout.html'"></div>
+<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormFactuur/jspm_packages/bower/jquery@3.2.1/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormFactuur/jspm_packages/bower/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormFactuur/jspm_packages/system.js"></script>
+<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormFactuur/config.js"></script>
+<script type="text/javascript" src="/img/cgcustom/workflows/ASRFormFactuur/vendor/pdfjs/build/pdf.js"></script>
 <script type="text/javascript">
     var currentUserId = "[LL_UserId /]";
     var currentUserLogin = "[LL_UserLogin /]";
     var currentUserFullName = "[LL_UserLastName /],[LL_UserFirstName /] ([LL_UserLogin /])";
 </script>
 <script type="text/javascript">
-    System.import('angular')
+    System
+    .import('angular')
     .then(function () {
-        System.import('scripts/app/index');
+        System.import('scripts/app/build');
     });
 </script>
-<form name="llForm" id="llForm" role="form">
-    <INPUT TYPE="HIDDEN" NAME="func" VALUE="[LL_FUNC /]">
-    <INPUT TYPE="HIDDEN" NAME="LL_FUNC_VALUES" VALUE="[LL_FUNC_VALUES /]">
-    <INPUT TYPE="HIDDEN" NAME="LL_AttrFieldName" VALUE="">
-    <INPUT TYPE="HIDDEN" NAME="LL_AttrFieldIndex" VALUE="">
-    <INPUT TYPE="HIDDEN" NAME="LL_WFATTURL" VALUE="[LL_WFATTURL /]">
-    <INPUT TYPE="text" NAME="_1_1_2_1" TITLE="BusinessWorkspace" ID="_1_1_2_1" VALUE="[LL_FormTag_1_1_2_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_3_1" TITLE="SapObject" ID="_1_1_3_1" VALUE="[LL_FormTag_1_1_3_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_21_1" TITLE="DocumenttypeGroep" ID="_1_1_21_1" VALUE="[LL_FormTag_1_1_21_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_4_1" TITLE="DocumentType" ID="_1_1_4_1" VALUE="[LL_FormTag_1_1_4_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_ID" TITLE="AcceptAssignmentCurrentUserId" VALUE="[LL_FormTag_1_1_7_1 /]"><!--Added title-->
-    <INPUT TYPE="HIDDEN" NAME="_1_1_7_1_SavedName" TITLE="AcceptAssignmentCurrentUserSavedFullName" VALUE="[LL_FormTag_1_1_7_1_SavedName /]"><!--Added title-->
-    <INPUT TYPE="TEXT" NAME="_1_1_7_1_Name" TITLE="AcceptAssignmentCurrentUserFullName" ID="_1_1_7_1_Name" TYPE="text" >
-	<INPUT  TYPE="text" NAME="_1_1_6_1" TITLE="FollowupType" ID="_1_1_6_1" VALUE="[LL_FormTag_1_1_6_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_25_1" TITLE="FollowupDays" ID="_1_1_25_1" VALUE="[LL_FormTag_1_1_25_1 /]" SIZE="32" MAXLENGTH="254">
-    [LL_LOOP_BEGIN_1_1_8 /]
-    <INPUT TYPE="text" NAME="_1_1_8_9_1" TITLE="rngDocumentName" ID="_1_1_8_9_1" VALUE="[LL_FormTag_1_1_8_9_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_10_1" TITLE="rngRange" ID="_1_1_8_10_1" VALUE="[LL_FormTag_1_1_8_10_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="CHECKBOX" NAME="_1_1_8_14_1" TITLE="rngDelete" value="1" ONCLICK="markDirty();">
-    <INPUT TYPE="text" NAME="_1_1_8_12_1" TITLE="rngWorkflowType" ID="_1_1_8_12_1" VALUE="[LL_FormTag_1_1_8_12_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_13_1" TITLE="rngOmschrijving" ID="_1_1_8_13_1" VALUE="[LL_FormTag_1_1_8_13_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_15_1" TITLE="rngBusinessWorkspace" ID="_1_1_8_15_1" VALUE="[LL_FormTag_1_1_8_15_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_16_1" TITLE="rngSapObject" ID="_1_1_8_16_1" VALUE="[LL_FormTag_1_1_8_16_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_22_1" TITLE="rngDocumenttypeGroep" ID="_1_1_8_22_1" VALUE="[LL_FormTag_1_1_8_22_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT type="text" NAME="_1_1_8_36_1" TITLE="rngFolderID" id="_1_1_8_1_36_1" value="[LL_FormTag_1_1_8_36_1 /]" size="20" maxlength="20">
-    <INPUT TYPE="text" NAME="_1_1_8_17_1" TITLE="rngDocumenttype" ID="_1_1_8_17_1" VALUE="[LL_FormTag_1_1_8_17_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="CHECKBOX" NAME="_1_1_8_18_1" TITLE="followUp" value="1" ONCLICK="markDirty();">
-    <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_ID" TITLE="rngBehandelaarID" VALUE="[LL_FormTag_1_1_8_19_1 /]"><!--Added title-->
-    <INPUT TYPE="HIDDEN" NAME="_1_1_8_19_1_SavedName" TITLE="rngBehandelaarSavedName" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]">
-    <INPUT TYPE="TEXT" NAME="_1_1_8_19_1_Name" TITLE="rngBehandelaarName" ID="_1_1_8_19_1_Name" VALUE="[LL_FormTag_1_1_8_19_1_SavedName /]" ALT="Select User" SIZE="23"><!--Added title-->
-    <INPUT TYPE="text" NAME="_1_1_8_20_1" TITLE="rngFollowupType" ID="_1_1_8_20_1" VALUE="[LL_FormTag_1_1_8_20_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_26_1" TITLE="rngFollowupDays" ID="_1_1_8_26_1" VALUE="[LL_FormTag_1_1_8_26_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_33_1" TITLE="rngFolluwpDescription" ID="_1_1_8_33_1" VALUE="[LL_FormTag_1_1_8_33_1 /]" SIZE="80" MAXLENGTH="254">
-    <INPUT TYPE="text" NAME="_1_1_8_35_1" TITLE="rngFollowUpDate" ID="_1_1_8_35_1" VALUE="[LL_FormTag_1_1_8_35_1 /]" SIZE="80" MAXLENGTH="254">
-    [LL_LOOP_END_1_1_8 /]
-    <INPUT TYPE="text" NAME="_1_1_23_1" TITLE="nextStep" ID="_1_1_23_1" VALUE="[LL_FormTag_1_1_23_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="HIDDEN" NAME="_1_1_27_1_ID" TITLE="DelegateToUserID" VALUE="[LL_FormTag_1_1_27_1 /]"><!--Added title-->
-    <INPUT TYPE="HIDDEN" NAME="_1_1_27_1_SavedName" TITLE="DelegateToUserSavedName" VALUE="[LL_FormTag_1_1_27_1_SavedName /]"><!--Added title-->
-    <INPUT TYPE="TEXT" NAME="_1_1_27_1_Name" ID="_1_1_27_1_Name" TITLE="DelegateToUserName" VALUE="[LL_FormTag_1_1_27_1_SavedName /]" ALT="Select User" SIZE="23"><!--Added title-->
-    <INPUT TYPE="text" NAME="_1_1_28_1" TITLE="Postbus" ID="_1_1_28_1" VALUE="[LL_FormTag_1_1_28_1 /]" SIZE="32" MAXLENGTH="254">
-    <INPUT TYPE="HIDDEN" NAME="_1_1_30_1_ID" TITLE="HiddenId" VALUE="[LL_FormTag_1_1_30_1 /]">
-    <INPUT TYPE="HIDDEN" NAME="_1_1_30_1_SavedName" TITLE="HiddenSavedName" VALUE="[LL_FormTag_1_1_30_1_SavedName /]">
-    <INPUT TYPE="TEXT" NAME="_1_1_30_1_Name" TITLE="HiddenName" ID="_1_1_30_1_Name" VALUE="[LL_FormTag_1_1_30_1_SavedName /]" ALT="Select User" SIZE="23">
-    <TEXTAREA CLASS="valueEditable multiline" ID="_1_1_31_1" NAME="_1_1_31_1" TITLE="Opmerkingen" WRAP="soft" ROWS="5" COLS="80">[LL_FormTag_1_1_31_1 /]</TEXTAREA>
+<form id="llForm" name="llForm" role="form" novalidate>
+    <input type="HIDDEN" name="func" value="[LL_FUNC /]">
+    <input type="HIDDEN" name="LL_FUNC_VALUES" value="[LL_FUNC_VALUES /]">
+    <input type="HIDDEN" name="LL_AttrFieldName" value="">
+    <input type="HIDDEN" name="LL_AttrFieldIndex" value="">
+    <input type="HIDDEN" name="LL_WFATTURL" value="[LL_WFATTURL /]">
+    <input type="hidden" name="_1_1_2_1" title="bevoegdheidsgroep" value="[LL_FormTag_1_1_2_1 /]">
+    <input type="hidden" name="_1_1_3_1" title="workflowfactuurtype" value="[LL_FormTag_1_1_3_1 /]">
+    <input type="hidden" name="_1_1_4_1_ID" title="behandelaarID" value="[LL_FormTag_1_1_4_1_ID /]">
+    <input type="hidden" name="_1_1_4_1_Name" title="behandelaarName" value="[LL_FormTag_1_1_4_1_SavedName /]">
+    <input type="hidden" name="_1_1_5_1" title="spoed" value="[LL_FormTag_1_1_5_1 /]">
+    [LL_LOOP_BEGIN_1_1_6 /]
+    <input type="hidden" name="_1_1_6_7_1" title="rngDocumentName" value="[LL_FormTag_1_1_6_7_1 /]">
+    <input type="hidden" name="_1_1_6_8_1" title="rngRange" value="[LL_FormTag_1_1_6_8_1 /]">
+    <input type="hidden" name="_1_1_6_29_1" title="rngDelete" value="[LL_FormTag_1_1_6_29_1 /]">
+    <input type="hidden" name="_1_1_6_10_1" title="rngWorkflowType" value="[LL_FormTag_1_1_6_10_1 /]">
+    <input type="hidden" name="_1_1_6_11_1" title="rngOmschrijving" value="[LL_FormTag_1_1_6_11_1 /]">
+    <input type="hidden" name="_1_1_6_12_1" title="rngGoedkeuring" value="[LL_FormTag_1_1_6_12_1 /]">
+    <input type="hidden" name="_1_1_6_19_1" title="rngBusinessWorkspace" value="[LL_FormTag_1_1_6_19_1 /]">
+    <input type="hidden" name="_1_1_6_33_1" title="rngBevoegdheidsgroep" value="[LL_FormTag_1_1_6_33_1 /]">
+    <input type="hidden" name="_1_1_6_13_1" title="rngWorkflowFactuurtype" value="[LL_FormTag_1_1_6_13_1 /]">
+    <input type="hidden" name="_1_1_6_30_1_ID" title="rngBehandelaarID" value="[LL_FormTag_1_1_6_30_1_ID /]">
+    <input type="hidden" name="_1_1_6_30_1_Name" title="rngBehandelaarName" value="[LL_FormTag_1_1_6_30_1_SavedName /]">
+    <input type="hidden" name="_1_1_6_15_1" title="rngSpoed" value="[LL_FormTag_1_1_6_15_1 /]">
+    <input type="hidden" name="_1_1_6_16_1" title="rngOntbrekendeStukken" value="[LL_FormTag_1_1_6_16_1 /]">
+    <input type="hidden" name="_1_1_6_17_1" title="rngZakelijk" value="[LL_FormTag_1_1_6_17_1 /]">
+    <input type="hidden" name="_1_1_6_18_1" title="rngControleVoorAf" value="[LL_FormTag_1_1_6_18_1 /]">
+    <input type="hidden" name="_1_1_6_23_1" title="rngPostbus" value="[LL_FormTag_1_1_6_23_1 /]">
+    [LL_LOOP_END_1_1_6 /]
+    <input type="hidden" name="_1_1_31_1" title="nextstep" value="[LL_FormTag_1_1_31_1 /]">
+    <input type="hidden" name="_1_1_32_1_ID" title="gedelegeerdeID" value="[LL_FormTag_1_1_4_1_ID /]">
+    <input type="hidden" name="_1_1_32_1_Name" title="gedelegeerdeName" value="[LL_FormTag_1_1_4_1_SavedName /]">
 </form>
 </body>
 

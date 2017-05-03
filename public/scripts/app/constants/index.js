@@ -5,37 +5,29 @@ function getConfigEnvironment(environments) {
     return configs[environments[subdomain]] || configs['dev'];
 }
 
-function addZeros(value) {
-    if (value < 10) {
-        return '0' + value;
-    }
-    return value;
-}
-
-function getMonth(date) {
-    const month = date.getMonth() + 1;
-    return addZeros(month);
-}
-function getDate(date) {
-    const dayOfMonth = date.getDate();
-    return addZeros(dayOfMonth);
-}
-function getFormattedDate(date) {
-    return getMonth(date) + '/' + getDate(date) + '/' + date.getFullYear();
-}
-
 function simpleInputGetter(input) {
     return input.value;
 }
 
-const workflowtypeOptions = [
+const speedtypeOptions = [
     {
-        name: "Post",
-        value: "post"
+        name: 'Nee',
+        value: 'Nee'
     },
     {
+        name: 'Ja',
+        value: 'Ja'
+    }
+];
+
+const workflowtypeOptions = [
+    {
         name: "Factuur",
-        value: "factuur"
+        value: "Factuur"
+    },
+    {
+        name: "Post",
+        value: "Post"
     }
 ];
 
@@ -43,7 +35,7 @@ const configs = {
     dev: {
         "otFormId": "llForm",
         "otDateFormat": "MM/dd/yyyy",
-        "scriptHome": "/img/cgcustom/workflows/ASRFormKenmerken/",
+        "scriptHome": "/img/cgcustom/workflows/ASRFormFactuur/",
         "userByLoginService": 113696,
         "autocompleteUsernameService": 113694,
         "getworkflowattachmentService": 113689,
@@ -68,7 +60,7 @@ const configs = {
     acc: {
         "otFormId": "llForm",
         "otDateFormat": "MM/dd/yyyy",
-        "scriptHome": "/img/cgcustom/workflows/ASRFormKenmerken/",
+        "scriptHome": "/img/cgcustom/workflows/ASRFormFactuur/",
         "userByLoginService": 113696,
         "autocompleteUsernameService": 113694,
         "getworkflowattachmentService": 113689,
@@ -93,7 +85,7 @@ const configs = {
     prod: {
         "otFormId": "llForm",
         "otDateFormat": "MM/dd/yyyy",
-        "scriptHome": "/img/cgcustom/workflows/ASRFormKenmerken/",
+        "scriptHome": "/img/cgcustom/workflows/ASRFormFactuur/",
         "userByLoginService": 113696,
         "autocompleteUsernameService": 113694,
         "getworkflowattachmentService": 113689,
@@ -170,9 +162,6 @@ const mailbox = [
 const conditionalExcludeDataFields = {
     single: {},
     loop: {
-        followUp: function (value) {
-            return value === 1;
-        },
         rngDelete: function (value) {
             return value === 1;
         }
@@ -182,67 +171,54 @@ const otMappingSetter = {
     single: {
         LL_FUNC_VALUES: function (value) {
             const parts = value.split(',');
-            parts[7] = "'LL_NextURL'='/img/cgcustom/workflows/ASRFormKenmerken/OK.txt'"
+            parts[7] = "'LL_NextURL'='/img/cgcustom/workflows/ASRFormFactuur/OK.txt'"
             return parts.join(',');
         }
     },
     loop: {
-        followUp: function (value) {
-            return Number(value);
+        rngRange: function (range) {
+            return range.rangeStart + '-' + range.rangeEnd;
         },
         rngDelete: function (value) {
             return Number(value);
         },
-        rngFolderID: function (value) {
-            return value || 0;
-        },
-        rngBehandelaarID: function (obj) {
-            return obj.value;
-        },
-        rngBehandelaarName: function (value, document) {
-            return document.rngBehandelaarID.name;
-        },
-        rngBehandelaarSavedName: function (value, document) {
-            return document.rngBehandelaarID.name;
-        },
         rngWorkflowType: function (value) {
             return value ? 'Factuur' : 'Post';
         },
-        rngRange: function (range) {
-            return range.rangeStart + '-' + range.rangeEnd;
-        },
         rngBusinessWorkspace: function (businessWorkspace) {
-            return businessWorkspace.value;
+            return (businessWorkspace && businessWorkspace.value);
         },
-        rngFollowUpDate: function (date) {
-            return getFormattedDate(date);
+        rngBehandelaarID: function (obj, doc, index, documentsLength) {
+            var selector = 'data-js-id-' + ((documentsLength - 1) - index);
+			const behandelaarIdInput = document.querySelector('[' + selector + ']');
+			let result = '';
+            if(behandelaarIdInput && typeof obj !== 'object') {
+                result = behandelaarIdInput.getAttribute(selector);
+            } else if(typeof obj === 'object') {
+				result = obj.value;
+			} 
+			return result;
+        },
+        rngBehandelaarName: function (value, document) {
+            return document.rngBehandelaarID.name;
         }
     }
 };
+
 const otMappingGetter = {
     single: {
         LL_FUNC_VALUES: simpleInputGetter,
         LL_AttrFieldName: simpleInputGetter,
         LL_AttrFieldIndex: simpleInputGetter,
         LL_WFATTURL: simpleInputGetter,
-        BusinessWorkspace: simpleInputGetter,
-        SapObject: simpleInputGetter,
-        DocumenttypeGroep: simpleInputGetter,
-        DelegateToUserID: simpleInputGetter,
-        Postbus: simpleInputGetter,
-        FollowupType: simpleInputGetter,
-        DelegateToUserSavedName: simpleInputGetter,
-        DelegateToUserName: simpleInputGetter,
-        Opmerkingen: simpleInputGetter,
-        AcceptAssignmentCurrentUserSavedFullName: simpleInputGetter,
-        AcceptAssignmentCurrentUserFullName: simpleInputGetter,
-        AcceptAssignmentCurrentUserId: simpleInputGetter,
-        DocumentType: simpleInputGetter,
-        FollowupDays: simpleInputGetter,
-        func: simpleInputGetter,
-        HiddenId: simpleInputGetter,
-        HiddenSavedName: simpleInputGetter,
-        HiddenName: simpleInputGetter
+        bevoegdheidsgroep: simpleInputGetter,
+        workflowfactuurtype: simpleInputGetter,
+        behandelaarID: simpleInputGetter,
+        behandelaarName: simpleInputGetter,
+        spoed: simpleInputGetter,
+        nextstep: simpleInputGetter,
+        gedelegeerdeID: simpleInputGetter,
+        gedelegeerdeName: simpleInputGetter
     },
     loop: {
         rngDocumentName: function (input) {
@@ -258,55 +234,30 @@ const otMappingGetter = {
         rngDelete: function (input) {
             return input.checked;
         },
-        followUp: function (input) {
-            return input.checked;
-        },
-        rngWorkflowType: function (input) {
-            return input.value === 'Factuur';
-        },
+        rngWorkflowType: simpleInputGetter,
         rngOmschrijving: simpleInputGetter,
+        rngGoedkeuring: simpleInputGetter,
         rngBusinessWorkspace: function (input) {
             return {
                 name: '',
                 value: input.value
             };
         },
-        nextStep: simpleInputGetter,
-        rngFollowupType: simpleInputGetter,
-        rngBehandelaarSavedName: simpleInputGetter,
-        rngSapObject: simpleInputGetter,
-        rngDocumenttype: simpleInputGetter,
-        rngDocumenttypeGroep: simpleInputGetter,
-        rngFolderID: simpleInputGetter,
-        rngBehandelaarID: simpleInputGetter,
+        rngBevoegdheidsgroep: simpleInputGetter,
+        rngWorkflowFactuurtype: simpleInputGetter,
+        rngBehandelaarID: function (input, index) {
+			input.setAttribute('data-js-id-' + index, input.value);
+			var behandelaarNameInput = document.querySelectorAll('[title="rngBehandelaarName"]')[index];
+			return behandelaarNameInput.value;
+		},
         rngBehandelaarName: simpleInputGetter,
-        rngFollowupDays: function (input) {
-            return parseInt((input.value || 0), 10)
-        },
-        rngFolluwpDescription: simpleInputGetter,
-        rngFollowUpDate: function (input) {
-            let date = new Date(input.value);
-            if(!input.value) {
-                date = new Date();
-            }
-            return date;
-        }
+        rngSpoed: simpleInputGetter,
+        rngOntbrekendeStukken: simpleInputGetter,
+        rngZakelijk: simpleInputGetter,
+        rngControleVoorAf: simpleInputGetter,
+        rngPostbus: simpleInputGetter
     }
 }
-
-const followUpOptions = [{
-    name: 'Direct',
-    value: 2
-    },{
-    name: '7 Days',
-    value: 7
-    },{
-    name: '14 Days',
-    value: 14
-    },{
-    name: '28 Days',
-    value: 28
-}];
 
 const timestampPattern = /^([0-9]{4}(0[1-9]|1[0-2])([0-2]{1}[0-9]{1}|3[0-1]{1}))$/;
 const docnamePattern = /^[0-9a-zA-Z_\. ]*$/;
@@ -322,7 +273,7 @@ export default {
     otMappingGetter,
     otMappingSetter,
     conditionalExcludeDataFields,
-    followUpOptions,
+    speedtypeOptions,
     validationPatterns: {
         timestampPattern,
         docnamePattern,

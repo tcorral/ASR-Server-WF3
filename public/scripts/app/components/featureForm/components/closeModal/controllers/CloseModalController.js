@@ -15,6 +15,7 @@ class CloseModalController {
     constructor($uibModal, $uibModalInstance) {
         this.$uibModal = $uibModal;
         this.$uibModalInstance = $uibModalInstance;
+        this.lastButton = null;
     }
 
     $onInit(){
@@ -39,9 +40,9 @@ class CloseModalController {
         
         this.$uibModalInstance
                             .result
-                            .then(function (res) {
+                            .then((res) => {
                                 if(res === true) {
-                                    EventBus.dispatch(events[type]);
+                                    EventBus.dispatch(events[type], this.lastButton);
                                 }
                             });
     }
@@ -49,7 +50,10 @@ class CloseModalController {
     cancel() {
         this.$uibModalInstance.close(false);
     }
-    accept() {
+    accept($event) {
+        var $this = $($event.target);
+        this.lastButton = $this.button;
+        $this.button('loading');
         this.$uibModalInstance.close(true);
     }
 }

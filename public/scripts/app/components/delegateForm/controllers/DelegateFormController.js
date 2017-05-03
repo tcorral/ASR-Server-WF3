@@ -6,6 +6,7 @@ class DelegateFormController {
         const ctrl = this;
         ctrl.$window = $window;
         ctrl.$filter = $filter;
+        ctrl.lastButton = null;
         ctrl.UserService = UserService;
         ctrl.ngToast = ngToast;
         ctrl.DelegateFormService = DelegateFormService;
@@ -61,35 +62,62 @@ class DelegateFormController {
             });
     }
 
+    activateProgress($event) {
+        var $this = $($event.target);
+        this.lastButton = $this;
+        this.lastButton.button('loading');
+    }
+
+    cancelProgress() {
+        this.lastButton.button('reset');
+    }
+
     closeWorkflow() {
         const urlParams = this.DelegateFormService.getUrlParams();
         this.$window.location = decodeURIComponent(urlParams.nexturl.split('&')[6].split('=')[1]);
     }
 
+	cancelAssignment($event) {
+        this.activateProgress($event);
+        this
+            .DelegateFormService
+            .cancelAssignment(this.model.comments)
+            .then((urlParams) => {
+                this.cancelProgress();
+                this.ngToast.create(this.$filter('translate')('Assignment is canceled, you will be redirected'));
+                this.$window.location = decodeURIComponent(urlParams.nexturl.split('&')[6].split('=')[1]);
+            });
+    }
+	
     cancelWorkflow() {
         this
             .DelegateFormService
             .cancelWorkflow()
             .then((urlParams) => {
-                this.ngToast.create(this.$filter('translate')('Workflow is put through, you will be redirected'));
+                this.ngToast.create(this.$filter('translate')('Workflow is deleted, you will be redirected'));
                 this.$window.location = decodeURIComponent(urlParams.nexturl.split('&')[6].split('=')[1]);
             });
     }
 
-    delegateWorkflow() {
+    delegateWorkflow($event) {
+        this.activateProgress($event);
         this
             .DelegateFormService
-            .delegateWorkflow(this.model.delegate, this.model.practitionersGroup, this.model.mailbox)
-            .then(() => {
+            .delegateWorkflow(this.model.delegate, this.model.practitionersGroup, this.model.mailbox, this.model.comments)
+            .then((urlParams) => {
+                this.cancelProgress();
                 this.ngToast.create(this.$filter('translate')('Assignments delegates'));
+                this.$window.location = decodeURIComponent(urlParams.nexturl.split('&')[6].split('=')[1]);
             });
     }
 
-    acceptAssignment() {
+    acceptAssignment($event) {
+        this.activateProgress($event);
         this
             .DelegateFormService
             .acceptAssignment()
             .then((response) => {
+                this.cancelProgress();
                 this.ngToast.create(this.$filter('translate')('Command is accepted'));
                 this.toggle();
                 EventBus.dispatch('assignment:accepted');

@@ -6,8 +6,9 @@ function config($translateProvider, ngToastProvider, $locationProvider) {
 
     ngToastProvider
         .configure({
-            verticalPosition: 'bottom',
-            horizontalPosition: 'center',
+            additionalClasses: 'custom-toast',
+            verticalPosition: 'top',
+            horizontalPosition: 'right',
             maxNumber: 3,
             timeout: 4000
         });

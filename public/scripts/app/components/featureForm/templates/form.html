@@ -13,12 +13,16 @@
                 </button>
                 <button type="button" class="btn"
                         ng-class="{ 'btn-success': $ctrl.dataHasBeenChanged, 'btn-primary': !$ctrl.dataHasBeenChanged }"
-                        ng-click="$ctrl.saveForm()">
+                        data-loading-text="<i class='glyphicon glyphicon-refresh glyphicon-spin'></i> {{'Save' | translate}}"
+                        ng-click="$ctrl.saveForm($event)"
+						ng-disabled="!$ctrl.dataHasBeenChanged">
                     <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> {{'Save' | translate}}
                 </button>
                 <button type="button" class="btn"
                         ng-class="{ 'btn-success': $ctrl.isFormDataValid(), 'btn-primary': !$ctrl.isFormDataValid() }"
-                        ng-click="$ctrl.validateOrSaveAndFinish()">
+                        data-loading-text="<i class='glyphicon glyphicon-refresh glyphicon-spin'></i> {{'Archive' | translate}}"
+                        ng-click="$ctrl.validateOrSaveAndFinish($event)"
+						ng-disabled="!$ctrl.isFormDataValid()">
                     <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> {{'Archive' | translate}}
                 </button>
                 <button type="button" class="btn btn-danger"

@@ -25,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/img/cgcustom/workflows/ASRFormKenmerken', img);
+app.use('/img/cgcustom/workflows/ASRFormFactuur', img);
 app.use('/otcs', otcs);
 app.use('/', index);
 app.use('/users', users);

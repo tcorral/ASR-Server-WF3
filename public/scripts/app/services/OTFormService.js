@@ -3,9 +3,10 @@ import Utils from '../utils/index';
 import EventBus from 'krasimir/EventBus';
 
 class OTFormService {
-    constructor($q, configEnv, otMappingGetter, otMappingSetter, conditionalExcludeDataFields) {
+    constructor($q, $filter, configEnv, otMappingGetter, otMappingSetter, conditionalExcludeDataFields) {
         const service = this;
         service.$q = $q;
+		service.$filter = $filter;
         service.config = configEnv;
         service.mappingG = otMappingGetter;
         service.mappingS = otMappingSetter;
@@ -59,7 +60,7 @@ class OTFormService {
                 if (repeatMapping.hasOwnProperty(key)) {
                     input = (document.querySelectorAll('[title="' + key + '"]') || document.querySelectorAll('[name="' + key + '"]'))[i];
                     if(input) {
-                        this.data.loops[i][key] = repeatMapping[key](input);
+                        this.data.loops[i][key] = repeatMapping[key](input, i);
                     } else {
                         console.log('loop:', key);
                     }
@@ -100,6 +101,7 @@ class OTFormService {
         let nameInputInLoop;
         let input;
         let value;
+		let newValue;
         let conditional;
         this.formData = {};
 
@@ -133,7 +135,12 @@ class OTFormService {
                         });
                         value = this.data.loops[i][key];
                         if (typeof loopMapping[key] === 'function') {
-                            value = loopMapping[key](value, item);
+							newValue = loopMapping[key](value, item, i);
+							if(newValue === '[object OTDate]') {
+								value = Utils.getOTDateFormat(value, this.$filter, this.config);
+							} else {
+								value = newValue;
+							}
                         }
                         conditional = loopConditional[key];
                         if(!conditional || conditional(value))  {

@@ -82,6 +82,35 @@ class DelegateFormService {
                 return urlParams;
             });
     }
+	
+	cancelAssignment(comments) {
+        const deferred = this.$q.defer();
+        const data = this.OTFormService.getData();
+        let postbus = data.Postbus;
+        console.log(postbus);
+        if(postbus === "[LL_FormTag_1_1_28_1 /]") { // only for demo locally, it has no impact in production
+            postbus = '';
+        }
+        const groep = postbus.toUpperCase() + '-Postverdeling';
+        data.DelegateToUserName = data.DelegateToUserSavedName = groep;
+        data.Opmerkingen = comments || '';
+        this
+            .getPracticionersGroup(groep)
+            .then((res) => {
+                data.DelegateToUserID = res[0].value;
+                this
+                    .delegate()
+                    .then(() => {
+                        this
+                            .finalizeTask()
+                            .then((urlParams) => {
+                                deferred.resolve(urlParams);
+                            });
+                    });
+            });
+
+        return deferred.promise;
+    }
 
     cancelWorkflow() {
         const deferred = this.$q.defer();
@@ -99,7 +128,7 @@ class DelegateFormService {
                 data.DelegateToUserID = res[0].value;
                 this.ngToast.create(this.$filter('translate')('Command is canceled'));
                 this
-                    .delegate()
+                    .delegate(true)
                     .then(() => {
                         this
                             .finalizeTask()
@@ -112,20 +141,26 @@ class DelegateFormService {
         return deferred.promise;
     }
 
-    delegate() {
+    delegate(cancel) {
         const data = this.OTFormService.getData();
         delete data.loops[0].rngDelete;
         delete data.loops[0].followUp;
-        data.nextStep = 'delegate';
-        const formData = this.OTFormService.getFormData();
-        console.log(formData);
-        return this.$http.post(this.config.cgiUrlPrefix, formData, {
-            transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
+        data.nextStep = cancel ? 'annuleren' : 'delegate';
+        const oFormData = this.OTFormService.getFormData();
+		var formData = new FormData();
+        var keys = Object.keys(oFormData);
+        keys.forEach(function (key) {
+            formData.append(key, oFormData[key]);
         });
+		return this
+                .$http
+                .post(this.config.cgiUrlPrefix, formData, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                });
     }
 
-    delegateWorkflow(delegate, partitionersGroup, postbus) {
+    delegateWorkflow(delegate, partitionersGroup, postbus, comments) {
         const deferred = this.$q.defer();
         const data = this.OTFormService.getData();
         if (delegate && delegate.value) {
@@ -136,6 +171,8 @@ class DelegateFormService {
             data.DelegateToUserID = partitionersGroup.value;
             data.Postbus = postbus.value;
         }
+        data.Opmerkingen = comments || '';
+        
         this
             .delegate()
             .then(() => {

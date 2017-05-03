@@ -3,7 +3,7 @@
   "Save": "Save",
   "Archive": "Archive",
   "Trash": "Trash",
-  "Distribute mail. Accept, Delegate or Cancel job": "Distribute mail. Accept, Delegate or Cancel job",
+  "DISTRIBUTE MAIL": "DISTRIBUTE MAIL",
   "Delegate to person": "Delegate to person",
   "Search by surname": "Search by surname",
   "Mailbox": "Mailbox",
@@ -50,5 +50,11 @@
   "Accept": "Accept",
   "Workflow is saved": "Workflow is saved",
   "Workflow is complete, you will be redirected": "Workflow is complete, you will be redirected",
-  "Select a valid": "Select a valid"
+  "Select a valid": "Select a valid",
+  "Assignment is canceled, you will be redirected": "Assignment is canceled, you will be redirected",
+  "Workflow is deleted, you will be redirected": "Workflow is deleted, you will be redirected",
+  "Processing Order": "Processing Order",
+
+  "Workflow Type": "Workflow Type",
+  "Speed": "Speed"
 }

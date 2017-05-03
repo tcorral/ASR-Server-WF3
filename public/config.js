@@ -1,5 +1,5 @@
 System.config({
-    baseURL: "/img/cgcustom/workflows/ASRFormKenmerken/",
+    baseURL: "/img/cgcustom/workflows/ASRFormFactuur/",
     defaultJSExtensions: true,
     transpiler: "babel",
     babelOptions: {

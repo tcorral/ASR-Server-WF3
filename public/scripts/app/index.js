@@ -13,7 +13,6 @@ import constants from 'app/constants/index';
 import FormController from 'app/controllers/FormController';
 
 // Services
-import FormService from 'app/services/FormService';
 import PDFService from 'app/services/PDFService';
 import UserService from 'app/services/UserService';
 import OTFormService from 'app/services/OTFormService';
@@ -33,12 +32,11 @@ const deps = [
 ];
 
 config.$inject = ['$translateProvider', 'ngToastProvider', '$locationProvider'];
-PDFService.$inject = ['$window', '$q', '$http', 'configEnv'];
-FormController.$inject = ['FormService', 'PDFService', 'configEnv', 'OTFormService'];
-FormService.$inject = ['$window', '$http', 'configEnv', 'context', 'postBus'];
-UserService.$inject = ['$http', 'configEnv'];
-OTFormService.$inject = ['$q', 'configEnv', 'otMappingGetter', 'otMappingSetter', 'conditionalExcludeDataFields'];
-SessionService.$inject = ['$filter', '$timeout', '$log', 'MessageService'];
+PDFService.PDFService.$inject = ['$window', '$q', '$http', 'configEnv'];
+FormController.FormController.$inject = ['PDFService'];
+UserService.UserService.$inject = ['$http', 'configEnv'];
+OTFormService.OTFormService.$inject = ['$q', '$filter','configEnv', 'otMappingGetter', 'otMappingSetter', 'conditionalExcludeDataFields'];
+SessionService.SessionService.$inject = ['$filter', '$timeout', '$log', 'MessageService'];
 
 const formAppModule = angular
     .module('formApp', deps)
@@ -46,7 +44,6 @@ const formAppModule = angular
     .constant(constants)
     .controller(FormController)
     .service(PDFService)
-    .service(FormService)
     .service(UserService)
     .service(OTFormService)
     .service(SessionService)

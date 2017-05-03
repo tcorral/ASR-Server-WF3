@@ -1,11 +1,10 @@
 <div class="panel panel-primary ng-cloak">
-    <div class="panel-heading">{{"NOT NAMED PAGES" | translate}}</div>
+    <div class="panel-heading"><strong>{{"NOT NAMED PAGES" | translate}}</strong></div>
     <div class="panel-body grey-background">
         <form>
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-xs-2 control-label">{{"Unnamed pages" | translate}}</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-12">
                         <div class="btn-group" role="group" aria-label="...">
                             <button
                                     type="button"
@@ -27,7 +26,7 @@
                                 ng-cloak
                                 type="button"
                                 disabled
-                                class="btn btn-success btn-md disabled"
+                                class="btn btn-success btn-md disabled col-sm-12"
                                 ng-if="$ctrl.hasNoUnselectedPages()">
                             {{"All pages are named" | translate}}
                         </button>

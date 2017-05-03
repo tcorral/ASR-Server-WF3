@@ -1,0 +1,46 @@
+{
+    "actualRows": 12,
+    "filteredRows": 12,
+    "myRows": [
+        {
+            "Name": "Aanbieding"
+        },
+        {
+            "Name": "Aankoopvoorstel"
+        },
+        {
+            "Name": "Analyse en onderbouwing"
+        },
+        {
+            "Name": "Beeldmateriaal"
+        },
+        {
+            "Name": "Financiële administratie"
+        },
+        {
+            "Name": "Interne formulieren"
+        },
+        {
+            "Name": "Levering"
+        },
+        {
+            "Name": "Opdrachten"
+        },
+        {
+            "Name": "Overeenkomsten"
+        },
+        {
+            "Name": "Techniek"
+        },
+        {
+            "Name": "Vertrouwelijke informatie"
+        },
+        {
+            "Name": "Verzekeringen"
+        }
+    ],
+    "sourceID": 113684,
+    "success": true,
+    "totalRows": 12,
+    "totalSourceRows": 12
+}

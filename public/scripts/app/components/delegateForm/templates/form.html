@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
     <div class="panel-heading hg40">
-        <span> {{'Distribute mail. Accept, Delegate or Cancel job' | translate}} </span>
+        <strong> {{'DISTRIBUTE MAIL' | translate}} </strong>
         <button type="button"
                 class="btn btn-xs btn-primary pull-right"
                 ng-click="$ctrl.toggle()">
@@ -53,31 +53,32 @@
                     <label class="col-xs-2 control-label">{{'Comments' | translate}}</label>
                     <div class="col-sm-10">
                         <textarea class="form-control"
-                                  ng-model="$ctrl.data.Opmerkingen" rows="4"></textarea>
+                                  ng-model="$ctrl.model.comments" rows="4"></textarea>
                     </div>
                 </div>
             </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+					<div class="col-xs-offset-2 col-xs-10">
+						<button type="button" class="btn btn-danger" data-loading-text="<i class='glyphicon glyphicon-refresh glyphicon-spin'></i> {{'Cancel assignment' | translate}}" 
+								ng-click="$ctrl.cancelAssignment($event)">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{'Cancel assignment' | translate}}
+						</button>
+						<button type="button" class="btn btn-success" data-loading-text="<i class='glyphicon glyphicon-refresh glyphicon-spin'></i> {{'Accept assignment' | translate}}" 
+								ng-click="$ctrl.acceptAssignment($event)">
+							<!--ng-click="$ctrl.acceptAssignment()">-->
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{'Accept assignment' | translate}}
+						</button>
+						<button type="button" class="btn btn-primary" ng-class="{'btn-success': $ctrl.isDelegateButtonActive()}"
+                                data-loading-text="<i class='glyphicon glyphicon-refresh glyphicon-spin'></i> {{'Delegate assignment' | translate}}" 
+								ng-disabled="!$ctrl.isDelegateButtonActive()"
+								ng-click="$ctrl.delegateWorkflow($event)">
+							<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> {{'Delegate assignment' |
+							translate}}
+						</button>
+					</div>
+				</div>
+			</div>
         </form>
-        <div>
-            <button type="button" class="btn btn-danger"
-                    ng-click="$ctrl.cancelWorkflow()">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{'Cancel assignment' | translate}}
-            </button>
-            <button type="button" class="btn btn-success"
-                    ng-click="$ctrl.acceptAssignment()">
-                <!--ng-click="$ctrl.acceptAssignment()">-->
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> {{'Accept assignment' | translate}}
-            </button>
-            <button type="button" class="btn btn-primary" ng-class="{'btn-success': $ctrl.isDelegateButtonActive()}"
-                    ng-disabled="!$ctrl.isDelegateButtonActive()"
-                    ng-click="$ctrl.delegateWorkflow()">
-                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> {{'Delegate assignment' |
-                translate}}
-            </button>
-        </div>
-
     </div>
 </div>
-<!--<pre>{{$ctrl.model | json}}</pre>
-<pre>{{$ctrl.fields | json}}</pre>-->
-

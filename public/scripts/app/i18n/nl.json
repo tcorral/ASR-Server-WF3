@@ -3,7 +3,7 @@
   "Save": "Opslaan",
   "Archive": "Archiveer",
   "Trash": "Prullenbak",
-  "Distribute mail. Accept, Delegate or Cancel job": "Post verdelen. Accepteer, Delegeer of Annuleer de opdracht",
+  "DISTRIBUTE MAIL": "POST VERDELEN",
   "Delegate to person": "Delegeer naar persoon",
   "Search by surname": "Zoek op achternaam",
   "Mailbox": "Postbus",
@@ -44,11 +44,17 @@
   "7 days": "7 Dagen",
   "14 days": "14 Dagen",
   "28 days": "28 Dagen",
-  "Are you sure you want to discard this document?": "Weet u zeker dat u dit document wilt weggooien?",
+  "Are you sure you want to discard this document?": "Weet u zeker dat u dit document en de bijbehorende workflow wilt stoppen en verwijderen?",
   "Are you sure you want to close without saving?": "Weet u zeker dat u wilt afsluiten zonder op te slaan?",
   "Cancel": "Annuleren",
   "Accept": "Accepteren",
   "Workflow is saved": "Workflow is opgeslagen",
   "Workflow is complete, you will be redirected": "Workflow is afgerond, u wordt doorverwezen",
-  "Select a valid": "Selecteer een valide"
+  "Select a valid": "Selecteer een valide",
+  "Assignment is canceled, you will be redirected": "Opdracht is geannuleerd, u wordt doorverwezen",
+  "Workflow is deleted, you will be redirected": "Workflow is verwijderd, u wordt doorverwezen",
+  "Processing Order": "Bewerkingsorder",
+
+  "Workflow Type": "Workflow Type",
+  "Speed": "Spoed"
 }
