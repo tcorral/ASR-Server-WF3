@@ -37,7 +37,7 @@ OpenText also uses another kind of label to add a set of possible datas, this la
 
 ```[LL_LOOP_BEGIN_X_X_X /] .... [LL_LOOP_END_X_X_X /]``` 
 
-* **_X_X_X** on each loop will have a different value, normally each **X** will be a different number.
+* **_X_X_X** on each loop will have a different value, each **X** will be a different number.
 * Everything inside those two labels will be treated as an array item.
 * The field names inside those two labels will not be the final names they will have or require on saving.
 
