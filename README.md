@@ -178,7 +178,7 @@ export default {
 };
 ```
 
-#### Remarkable point about OT Framework
+#### Remarkable points about OT Framework
 
 * Exported items are plain Javascript objects, classes or functions so that moving code from the current framework to a different one could be done very easily.
 * Only one Angular bootstrapping file.
