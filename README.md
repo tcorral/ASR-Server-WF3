@@ -183,7 +183,9 @@ export default {
 * Exported items are plain Javascript objects, classes or functions so that moving code from the current framework to a different one could be done very easily.
 * Only one Angular bootstrapping file.
 * Uses explicit dependency injection to avoid problems on minification and to keep the code isolated of the usage of Angular.
-* Configuration manage how to get and set data from and to OpenText.
+* Configuration manages:
+    * How to get and set data from and to OpenText.
+    * Object ids to be used as specific endpoints.
 
 
 
