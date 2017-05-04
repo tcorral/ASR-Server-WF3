@@ -50,7 +50,7 @@ For instance...
 if there is only one item it will be converted to something like...
 
 ```xml
-<input type="hidden" name="_1_1_6_1_7_1" title="rngDocumentName" value="[LL_FormTag_1_1_6_7_1 /]">
+<input type="hidden" name="_1_1_6_1_7_1" title="rngDocumentName" value="[LL_FormTag_1_1_6_1_7_1 /]">
 ```
 
 ### The frontend requires:
