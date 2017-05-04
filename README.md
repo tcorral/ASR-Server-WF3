@@ -31,7 +31,7 @@ npm start
 ## How OpenText works in the frontend?
 OpenText frameworks generates a basic HTML, with the form on it, but the OpenText style is not very nice and usable for a regular user. OpenText generated form HTML contains a set of labels than on being parsed by OpenText server will be replaced with the correct data.
 
-For instance ```[LL_UserFirstName /]``` will be replaced by ```Tomas`` in my case.
+For instance ```[LL_UserFirstName /]``` will be replaced by ```Tomas``` in my case.
 
 OpenText also uses another kind of label to add a set of possible datas, this label has the following structure.
 
