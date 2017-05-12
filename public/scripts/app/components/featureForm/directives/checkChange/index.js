@@ -6,8 +6,6 @@ export default function () {
 		restrict: 'A',
 		require: ['form'],
 		link: function (scope, element, attrs, ctrls) {
-			scope.$watch.
-			debugger;
 			element.find('input').on('change', function (event) {
 				EventBus.dispatch('form:updated', this, element);
 			});

@@ -4,13 +4,14 @@ import EventBus from 'krasimir/EventBus';
 import Validator from '../validator/index';
 
 class DocumentsFormController {
-    constructor($filter, DocumentsFormService, OTFormService, UserService, validationPatterns, workflowtypeOptions, speedtypeOptions) {
+    constructor($filter, DocumentsFormService, OTFormService, UserService, validationPatterns, followUpOptions) {
         const ctrl = this;
         ctrl.$filter = $filter;
         ctrl.form = null;
         ctrl.documents = [];
         ctrl.OTFormService = OTFormService;
         ctrl.UserService = UserService;
+        ctrl.followUpOptions = followUpOptions;
         ctrl.DocumentsFormService = DocumentsFormService;
         ctrl.status = [];
         ctrl.targetFolderDisabled = [];
@@ -18,8 +19,19 @@ class DocumentsFormController {
         ctrl.validationPatterns = validationPatterns;
         ctrl.fields = [];
         ctrl.fieldOptions = {
-            workflowtypeOptions: workflowtypeOptions,
-            speedtypeOptions: speedtypeOptions
+            workspaceCategoryOptions: [],
+            docTypeGroupOptions: [],
+            businessWorkspaceOptions: [],
+            doctypeSubfolderOptions: [],
+            doctypeOptions: [],
+            followUpOptions: [],
+            showPicker: false
+        };
+        ctrl.names = [];
+        ctrl.nameFields = {
+            docNameDocType: '',
+            docNameTimestamp: new Date().toISOString().substring(0, 10).replace("-", "").replace("-", ""),
+            docName: ''
         };
     }
 
@@ -29,27 +41,33 @@ class DocumentsFormController {
 		
         documents.forEach((document, index) => {
             this.fields.push(angular.copy(this.fieldOptions));
-            //this.populate(index);
+            this.names.push(angular.copy(this.nameFields));
+            this.getWorkspaceCategoriesOptions(index);
+            this.populate(index);
+            this.i18nFollowUpOptions(index);
         });
         
         EventBus.addEventListener('form:delivered', this.setForm, this);
         EventBus.dispatch('form:get');
     }
 
-    // Reviewed
+    getDocTypePattern(document) {
+        var pattern = null;
+        if (this.isFormHidden(document)) {
+            pattern = this.validationPatterns.doctypePattern;
+        }
+        return pattern;
+    }
+
+
     isFormHidden(document) {
-        return this.isCheckboxSelected(document.rngDelete)
+        var result = (this.isCheckboxSelected(document.rngDelete) || this.isCheckboxSelected(document.rngWorkflowType));
+        return result;
     }
 
     populate(index) {
         const document = this.documents[index];
         const ctrl = this;
-        if(!document.rngWorkflowType) {
-            document.rngWorkflowType = this.form['workflowType[' + index + ']'][0].value;
-        }
-        if(!document.rngSpoed) {
-            document.rngSpoed = this.form['speed[' + index + ']'][0].value;
-        }
         ctrl
             .getDocTypeGroupOptions(index, document)
             .then(function () {
@@ -68,7 +86,24 @@ class DocumentsFormController {
                     });
             });
     }
+	
+    getBusinessWorkspaceName(document) {
+        return this
+            .DocumentsFormService
+            .getBusinessWorkspaceName(document)
+            .then((name) => {
+                document.rngBusinessWorkspace.name = name;
+            });
+    }
 
+    extractDocName(index, document) {
+        if (document) {
+            const lenDocumentType = (document.rngDocumenttype && document.rngDocumenttype.length) || 0;
+            const docName = document.rngDocumentName.substr(lenDocumentType + this.names[index].docNameTimestamp.length + 2);
+			this.names[index].docName = docName;
+        }
+		this.extractDocName = function () {};
+    }
 
     fixStartRange(index, document, eventOrValue) {
         let value;
@@ -136,6 +171,48 @@ class DocumentsFormController {
         return this.form && this.form[instanceName] && this.form[instanceName].$dirty;
     }
 
+    getBusinessWorkspacePlaceholder($index) {
+        var placeholder = '';
+        if (this.hasRequiredError('businessWorkspace', $index)) {
+            placeholder = this.$filter('translate')('Select a valid') + ' ' + this.$filter('translate')('Business Workspace');
+        }
+        return placeholder;
+    }
+
+    getBehandelaarPlaceholder($index) {
+        var placeholder = '';
+        if (this.hasBehandelaarRequiredError($index)) {
+            placeholder = this.$filter('translate')('This field is required.');
+        }
+        return placeholder;
+    }
+
+    getFollowUpDatePlaceholder($index) {
+        var placeholder = '';
+        if (this.hasFollowUpdateRequiredError(document, $index)) {
+            placeholder = this.$filter('translate')('This field is required.');
+        }
+        return placeholder;
+    }
+
+    hasFollowUpdateRequiredError(document, $index) {
+        const instanceName = 'followUpDate[' + $index + ']';
+        let result = false;
+        if (this.existInputAndHasBeenModified(name, $index)) {
+            result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required);
+        }
+        return result;
+    }
+
+    getDocumentNamePlaceholder($index) {
+        var placeholder = this.$filter('translate')('Document name');
+        if (this.hasInputError($index, 'docName', 'pattern')) {
+            placeholder = this.$filter('translate')('There are invalid characters');
+        } else if (this.hasInputError($index, 'docName', 'required')) {
+            placeholder = this.$filter('translate')('This field is required.');
+        }
+    }
+
     hasInputError($index, name, errorName) {
         const field = this.form[name + '[' + $index + ']'];
         return (field && field.$error[errorName] && field.$dirty);
@@ -150,6 +227,42 @@ class DocumentsFormController {
         return result;
     }
 
+    hasDocTypeRequiredError(document, $index) {
+        const instanceName = 'documentType[' + $index + ']';
+        let result = false;
+        if (this.existInputAndHasBeenModified(name, $index)) {
+            result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required && document.rngDocumenttype !== '');
+        }
+        return result;
+    }
+
+    hasBehandelaarRequiredError($index) {
+        const instanceName = 'behandelaar[' + $index + ']';
+        let result = false;
+        if (this.existInputAndHasBeenModified(name, $index)) {
+            result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required);
+        }
+        return result;
+    }
+
+    hasFollowUpBinnenRequiredError(document, $index) {
+        const instanceName = 'followUpBinnen[' + $index + ']';
+        let result = false;
+        if (this.existInputAndHasBeenModified(name, $index)) {
+            result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required && document.rngFollowupDays !== '');
+        }
+        return result;
+    }
+
+    hasWorkspaceRequiredError(document, $index) {
+        const instanceName = 'workspaceCategorie[' + $index + ']';
+        let result = false;
+        if (this.existInputAndHasBeenModified(name, $index)) {
+            result = Boolean(this.form[instanceName].$error && this.form[instanceName].$error.required && document.rngSapObject !== '');
+        }
+        return result;
+    }
+
     hasError(name, $index) {
         const instanceName = name + '[' + $index + ']';
         let selectedOption;
@@ -157,7 +270,6 @@ class DocumentsFormController {
         const formInput = this.form[instanceName];
         let result = false;
         if (this.existInputAndHasBeenModified(name, $index)) {
-            if(name === 'docName') { debugger; }
             if (input.nodeName.toLowerCase() === 'select') {
                 selectedOption = input.options[input.selectedIndex];
                 if(selectedOption) {
@@ -184,8 +296,23 @@ class DocumentsFormController {
         return documents.length === 1;
     }
 
+    isDatatypeGroupDisabled(document) {
+        return Boolean(!document.rngSapObject || !this.isBusinessWorkspaceValid(document));
+    }
+
+    isDoctypeDisabled(document) {
+        return Boolean(this.isPatternExclusion(document) || !document.rngDocumenttype);
+    }
+
     isPossibleToAddAnotherRange() {
         return this.DocumentsFormService.isPossibleToAddAnotherRange();
+    }
+
+    i18nFollowUpOptions(index) {
+        this.fields[index].followUpOptions = this.followUpOptions.map((option) => {
+            option.name = this.$filter('translate')(option.name);
+            return option;
+        });
     }
 
     getDocuments() {
@@ -207,6 +334,14 @@ class DocumentsFormController {
         return result;
     }
 
+    setupDocumentType(index, document) {
+        if (document) {
+            this.names[index].docNameDocType = document.rngDocumenttype;
+			this.combineDocNameFields(index, document)
+			return this.getDoctypeSubfolderOptions(index, document);
+        }
+    }
+
     getDocumentNamePatterns() {
         return this
             .DocumentsFormService
@@ -216,9 +351,146 @@ class DocumentsFormController {
             });
     }
 
+    toggleDatePicker(index) {
+        this.fields[index].showPicker = !this.fields[index].showPicker;
+    }
+
+    clearFields(index) {
+        this.fields[index].docTypeGroupOptions = [];
+        this.fields[index].businessWorkspaceOptions = [];
+        this.fields[index].doctypeSubfolderOptions = [];
+        this.fields[index].doctypeOptions = [];
+        this.fields[index].followUpOptions = [];
+        this.fields[index].showPicker = false;
+    }
+
+    clearBusinessWorkspace(index, document) {
+        this
+            .DocumentsFormService
+            .clearBusinessWorkspace(document);
+        this.clearFields(index);
+        this.clearDocName(index);
+		this.combineDocNameFields(index, document);
+		this.clearDescription(document);
+		this.clearDocTypeGroup(index, document);
+		this.clearDocTypeName(index, document);
+		this.clearSubfolderId(index, document);
+    }
+
+    combineDocNameFields(index, document) {
+        if (this.names[index]) {
+			this.extractDocName(index, document);
+            document.rngDocumentName = this.names[index].docNameTimestamp + " " + (this.names[index].docNameDocType || '') + " " + (this.names[index].docName || '');
+        }
+    }
+
+    getWorkspaceCategoriesOptions(index) {
+        return this
+            .DocumentsFormService
+            .getWorkspaceCategoriesOptions()
+            .then((workspaceCategoryOptions) => {
+                this.fields[index].workspaceCategoryOptions = workspaceCategoryOptions;
+            });
+    }
+
+    getBusinessWorkspaceOptions(index, document) {
+        return this
+            .DocumentsFormService
+            .getBusinessWorkspaceOptions(document)
+            .then((businessWorkspaceOptions) => {
+                this.fields[index].businessWorkspaceOptions = businessWorkspaceOptions;
+            });
+    }
+
+    isBusinessWorkspaceValid(document) {
+        return Boolean(document && document.rngBusinessWorkspace && document.rngBusinessWorkspace.name && document.rngBusinessWorkspace.value);
+    }
+
+    getDocumentTypeOptions(index, document) {
+        return this
+            .DocumentsFormService
+            .getDocTypeOptions(document)
+            .then(doctypeOptions => {
+                this.fields[index].doctypeOptions = doctypeOptions;
+            });
+    }
+
+    getDoctypeSubfolderOptions(index, document) {
+        return this
+            .DocumentsFormService
+            .getDoctypeSubfolder(document)
+            .then(subfolderId => {
+                document.rngFolderID = subfolderId;
+				this.targetFolderDisabled[index] = false;
+                this
+                    .DocumentsFormService
+                    .getSubfolderOptions(document)
+                    .then(subfolderOptions => {
+                        this.fields[index].doctypeSubfolderOptions = subfolderOptions;
+                    });
+            });
+    }
+
     isCheckboxSelected(value) {
         value = Number(value);
         return value === 1;
+    }
+
+    isTargetFolderDisabled($index) {
+        if (this.targetFolderDisabled[$index] == null) {
+            return true;
+        } else {
+            return this.targetFolderDisabled[$index];
+        }
+    }
+
+    clearDocName(index) {
+        if (this.names[index]) {
+            this.names[index].docName = '';
+            this.names[index].docNameDocType = '';
+        }
+    }
+	
+	clearDocTypeGroup(index, document) {
+		this.DocumentsFormService.clearDocTypeGroup(document);
+		this.fields[index].docTypeGroupOptions = [];
+	}
+	
+	clearDocTypeName(index, document) {
+		this.DocumentsFormService.clearDocTypeName(document);
+		this.fields[index].doctypeOptions = [];
+	}
+
+	clearSubfolderId(index, document) {
+		this.DocumentsFormService.clearSubfolderId(document);
+		this.fields[index].doctypeSubfolderOptions = [];
+		this.targetFolderDisabled[index] = true;
+	}	
+	
+	clearWorkspaceCategorieDependingData(index, document) {
+		this.form.$setPristine();
+        this.clearFields(index);
+		this.clearBusinessWorkspace(index, document);
+		this.clearDocName(index);
+		this.combineDocNameFields(index, document);
+		this.clearDescription(document);
+		this.clearDocTypeGroup(index, document);
+		this.clearDocTypeName(index, document);
+		this.clearSubfolderId(index, document);
+	}
+
+    clearDescription(document) {
+        document.rngOmschrijving = '';
+    }
+
+    getDocTypeGroupOptions(index, document, clean) {
+		this.fields[index].docTypeGroupOptions = [];
+        return this
+            .DocumentsFormService
+            .getDocTypeGroupOptions(document)
+            .then((docTypeGroupOptions) => {
+				this.fields[index].docTypeGroupOptions = docTypeGroupOptions;
+            });
     }
 
     collapse(index) {
@@ -251,12 +523,17 @@ class DocumentsFormController {
     copyForm(index) {
         this.DocumentsFormService.copyForm(index);
         var copyFieldOptions = angular.copy(this.fields[index]);
+        var copyNameFields = angular.copy(this.names[index]);
         this.fields.splice(index, 0, copyFieldOptions);
+        this.getWorkspaceCategoriesOptions(index);
+        this.names.splice(index, 0, copyNameFields);
     }
 
     addNewForm(index) {
         this.DocumentsFormService.addNewForm(index);
         this.fields.splice(index, 0, angular.copy(this.fieldOptions));
+		this.getWorkspaceCategoriesOptions(index);
+        this.names.splice(index, 0, angular.copy(this.nameFields));
     }
 
     deleteForm(index) {

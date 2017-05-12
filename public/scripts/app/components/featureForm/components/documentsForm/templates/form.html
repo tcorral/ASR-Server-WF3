@@ -49,46 +49,245 @@
                 <span class="form-check-inline col-sm-offset-1 col-sm-3">
                     <input type="checkbox" ng-model="document.rngDelete"
                             name="delete[{{$index}}]" class="form-check-input"
+                            ng-disabled="$ctrl.isDataSetInDocument(document, 'rngWorkflowType')">
                     <label class="form-check-label">{{'Delete' | translate}}</label>
+                </span>
+                <span class="form-check-inline col-sm-3">
+                    <input type="checkbox" ng-model="document.rngWorkflowType" 
+                            name="workflow[{{$index}}]" class="form-check-input"
+                            ng-disabled="$ctrl.isDataSetInDocument(document, 'rngDelete')">
+                    <label class="form-check-label">{{'Invoice' | translate}}</label>
                 </span>
             </div>
         </div>
         <div ng-hide="$ctrl.isFormHidden(document)">
             <div class="m-top-15">
                 <div class="form-horizontal">
-                    <!-- Workflow Type -->
+                    <!-- workspace category -->
                     <div class="form-group" novalidate
-                            ng-class="{'has-error': $ctrl.hasError('workflowType', $index)}">
-                        <label class="col-xs-2 control-label">{{'Workflow Type' | translate}}</label>
+                            ng-class="{'has-error': $ctrl.hasError('workspaceCategorie', $index)}">
+                        <label class="col-xs-2 control-label">{{'Workspace Category' | translate}}*</label>
                         <div class="btn-group col-xs-10">
                             <select class="form-control"
-                                    name="workflowType[{{$index}}]"
-                                    ng-model="document.rngWorkflowType"
-                                    ng-options="item.value as item.name for item in $ctrl.fields[$index].workflowtypeOptions">
+                                    name="workspaceCategorie[{{$index}}]"
+                                    ng-model="document.rngSapObject"
+                                    ng-options="item.value as item.name for item in $ctrl.fields[$index].workspaceCategoryOptions"
+                                    ng-change="$ctrl.clearWorkspaceCategorieDependingData($index, document)"
+                                    ng-required="!$ctrl.isFormHidden(document)">
+                                    <option class="tex-danger" ng-if="$ctrl.hasWorkspaceRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Workspace Category' | translate}}</option>
                             </select>
                         </div>
                     </div>
-                    <!-- speed -->
+                    <!-- business-workspace -->
                     <div novalidate class="form-group"
-                            ng-class="{'has-error': $ctrl.hasError('speed', $index)}"
+                            ng-class="{'has-error': $ctrl.hasError('businessWorkspace', $index)}"
                             novalidate>
-                        <label class="col-xs-2 control-label">{{'Speed' | translate}}</label>
+                        <label class="col-xs-2 control-label">{{'Business Workspace' | translate}}*</label>
                         <div class="col-sm-10"
                                 novalidate
-                                ng-class="{'has-error': $ctrl.hasError('speed', $index)}">
+                                ng-class="{'has-error': $ctrl.hasError('businessWorkspace', $index)}">
+                            <input type="text"
+                                    ng-show="!$ctrl.isBusinessWorkspaceValid(document)"
+                                    name="businessWorkspace[{{$index}}]"
+                                    ng-model="document.rngBusinessWorkspace"
+                                    uib-typeahead="item as item.name for item in $ctrl.fields[$index].businessWorkspaceOptions"
+                                    class="form-control"
+                                    ng-class="{'has-error': $ctrl.hasError('businessWorkspace', $index)}"
+                                    placeholder="{{$ctrl.getBusinessWorkspacePlaceholder($index)}}"
+                                    ng-keyup="$ctrl.getBusinessWorkspaceOptions($index, document)"
+                                    ng-disabled="!$ctrl.isDataSetInDocument(document, 'rngSapObject')"
+                                    ng-required="!$ctrl.isFormHidden(document)"
+									ng-change="$ctrl.getDocTypeGroupOptions($index, document, true)">
+                        </div>
+                        <div ng-if="$ctrl.isBusinessWorkspaceValid(document)">
+                            <div class="col-sm-9" novalidate>
+                                <div name="SelectedBusinessWorkspace[{{$index}}]"
+                                        class="form-control"
+                                        disabled>
+                                    {{ document.rngBusinessWorkspace.name }}
+                                </div>
+                            </div>
+                            <button
+                                    type="button"
+                                    ng-click="$ctrl.clearBusinessWorkspace($index, document)"
+                                    class="btn btn-warning">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- doc type group -->
+                    <div class="form-group"
+                            novalidate
+                            ng-class="{'has-error': $ctrl.hasError('docTypeGroup', $index)}">
+                        <label class="col-xs-2 control-label">{{'Document type group' | translate}}*</label>
+                        <div class="btn-group col-xs-10">
                             <select
-                                class="form-control"
-                                name="speed[{{$index}}]"
-                                ng-model="document.rngSpoed"
-                                ng-options="item.value as item.name for item in $ctrl.fields[$index].speedtypeOptions">
+                                    class="form-control"
+                                    name="docTypeGroup[{{$index}}]"
+                                    ng-model="document.rngDocumenttypeGroep"
+                                    ng-options="item.value as item.name for item in $ctrl.fields[$index].docTypeGroupOptions"
+                                    ng-disabled="$ctrl.isDatatypeGroupDisabled(document)"
+                                    ng-change="$ctrl.getDocumentTypeOptions($index, document);$ctrl.setupDocumentType($index, document)"
+                                    ng-required="!$ctrl.isFormHidden(document)">
+                                    <option class="text-danger" ng-if="$ctrl.hasRequiredError('docTypeGroup', $index)" value="">{{ 'Select a valid'  | translate}} {{'Document type group' | translate}}</option>
                             </select>
                         </div>
                     </div>
-                    <!-- document name -->
+                    <!-- doc type -->
+                    <div class="form-group" novalidate
+                            ng-class="{'has-error': $ctrl.hasError('documentType', $index) }">
+                        <label class="col-xs-2 control-label">{{'Document Type' | translate}}*</label>
+                        <div class="btn-group col-xs-10">
+                            <select
+                                    class="form-control"
+                                    name="documentType[{{$index}}]"
+                                    ng-model="document.rngDocumenttype"
+                                    ng-options="item.value as item.name for item in $ctrl.fields[$index].doctypeOptions"
+                                    ng-disabled="!$ctrl.isDataSetInDocument(document, 'rngDocumenttypeGroep')"
+                                    ng-change="$ctrl.setupDocumentType($index, document)"
+                                    ng-required="!$ctrl.isFormHidden(document)">
+                                    <option class="text-danger" ng-if="$ctrl.hasDocTypeRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Document Type' | translate}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Target folder -->
+                    <div class="form-group" novalidate
+                            ng-class="{'has-error': $ctrl.hasError('documentType', $index) }">
+                        <label class="col-xs-2 control-label">{{'Target folder' | translate}}*</label>
+                        <div class="btn-group col-xs-10">
+                            <select
+                                    class="form-control"
+                                    name="targetFolder[{{$index}}]"
+                                    ng-model="document.rngFolderID"
+                                    ng-options="item.value as item.name for item in $ctrl.fields[$index].doctypeSubfolderOptions"
+                                    ng-disabled="$ctrl.isTargetFolderDisabled($index)">
+                                    <option class="text-danger" ng-if="$ctrl.hasDocTypeRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Target folder' | translate}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" novalidate>
+                        <label class="col-xs-2 control-label">{{'Document name' | translate}}</label>
+                        <div class="dn-group"><span class="dn-date"
+                                    ng-class="{'has-error': $ctrl.hasError('docNameTimestamp', $index)}">
+                                <div class="document-naam-input"></div>
+                                <input type="text"
+                                        name="docNameTimestamp[{{$index}}]"this.names[index].docNameTimestamp
+                                        ng-model="$ctrl.names[$index].docNameTimestamp"
+                                        ng-disabled="!$ctrl.isDataSetInDocument(document, 'rngDocumenttype')"
+                                        class="form-control dn-input"
+                                        placeholder="JJJJMMDD"
+                                        ng-change="$ctrl.combineDocNameFields($index, document)"
+                                        ng-pattern="$ctrl.validationPatterns.timestampPattern"
+                                        ng-required="!$ctrl.isFormHidden(document)">
+                            </span>
+                            <span class="dn-doctype"
+                                    ng-class="{'has-error': $ctrl.hasError('docNameDocType', $index)}">
+                                <div class="document-naam-input"></div>
+                                <input type="text"
+                                        name="docNameDocType[{{$index}}]"
+                                        ng-model="$ctrl.names[$index].docNameDocType"
+                                        ng-disabled="$ctrl.isDoctypeDisabled(document)"
+                                        class="form-control dn-input"
+                                        placeholder="{{ 'Document Type' | translate}}"
+                                        ng-change="$ctrl.combineDocNameFields($index, document)"
+                                        ng-required="!$ctrl.isFormHidden(document)">
+                            </span>
+                            <span class="dn-name"
+                                    ng-class="{'has-error': $ctrl.hasError('docName', $index)}">
+                                <div class="document-naam-input"></div>
+                                <input type="text"
+                                        name="docName[{{$index}}]"
+                                        ng-disabled="!$ctrl.isDataSetInDocument(document, 'rngDocumenttype')"
+                                        ng-model="$ctrl.names[$index].docName"
+                                        ng-pattern="$ctrl.validationPatterns.docnamePattern"
+                                        class="form-control dn-name"
+                                        placeholder="{{$ctrl.getDocumentNamePlaceholder($index)}}"
+                                        ng-change="$ctrl.combineDocNameFields($index, document)"
+                                        ng-required="!$ctrl.isFormHidden(document)">
+                            </span>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label class="col-xs-2 control-label">{{'Document name' | translate}}:</label>
+                        <label class="col-xs-2 control-label">{{'Result' | translate}}:</label>
                         <div class="col-sm-10">
                             <div class="form-control" disabled>{{ document.rngDocumentName }}</div>
+                        </div>
+                    </div>
+                    <div class="form-group" novalidate>
+                        <label class="col-xs-2 control-label">{{'Description' | translate}}</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="beschrijving[{{$index}}]" ng-model="document.rngOmschrijving"
+                                    class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group" novalidate>
+                        <label class="col-xs-2 control-label form-check-label">{{'Follow up' | translate}}</label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" name="followUp[{{$index}}]" class="form-check-input" ng-model="document.followUp">
+                        </div>
+                    </div>
+                    <div ng-if="$ctrl.isCheckboxSelected(document.followUp)">
+                        <div class="form-group" novalidate>
+                            <label class="col-xs-2 control-label">{{'Treating' | translate}}*</label>
+                            <div class="col-sm-10"
+                                    ng-class="{'has-error': $ctrl.hasError('behandelaar', $index)}">
+                                <input type="text"
+                                        name="behandelaar[{{$index}}]"
+                                        ng-model="document.rngBehandelaarID"
+                                        class="form-control"
+                                        ng-required="!$ctrl.isFormHidden(document)"
+                                        uib-typeahead="item as item.name for item in $ctrl.findUser($viewValue)"
+                                        placeholder="{{$ctrl.getBehandelaarPlaceholder($index)}}"
+                                        ng-pattern="$ctrl.validationPatterns.behandelaarPattern">
+                            </div>
+                        </div>
+                        <div class="form-group"
+                                ng-class="{'has-error': $ctrl.hasError('followUpDate', $index)}"
+                                novalidate>
+                            <label class="col-xs-2 control-label">{{'Follow up date' | translate}}*</label>
+                            <div class=" col-xs-10">
+                                <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default"
+                                            ng-click="$ctrl.toggleDatePicker($index)">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                                    <input type="text"
+                                            name="followUpDate[{{$index}}]"
+                                            class="form-control"
+                                            uib-datepicker-popup="dd-MM-yyyy"
+                                            ng-model="document.rngFollowUpDate"
+                                            is-open="$ctrl.fields[$index].showPicker"
+                                            ng-required="document.followUp"
+                                            close-text="Sluiten"
+                                            current-text="Vandaag"
+                                            clear-text="Leeg"
+                                            ng-click="$ctrl.toggleDatePicker($index)"
+                                            popup-placement="top-left"
+                                            format="dd-MM-yyyy"
+                                            placeholder="{{$ctrl.getFollowUpDatePlaceholder($index)}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                                ng-class="{'has-error': $ctrl.hasError('followUpBinnen', $index)}"
+                                novalidate>
+                            <label class="col-xs-2 control-label">{{'Follow up reminder' | translate}}*</label>
+                            <div class="btn-group col-xs-10">
+                                <select class="form-control" ng-model="document.rngFollowupDays"
+                                        ng-options="item.value as item.name for item in $ctrl.fields[$index].followUpOptions"
+                                        ng-required="document.followUp">
+                                        <option class="tex-danger" ng-if="$ctrl.hasFollowUpBinnenRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Follow up reminder' | translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" novalidate>
+                            <label class="col-xs-2 control-label">{{'Follow up description' | translate}}</label>
+                            <div class="col-sm-10">
+                                <input type="text" ng-model="document.rngFolluwpDescription" class="form-control">
+                            </div>
                         </div>
                     </div>
                 </div>

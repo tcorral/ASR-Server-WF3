@@ -2,9 +2,7 @@ import DocumentsFormController from './controllers/DocumentsFormController';
 import DocumentsFormService from './services/DocumentsFormService';
 import template from './templates/form.html!text';
 
-console.log(template);
-
-DocumentsFormController.$inject = ['$filter', 'DocumentsFormService', 'OTFormService', 'UserService', 'validationPatterns', 'workflowtypeOptions', 'speedtypeOptions'];
+DocumentsFormController.$inject = ['$filter', 'DocumentsFormService', 'OTFormService', 'UserService', 'validationPatterns', 'followUpOptions'];
 DocumentsFormService.$inject = ['OTFormService', '$q', '$http', 'configEnv', 'SessionService', 'UnselectedPagesService'];
 
 export default {

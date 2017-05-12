@@ -47,8 +47,6 @@ class OTFormService {
                 input = document.querySelector('[title="' + key + '"]') || document.querySelector('[name="' + key + '"]');
                 if(input) {
                     this.data[key] = simpleMapping[key](input);
-                } else {
-                    console.log('single:', key);
                 }
             }
         }
@@ -61,8 +59,6 @@ class OTFormService {
                     input = (document.querySelectorAll('[title="' + key + '"]') || document.querySelectorAll('[name="' + key + '"]'))[i];
                     if(input) {
                         this.data.loops[i][key] = repeatMapping[key](input, i);
-                    } else {
-                        console.log('loop:', key);
                     }
                 }
             }
@@ -135,7 +131,7 @@ class OTFormService {
                         });
                         value = this.data.loops[i][key];
                         if (typeof loopMapping[key] === 'function') {
-							newValue = loopMapping[key](value, item, i);
+							newValue = loopMapping[key](value, item, i, lenRepeatedItems);
 							if(newValue === '[object OTDate]') {
 								value = Utils.getOTDateFormat(value, this.$filter, this.config);
 							} else {

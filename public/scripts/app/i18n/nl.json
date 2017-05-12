@@ -53,8 +53,5 @@
   "Select a valid": "Selecteer een valide",
   "Assignment is canceled, you will be redirected": "Opdracht is geannuleerd, u wordt doorverwezen",
   "Workflow is deleted, you will be redirected": "Workflow is verwijderd, u wordt doorverwezen",
-  "Processing Order": "Bewerkingsorder",
-
-  "Workflow Type": "Workflow Type",
-  "Speed": "Spoed"
+  "Processing Order": "Bewerkingsorder"
 }

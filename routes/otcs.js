@@ -26,7 +26,7 @@ router.get('/llisapi.dll', function(req, res, next) {
         }
         res.json(json);
     } else {
-        res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+        res.sendFile(path.join(__dirname, '..', 'public', 'index2.html'));
     }
     
 });

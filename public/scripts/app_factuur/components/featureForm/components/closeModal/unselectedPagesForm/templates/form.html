@@ -1,0 +1,39 @@
+<div class="panel panel-primary ng-cloak">
+    <div class="panel-heading">{{"NOT NAMED PAGES" | translate}}</div>
+    <div class="panel-body grey-background">
+        <form>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">{{"Unnamed pages" | translate}}</label>
+                    <div class="col-sm-10">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button
+                                    type="button"
+                                    disabled
+                                    class="btn btn-warning btn-sm btn-page"
+                                    ng-repeat="page in $ctrl.getUnselectedPages() | limitTo: $ctrl.limit"
+                                    ng-click="">
+                                {{page}}
+                            </button>
+                            <button
+                                    type="button"
+                                    disabled
+                                    class="btn btn-warning btn-sm btn-page"
+                                    ng-if="$ctrl.hasMoreUnselectedPagesThanLimit()">
+                                ...
+                            </button>
+                        </div>
+                        <button
+                                ng-cloak
+                                type="button"
+                                disabled
+                                class="btn btn-success btn-md disabled"
+                                ng-if="$ctrl.hasNoUnselectedPages()">
+                            {{"All pages are named" | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

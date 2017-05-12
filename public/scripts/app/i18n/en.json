@@ -53,8 +53,5 @@
   "Select a valid": "Select a valid",
   "Assignment is canceled, you will be redirected": "Assignment is canceled, you will be redirected",
   "Workflow is deleted, you will be redirected": "Workflow is deleted, you will be redirected",
-  "Processing Order": "Processing Order",
-
-  "Workflow Type": "Workflow Type",
-  "Speed": "Speed"
+  "Processing Order": "Processing Order"
 }
