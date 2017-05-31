@@ -15,7 +15,6 @@
         </div>
     </div>
     <div class="panel-body grey-background" ng-hide="$ctrl.isCollapsed($index)">
-        <!--=== {{$ctrl.isFormHidden(document)}} ===-->
         <div class="row">
             <div>
                 <span class="form-group">
@@ -49,12 +48,14 @@
                 <span class="form-check-inline col-sm-offset-1 col-sm-3">
                     <input type="checkbox" ng-model="document.rngDelete"
                             name="delete[{{$index}}]" class="form-check-input"
+                            ng-click="$ctrl.onSelectingDisruptiveCheckbox($index, document)"
                             ng-disabled="$ctrl.isDataSetInDocument(document, 'rngWorkflowType')">
                     <label class="form-check-label">{{'Delete' | translate}}</label>
                 </span>
                 <span class="form-check-inline col-sm-3">
                     <input type="checkbox" ng-model="document.rngWorkflowType" 
                             name="workflow[{{$index}}]" class="form-check-input"
+                            ng-click="$ctrl.onSelectingDisruptiveCheckbox($index, document)"
                             ng-disabled="$ctrl.isDataSetInDocument(document, 'rngDelete')">
                     <label class="form-check-label">{{'Invoice' | translate}}</label>
                 </span>
@@ -85,19 +86,20 @@
                         <label class="col-xs-2 control-label">{{'Business Workspace' | translate}}*</label>
                         <div class="col-sm-10"
                                 novalidate
+                                ng-if="!$ctrl.isBusinessWorkspaceValid(document)"
                                 ng-class="{'has-error': $ctrl.hasError('businessWorkspace', $index)}">
                             <input type="text"
                                     ng-show="!$ctrl.isBusinessWorkspaceValid(document)"
                                     name="businessWorkspace[{{$index}}]"
                                     ng-model="document.rngBusinessWorkspace"
-                                    uib-typeahead="item as item.name for item in $ctrl.fields[$index].businessWorkspaceOptions"
+                                    uib-typeahead="item as item.name for item in $ctrl.getBusinessWorkspaceOptions(index, document, $viewValue)"
                                     class="form-control"
                                     ng-class="{'has-error': $ctrl.hasError('businessWorkspace', $index)}"
                                     placeholder="{{$ctrl.getBusinessWorkspacePlaceholder($index)}}"
-                                    ng-keyup="$ctrl.getBusinessWorkspaceOptions($index, document)"
                                     ng-disabled="!$ctrl.isDataSetInDocument(document, 'rngSapObject')"
                                     ng-required="!$ctrl.isFormHidden(document)"
-									ng-change="$ctrl.getDocTypeGroupOptions($index, document, true)">
+									ng-change="$ctrl.getDocTypeGroupOptions($index, document, true)"
+                                    autocomplete="off">
                         </div>
                         <div ng-if="$ctrl.isBusinessWorkspaceValid(document)">
                             <div class="col-sm-9" novalidate>
@@ -160,7 +162,8 @@
                                     name="targetFolder[{{$index}}]"
                                     ng-model="document.rngFolderID"
                                     ng-options="item.value as item.name for item in $ctrl.fields[$index].doctypeSubfolderOptions"
-                                    ng-disabled="$ctrl.isTargetFolderDisabled($index)">
+                                    ng-disabled="$ctrl.isTargetFolderDisabled($index)"
+                                    ng-required="!$ctrl.isFormHidden(document)">
                                     <option class="text-danger" ng-if="$ctrl.hasDocTypeRequiredError(document, $index)" value="">{{ 'Select a valid'  | translate}} {{'Target folder' | translate}}</option>
                             </select>
                         </div>
@@ -193,7 +196,7 @@
                                         ng-change="$ctrl.combineDocNameFields($index, document)"
                                         ng-required="!$ctrl.isFormHidden(document)">
                             </span>
-                            <span class="dn-name"
+                            <span class="dn-name"c
                                     ng-class="{'has-error': $ctrl.hasError('docName', $index)}">
                                 <div class="document-naam-input"></div>
                                 <input type="text"
@@ -204,7 +207,7 @@
                                         class="form-control dn-name"
                                         placeholder="{{$ctrl.getDocumentNamePlaceholder($index)}}"
                                         ng-change="$ctrl.combineDocNameFields($index, document)"
-                                        ng-required="!$ctrl.isFormHidden(document)">
+                                        autocomplete="off">
                             </span>
                         </div>
                     </div>
@@ -218,7 +221,7 @@
                         <label class="col-xs-2 control-label">{{'Description' | translate}}</label>
                         <div class="col-sm-10">
                             <input type="text" name="beschrijving[{{$index}}]" ng-model="document.rngOmschrijving"
-                                    class="form-control">
+                                    class="form-control" autocomplete="off">
                         </div>
                     </div>
                     <div class="form-group" novalidate>
@@ -239,7 +242,8 @@
                                         ng-required="!$ctrl.isFormHidden(document)"
                                         uib-typeahead="item as item.name for item in $ctrl.findUser($viewValue)"
                                         placeholder="{{$ctrl.getBehandelaarPlaceholder($index)}}"
-                                        ng-pattern="$ctrl.validationPatterns.behandelaarPattern">
+                                        ng-pattern="$ctrl.validationPatterns.behandelaarPattern"
+                                        autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group"
@@ -267,7 +271,8 @@
                                             ng-click="$ctrl.toggleDatePicker($index)"
                                             popup-placement="top-left"
                                             format="dd-MM-yyyy"
-                                            placeholder="{{$ctrl.getFollowUpDatePlaceholder($index)}}">
+                                            placeholder="{{$ctrl.getFollowUpDatePlaceholder($index)}}"
+                                            autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -286,7 +291,7 @@
                         <div class="form-group" novalidate>
                             <label class="col-xs-2 control-label">{{'Follow up description' | translate}}</label>
                             <div class="col-sm-10">
-                                <input type="text" ng-model="document.rngFolluwpDescription" class="form-control">
+                                <input type="text" ng-model="document.rngFolluwpDescription" class="form-control" autocomplete="off">
                             </div>
                         </div>
                     </div>

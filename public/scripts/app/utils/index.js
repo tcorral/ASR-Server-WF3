@@ -1,5 +1,3 @@
-import constants from '../constants/index';
-
 const utils = {
     getClearObjectData(obj) {
         let item;

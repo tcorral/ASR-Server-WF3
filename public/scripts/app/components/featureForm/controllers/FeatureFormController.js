@@ -7,10 +7,15 @@ class FeatureFormController {
         ctrl.lastButon = null;
         ctrl.dataHasBeenChanged = false;
         ctrl.maxPages = 0;
+        ctrl.unselectedRanges = [];
         ctrl.$scope = $scope;
         ctrl.$filter = $filter;
         ctrl.$window = $window;
         ctrl.ngToast = ngToast;
+        ctrl.warning = {
+            display: false,
+            text: ''
+        };
         ctrl.FeatureFormService = FeatureFormService;
     }
 
@@ -20,6 +25,9 @@ class FeatureFormController {
         });
         EventBus.addEventListener('assignment:accepted', () => {
             this.display = true;
+        });
+        EventBus.addEventListener('show:warning', (warning) => {
+            this.warning = warning.target;
         });
         this.$scope.$watch((scope) => { 
             var form = this.featureForm;
@@ -44,16 +52,17 @@ class FeatureFormController {
     }
 
     isFormDataValid() {
-        var form = this.featureForm;
-        var result = false;
-        if(form) {
-            result = this.featureForm.$valid;
-        }
-        return result;
+        const form = this.featureForm;
+        this.getUnselectedRanges();
+        return form && form.$valid && this.unselectedRanges.length === 0;;
     }
 
     openCloseModal(type) {
-        EventBus.dispatch('modal:close:open', type);
+        if(type === 'close' && !this.dataHasBeenChanged) {
+            EventBus.dispatch('workflow:closed');
+        } else {
+            EventBus.dispatch('modal:close:open', type);
+        }
     }
 
     saveForm($event) {
@@ -69,8 +78,17 @@ class FeatureFormController {
             });
     }
 
+    getUnselectedRanges() {
+        EventBus.addEventListener('unselected:get', (event) => {
+            this.unselectedRanges = event.target;
+        });
+        EventBus.dispatch('unselected:request');
+    }
+
     validateOrSaveAndFinish($event) {
-        if(this.featureForm.$valid) {
+        this.getUnselectedRanges();
+        const ranges = this.unselectedRanges;
+        if(this.featureForm.$valid && ranges.length === 0) {
             this.activateProgress($event);
             this
                 .FeatureFormService

@@ -19,11 +19,14 @@
       "baseURL": "public"
     },
     "dependencies": {
+      "HubSpot/pace": "github:HubSpot/pace@^1.0.2",
+      "Valve/fingerprintjs2": "github:Valve/fingerprintjs2@^1.5.1",
       "angular": "github:angular/bower-angular@^1.6.4",
       "angular-bootstrap": "github:angular-ui/bootstrap-bower@^2.5.0",
       "angular-sanitize": "github:angular/bower-angular-sanitize@^1.6.4",
       "angular-translate": "github:angular-translate/bower-angular-translate@^2.15.1",
       "bootstrap": "bower:bootstrap@^3.3.7",
+      "js-cookie": "github:js-cookie/js-cookie@^2.1.4",
       "json": "github:systemjs/plugin-json@^0.3.0",
       "krasimir/EventBus": "github:krasimir/EventBus@master",
       "mozilla/pdfjs-dist": "github:mozilla/pdfjs-dist@^1.8.173",

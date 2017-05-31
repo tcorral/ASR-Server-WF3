@@ -82,5 +82,8 @@
   "github:angular-translate/bower-angular-translate@2.15.1": {
     "angular": "jspm:angular@^1.2.26"
   },
-  "github:systemjs/plugin-json@0.3.0": {}
+  "github:systemjs/plugin-json@0.3.0": {},
+  "github:js-cookie/js-cookie@2.1.4": {},
+  "github:HubSpot/pace@1.0.2": {},
+  "github:Valve/fingerprintjs2@1.5.1": {}
 }

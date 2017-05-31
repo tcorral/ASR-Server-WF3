@@ -18,6 +18,7 @@ router.get('/llisapi.dll', function(req, res, next) {
                 json = require(path.join(jsonMocksPath, query.objId + '.json'));
             }
         } else if(query.filter2 && query.objId !== "113690") {
+            console.log('ein');
             json = require(path.join(jsonMocksPath, query.filter2 + '.json'));
         } else if(query.workid) {
             json = require(path.join(jsonMocksPath, query.workid + '.json'));

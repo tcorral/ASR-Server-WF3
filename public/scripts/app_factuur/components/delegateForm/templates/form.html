@@ -19,7 +19,7 @@
                                placeholder="{{'Zoek op achternaam' | translate}}"
                                ng-model="$ctrl.model.delegate"
                                uib-typeahead="item as item.name for item in $ctrl.findUser($viewValue)"
-                               ng-disabled="$ctrl.model.mailbox.value">
+                               ng-disabled="$ctrl.model.mailbox">
                     </div>
                 </div>
             </div>
@@ -29,9 +29,11 @@
                     <div class="col-sm-10">
                         <select class="form-control"
                                 ng-model="$ctrl.model.mailbox"
-                                ng-change="$ctrl.getPracticionersGroup($ctrl.model.mailbox.value)"
-                                ng-options="item as item.name for item in $ctrl.fields.mailbox"
-                                ng-disabled="$ctrl.model.delegate.value"></select>
+                                ng-change="$ctrl.getPracticionersGroup($ctrl.model.mailbox)"
+                                ng-disabled="$ctrl.model.delegate.value">
+                            <option value=""></option>
+                            <option ng-repeat="item in $ctrl.fields.mailbox" value="{{item.value}}">{{item.name}}</option>      
+                        </select>
                     </div>
                 </div>
             </div>
@@ -41,10 +43,12 @@
                     <div class="col-sm-10">
                         <select class="form-control"
                                 ng-model="$ctrl.model.practitionersGroup"
-                                ng-options="item as item.name for item in $ctrl.fields.practitionersGroup"
                                 ng-disabled="!$ctrl.fields.mailbox ||
                                               $ctrl.fields.mailbox.length === 0 ||
-                                              $ctrl.model.delegate.value"></select>
+                                              $ctrl.model.delegate.value">
+                            <option value=""></option>
+                            <option ng-repeat="item in $ctrl.fields.practitionersGroup" value="{{item.value}}">{{item.name}}</option>    
+                        </select>
                     </div>
                 </div>
             </div>

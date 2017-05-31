@@ -131,7 +131,7 @@ class OTFormService {
                         });
                         value = this.data.loops[i][key];
                         if (typeof loopMapping[key] === 'function') {
-							newValue = loopMapping[key](value, item, i);
+							newValue = loopMapping[key](value, item, i, lenRepeatedItems);
 							if(newValue === '[object OTDate]') {
 								value = Utils.getOTDateFormat(value, this.$filter, this.config);
 							} else {

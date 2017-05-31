@@ -39,7 +39,7 @@
   "Result": "Result",
   "There are invalid characters": "There are invalid characters",
   "Document name": "Document name",
-  "Your session has expired. Reload the page to continue please": "Your session has expired. Reload the page to continue please",
+  "Your session has expired. Reload the page to continue please (F5)": "Your session has expired. Reload the page to continue please (F5)",
   "Direct": "Direct",
   "7 days": "7 days",
   "14 days": "14 days",
@@ -54,7 +54,5 @@
   "Assignment is canceled, you will be redirected": "Assignment is canceled, you will be redirected",
   "Workflow is deleted, you will be redirected": "Workflow is deleted, you will be redirected",
   "Processing Order": "Processing Order",
-
-  "Workflow Type": "Workflow Type",
-  "Speed": "Speed"
+  "Target folder": "Target folder"
 }

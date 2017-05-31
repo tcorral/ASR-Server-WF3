@@ -136,7 +136,7 @@ class DocumentsFormService {
                                 for (let i = 0; i < response.data.myRows.length; i++) {
                                     subfolderOptions.push({
                                         name:  response.data.myRows[i].Path,
-                                        value:  response.data.myRows[i].DataID
+                                        value:  String(response.data.myRows[i].DataID)
                                     })
                                 }
                             }
@@ -309,61 +309,48 @@ class DocumentsFormService {
     }
 
     copyForm(index) {
+        var deferred = this.$q.defer();
         this
             .UnselectedPagesService
             .getPDFPages()
             .then(pages => {
-                let promise;
                 const unselectedPages = this.UnselectedPagesService.getUnselectedPages(pages);
                 if(unselectedPages.length) {
                     const documents = this.getDocuments();
-                    const document = angular.copy(documents[index]);
-                    documents.splice(index, 0, document);
-                    promise = this
-                                .UnselectedPagesService
-                                .getPDFPages()
-                                .then(pages => {
-                                    document.rngRange.rangeStart = this.getValidStartRange(pages, 0);
-                                    document.rngRange.rangeEnd = this.getValidEndRange(pages, Number.MAX_SAFE_INTEGER);
-                                    return document;
-                                });
+                    const newDocument = angular.copy(documents[index]);
+                    documents.splice(index, 0, newDocument);
+                    if(!newDocument.rngRange) {
+                        newDocument.rngRange = {};
+                    }
+                    newDocument.rngRange.rangeStart = this.getValidStartRange(pages, 0);
+                    newDocument.rngRange.rangeEnd = this.getValidEndRange(pages, Number.MAX_SAFE_INTEGER);
+                    deferred.resolve(newDocument);
                 } else {
-                    const deferred = this.$q.defer();
                     deferred.resolve(null);
-                    promise = deferred.promise;
                 }
-                return promise;
             });
+        return deferred.promise;
     }
 
     addNewForm(index) {
+        var deferred = this.$q.defer();
         this
             .UnselectedPagesService
             .getPDFPages()
             .then(pages => {
-                let promise;
                 const unselectedPages = this.UnselectedPagesService.getUnselectedPages(pages);
                 if(unselectedPages.length) {
                     const documents = this.getDocuments();
                     const newDocument = this.OTFormService.getNewItem();
                     documents.splice(index, 0, newDocument);
-                    promise = this
-                                .UnselectedPagesService
-                                .getPDFPages()
-                                .then(pages => {
-                                    newDocument.rngRange.rangeStart = this.getValidStartRange(pages, 0);
-                                    newDocument.rngRange.rangeEnd = this.getValidEndRange(pages, Number.MAX_SAFE_INTEGER);
-                                    return newDocument;
-                                });
+                    newDocument.rngRange.rangeStart = this.getValidStartRange(pages, 0);
+                    newDocument.rngRange.rangeEnd = this.getValidEndRange(pages, Number.MAX_SAFE_INTEGER);
+                    deferred.resolve(newDocument);
                 } else {
-                    const deferred = this.$q.defer();
                     deferred.resolve(null);
-                    promise = deferred.promise;
                 }
-                return promise;
             });
-        
-        
+        return deferred.promise;
     }
 
     deleteForm(index) {

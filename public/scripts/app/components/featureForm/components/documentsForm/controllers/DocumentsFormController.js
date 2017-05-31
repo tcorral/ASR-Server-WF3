@@ -4,9 +4,10 @@ import EventBus from 'krasimir/EventBus';
 import Validator from '../validator/index';
 
 class DocumentsFormController {
-    constructor($filter, DocumentsFormService, OTFormService, UserService, validationPatterns, followUpOptions) {
+    constructor($scope, $filter, DocumentsFormService, OTFormService, UserService, validationPatterns, followUpOptions) {
         const ctrl = this;
         ctrl.$filter = $filter;
+        ctrl.$scope = $scope;
         ctrl.form = null;
         ctrl.documents = [];
         ctrl.OTFormService = OTFormService;
@@ -24,7 +25,7 @@ class DocumentsFormController {
             businessWorkspaceOptions: [],
             doctypeSubfolderOptions: [],
             doctypeOptions: [],
-            followUpOptions: [],
+            followUpOptions: followUpOptions,
             showPicker: false
         };
         ctrl.names = [];
@@ -36,18 +37,23 @@ class DocumentsFormController {
     }
 
     $onInit() {
-        const documents = this.documents = this.getDocuments();
-		this.getDocumentNamePatterns();
+        const ctrl = this;
+        const documents = ctrl.documents = ctrl.getDocuments();
+        ctrl.fieldOptions.followUpOptions = ctrl.followUpOptions.map((option) => {
+            option.name = ctrl.$filter('translate')(option.name);
+            return option;
+        });
+		ctrl.getDocumentNamePatterns();
 		
         documents.forEach((document, index) => {
-            this.fields.push(angular.copy(this.fieldOptions));
-            this.names.push(angular.copy(this.nameFields));
-            this.getWorkspaceCategoriesOptions(index);
-            this.populate(index);
-            this.i18nFollowUpOptions(index);
+            ctrl.fields.push(angular.copy(ctrl.fieldOptions));
+            ctrl.names.push(angular.copy(ctrl.nameFields));
+            ctrl.targetFolderDisabled.push(true);
+            ctrl.getWorkspaceCategoriesOptions(index);
+            ctrl.populate(index);
         });
         
-        EventBus.addEventListener('form:delivered', this.setForm, this);
+        EventBus.addEventListener('form:delivered', ctrl.setForm, ctrl);
         EventBus.dispatch('form:get');
     }
 
@@ -58,7 +64,6 @@ class DocumentsFormController {
         }
         return pattern;
     }
-
 
     isFormHidden(document) {
         var result = (this.isCheckboxSelected(document.rngDelete) || this.isCheckboxSelected(document.rngWorkflowType));
@@ -80,7 +85,11 @@ class DocumentsFormController {
                                 ctrl
                                 .setupDocumentType(index, document)
                                 .then(function () {
-                                    ctrl.combineDocNameFields(index, document);
+                                    ctrl
+                                    .getDoctypeSubfolderOptions(index, document)
+                                    .then(function () {
+                                        ctrl.combineDocNameFields(index, document);
+                                    });
                                 })
                             })
                     });
@@ -96,13 +105,43 @@ class DocumentsFormController {
             });
     }
 
+    fixNameData(index, document) {
+        const ctrl = this;
+        ctrl.extractDocName(index, document);
+        if(!ctrl.names[index].docNameDocType) {
+            ctrl.names[index].docNameDocType = ctrl.fields[index].workflowtypeOptions[0].value;
+        }
+        this.setDocumentName(document, index);
+    }
+
+    setDocumentName(document, index) {
+        const item = this.names[index];
+        document.rngDocumentName = (item.docNameTimestamp || '') + '-' + (item.docNameDocType || '') + '-' + (item.docName || '');
+    }
+
     extractDocName(index, document) {
         if (document) {
-            const lenDocumentType = (document.rngDocumenttype && document.rngDocumenttype.length) || 0;
-            const docName = document.rngDocumentName.substr(lenDocumentType + this.names[index].docNameTimestamp.length + 2);
-			this.names[index].docName = docName;
+            const regex = /^(\d{8})-([a-z|A-Z]*)-([\s\S]*)$/g;
+            let m;
+            const keys = [
+                "docNameTimestamp",
+                "docNameDocType",
+                "docName"
+            ];
+
+            while ((m = regex.exec(document.rngDocumentName)) !== null) {
+                // This is necessary to avoid infinite loops with zero-width matches
+                if (m.index === regex.lastIndex) {
+                    regex.lastIndex++;
+                }
+                
+                // The result can be accessed through the `m`-variable.
+                m.shift(); // Remove the full match.
+                m.forEach((match, groupIndex) => {
+                    this.names[index][keys[groupIndex]] = match;
+                });
+            }
         }
-		this.extractDocName = function () {};
     }
 
     fixStartRange(index, document, eventOrValue) {
@@ -117,7 +156,9 @@ class DocumentsFormController {
             .getMaxPageRange()
             .then(maxPages => {
                 const validStartRange = this.DocumentsFormService.getValidStartRange(maxPages, value, index);
-                document.rngRange.rangeStart = validStartRange;
+                if(validStartRange <= value) {
+                    document.rngRange.rangeStart = validStartRange;
+                }
             });
     }
 
@@ -133,7 +174,9 @@ class DocumentsFormController {
             .getMaxPageRange()
             .then(maxPages => {
                 const validEndRange = this.DocumentsFormService.getValidEndRange(maxPages, value, index);
-                document.rngRange.rangeEnd = validEndRange;
+                if(validEndRange >= value) {
+                    document.rngRange.rangeEnd = validEndRange;
+                }
             });
     }
 
@@ -308,12 +351,6 @@ class DocumentsFormController {
         return this.DocumentsFormService.isPossibleToAddAnotherRange();
     }
 
-    i18nFollowUpOptions(index) {
-        this.fields[index].followUpOptions = this.followUpOptions.map((option) => {
-            option.name = this.$filter('translate')(option.name);
-            return option;
-        });
-    }
 
     getDocuments() {
         return this.DocumentsFormService.getDocuments();
@@ -360,7 +397,7 @@ class DocumentsFormController {
         this.fields[index].businessWorkspaceOptions = [];
         this.fields[index].doctypeSubfolderOptions = [];
         this.fields[index].doctypeOptions = [];
-        this.fields[index].followUpOptions = [];
+        this.fields[index].followUpOptions = this.fieldOptions.followUpOptions;
         this.fields[index].showPicker = false;
     }
 
@@ -377,6 +414,20 @@ class DocumentsFormController {
 		this.clearSubfolderId(index, document);
     }
 
+    onSelectingDisruptiveCheckbox(index, document) {
+        if (this.names[index] && (document.rngWorkflowType || document.rngDelete)) {
+            let type = 'Dismissed';
+            this.names[index].oldDocumentName = document.rngDocumentName;
+            this.extractDocName(index, document);
+            if(document.rngWorkflowType) {
+                type = this.$filter('translate')('Invoice');
+            }
+            document.rngDocumentName = this.names[index].docNameTimestamp + ' ' + type + ' ' + Date.now();
+        } else {
+            document.rngDocumentName = this.names[index].oldDocumentName;
+        }
+    }
+    
     combineDocNameFields(index, document) {
         if (this.names[index]) {
 			this.extractDocName(index, document);
@@ -393,13 +444,11 @@ class DocumentsFormController {
             });
     }
 
-    getBusinessWorkspaceOptions(index, document) {
+    getBusinessWorkspaceOptions(index, document, $viewValue) {
+        document.rngBusinessWorkspace = $viewValue;
         return this
             .DocumentsFormService
-            .getBusinessWorkspaceOptions(document)
-            .then((businessWorkspaceOptions) => {
-                this.fields[index].businessWorkspaceOptions = businessWorkspaceOptions;
-            });
+            .getBusinessWorkspaceOptions(document);
     }
 
     isBusinessWorkspaceValid(document) {
@@ -421,8 +470,10 @@ class DocumentsFormController {
             .getDoctypeSubfolder(document)
             .then(subfolderId => {
                 document.rngFolderID = subfolderId;
-				this.targetFolderDisabled[index] = false;
-                this
+                if(document.rngDocumenttypeGroep) {
+                    this.targetFolderDisabled[index] = false;
+                }
+				this
                     .DocumentsFormService
                     .getSubfolderOptions(document)
                     .then(subfolderOptions => {
@@ -436,12 +487,8 @@ class DocumentsFormController {
         return value === 1;
     }
 
-    isTargetFolderDisabled($index) {
-        if (this.targetFolderDisabled[$index] == null) {
-            return true;
-        } else {
-            return this.targetFolderDisabled[$index];
-        }
+    isTargetFolderDisabled(index) {
+        return this.targetFolderDisabled[index];
     }
 
     clearDocName(index) {
@@ -521,21 +568,32 @@ class DocumentsFormController {
     }
 
     copyForm(index) {
-        this.DocumentsFormService.copyForm(index);
-        var copyFieldOptions = angular.copy(this.fields[index]);
-        var copyNameFields = angular.copy(this.names[index]);
-        this.fields.splice(index, 0, copyFieldOptions);
-        this.getWorkspaceCategoriesOptions(index);
-        this.names.splice(index, 0, copyNameFields);
+        this.DocumentsFormService
+            .copyForm(index)
+            .then((newDocument) => {
+                const copyFieldOptions = angular.copy(this.fields[index]);
+                const copyNameFields = angular.copy(this.names[index]);
+                const targetFolderDisabled = this.targetFolderDisabled[index];
+                this.fields.splice(index, 0, copyFieldOptions);
+                this.getWorkspaceCategoriesOptions(index);
+                this.names.splice(index, 0, copyNameFields);
+                this.targetFolderDisabled.splice(index, 0, targetFolderDisabled);
+                this.combineDocNameFields(index, newDocument);
+            });
     }
 
     addNewForm(index) {
-        this.DocumentsFormService.addNewForm(index);
-        this.fields.splice(index, 0, angular.copy(this.fieldOptions));
-		this.getWorkspaceCategoriesOptions(index);
-        this.names.splice(index, 0, angular.copy(this.nameFields));
+        this.DocumentsFormService
+            .addNewForm(index)
+            .then((newDocument) => {
+                this.fields.splice(index, 0, angular.copy(this.fieldOptions));
+                this.getWorkspaceCategoriesOptions(index);
+                this.names.splice(index, 0, angular.copy(this.nameFields));
+                this.targetFolderDisabled.splice(index, 0, true);
+                this.combineDocNameFields(index, newDocument);
+            });
     }
-
+    
     deleteForm(index) {
         this.DocumentsFormService.deleteForm(index);
     }

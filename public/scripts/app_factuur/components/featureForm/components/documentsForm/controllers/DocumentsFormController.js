@@ -12,8 +12,6 @@ class DocumentsFormController {
         ctrl.form = null;
         ctrl.documents = [];
         ctrl.OTFormService = OTFormService;
-        ctrl.workflowtypeOptions = workflowtypeOptions;
-        ctrl.speedtypeOptions = speedtypeOptions;
         ctrl.UserService = UserService;
         ctrl.DocumentsFormService = DocumentsFormService;
         ctrl.status = [];
@@ -27,33 +25,34 @@ class DocumentsFormController {
         };
         ctrl.names = [];
         ctrl.nameFields = {
-            timestamp: null,
-            doctype: null,
-            docname: null
-        }
+            docNameDocType: '',
+            docNameTimestamp: new Date().toISOString().substring(0, 10).replace("-", "").replace("-", ""),
+            docName: ''
+        };
     }
 
     $onInit() {
-        const documents = this.documents = this.getDocuments();
-		this.getDocumentNamePatterns();
+        const ctrl = this;
+        const documents = ctrl.documents = ctrl.getDocuments();
+        ctrl.getDocumentNamePatterns();
 		
         documents.forEach((document, index) => {
-            this.fields.push(angular.copy(this.fieldOptions));
-            this.names.push(angular.copy(this.nameFields));
-            this.fixNameData(index, document);
+            ctrl.fields.push(angular.copy(ctrl.fieldOptions));
+            ctrl.names.push(angular.copy(ctrl.nameFields));
+            ctrl.fixNameData(index, document);
+            document.rngWorkflowType = document.rngWorkflowType || ctrl.fields[index].workflowtypeOptions[0].value;
+            document.rngSpoed = document.rngSpoed || ctrl.fields[index].speedtypeOptions[0].value;
         });
         
-        EventBus.addEventListener('form:delivered', this.setForm, this);
+        EventBus.addEventListener('form:delivered', ctrl.setForm, ctrl);
         EventBus.dispatch('form:get');
     }
 
     fixNameData(index, document) {
-        this.extractDocName(document);
-        if(!this.names[index].timestamp) {
-            this.names[index].timestamp = new Date().toISOString().substring(0, 10).replace("-", "").replace("-", "");
-        }
-        if(!this.names[index].doctype) {
-            this.names[index].doctype = this.workflowtypeOptions[0].value;
+        const ctrl = this;
+        ctrl.extractDocName(index, document);
+        if(!ctrl.names[index].docNameDocType) {
+            ctrl.names[index].docNameDocType = ctrl.fields[index].workflowtypeOptions[0].value;
         }
         this.setDocumentName(document, index);
     }
@@ -63,9 +62,9 @@ class DocumentsFormController {
             const regex = /^(\d{8})-([a-z|A-Z]*)-([\s\S]*)$/g;
             let m;
             const keys = [
-                "timestamp",
-                "doctype",
-                "docname"
+                "docNameTimestamp",
+                "docNameDocType",
+                "docName"
             ];
 
             while ((m = regex.exec(document.rngDocumentName)) !== null) {
@@ -85,37 +84,8 @@ class DocumentsFormController {
 
     // Reviewed
     isFormHidden(document) {
-        return this.isCheckboxSelected(document.rngDelete)
+        return this.isCheckboxSelected(document.rngDelete);
     }
-
-    populate(index) {
-        const document = this.documents[index];
-        const ctrl = this;
-        if(!document.rngWorkflowType) {
-            document.rngWorkflowType = this.form['workflowType[' + index + ']'][0].value;
-        }
-        if(!document.rngSpoed) {
-            document.rngSpoed = this.form['speed[' + index + ']'][0].value;
-        }
-        ctrl
-            .getDocTypeGroupOptions(index, document)
-            .then(function () {
-                ctrl
-                    .getBusinessWorkspaceName(document)
-                    .then(function () {
-                        ctrl
-                            .getDocumentTypeOptions(index, document)
-                            .then(function () {
-                                ctrl
-                                .setupDocumentType(index, document)
-                                .then(function () {
-                                    ctrl.combineDocNameFields(index, document);
-                                })
-                            })
-                    });
-            });
-    }
-
 
     fixStartRange(index, document, eventOrValue) {
         let value;
@@ -129,7 +99,9 @@ class DocumentsFormController {
             .getMaxPageRange()
             .then(maxPages => {
                 const validStartRange = this.DocumentsFormService.getValidStartRange(maxPages, value, index);
-                document.rngRange.rangeStart = validStartRange;
+                if(validStartRange <= value) {
+                    document.rngRange.rangeStart = validStartRange;
+                }
             });
     }
 
@@ -145,7 +117,9 @@ class DocumentsFormController {
             .getMaxPageRange()
             .then(maxPages => {
                 const validEndRange = this.DocumentsFormService.getValidEndRange(maxPages, value, index);
-                document.rngRange.rangeEnd = validEndRange;
+                if(validEndRange >= value) {
+                    document.rngRange.rangeEnd = validEndRange;
+                }
             });
     }
 
@@ -161,19 +135,19 @@ class DocumentsFormController {
 
     setDocumentName(document, index) {
         const item = this.names[index];
-        document.rngDocumentName = (item.timestamp || '') + '-' + (item.doctype || '') + '-' + (item.docname || '');
+        document.rngDocumentName = (item.docNameTimestamp || '') + '-' + (item.docNameDocType || '') + '-' + (item.docName || '');
     }
 
     hasDocNameRequiredError(index) {
         const fieldNames = {
-            timestamp: 'docNameTimestamp[' + index + ']',
-            doctype: 'docNameDocType[' + index + ']',
-            docname: 'docName[' + index + ']'
+            docNameTimestamp: 'docNameTimestamp[' + index + ']',
+            docNameDocType: 'docNameDocType[' + index + ']',
+            docName: 'docName[' + index + ']'
         };
         let name;
         let result = false;
 
-        if (this.form && this.form.$dirty && this.names[$index].docname) {
+        if (this.form && this.form.$dirty && this.names[$index].docName) {
             for (let key in fieldNames) {
                 if (fieldNames.hasOwnProperty(key)) {
                     name = fieldNames[key];
@@ -217,7 +191,6 @@ class DocumentsFormController {
         const formInput = this.form[instanceName];
         let result = false;
         if (this.existInputAndHasBeenModified(name, $index)) {
-            if(name === 'docName') { debugger; }
             if (input.nodeName.toLowerCase() === 'select') {
                 selectedOption = input.options[input.selectedIndex];
                 if(selectedOption) {
@@ -233,10 +206,6 @@ class DocumentsFormController {
     findUser(query) {
         return this.UserService
             .asyncFindUser(query);
-    }
-
-    isDataSetInDocument(document, name) {
-        return Boolean(document[name]);
     }
 
     isDeleteButtonDisabled() {
@@ -309,31 +278,27 @@ class DocumentsFormController {
     }
 
     copyForm(index) {
-        var copyFieldOptions = angular.copy(this.fields[index]);
-        var copyNameFields = angular.copy(this.nameFields);
+        const copyFieldOptions = angular.copy(this.fields[index]);
+        const copyNameFields = angular.copy(this.names[index]);
         this.fields.splice(index, 0, copyFieldOptions);
         this.names.splice(index, 0, copyNameFields);
-
-        this.DocumentsFormService
-            .copyForm(index)
-            .then(() => {
-                this.documents[index].rngWorkflowType = this.workflowtypeOptions[0].value;
-                this.documents[index].rngSpoed = this.speedtypeOptions[0].value;
-                this.fixNameData(index, document);
-            });
+        this.DocumentsFormService.copyForm(index)
+        .then(() => {
+            this.documents[index].rngWorkflowType = this.documents[index].rngWorkflowType || this.fields[index].workflowtypeOptions[0].value;
+            this.documents[index].rngSpoed = this.documents[index].rngSpoed || this.fields[index].speedtypeOptions[0].value;
+            this.fixNameData(index, this.documents[index]);
+        });
     }
 
     addNewForm(index) {
-        this.names.splice(index, 0, angular.copy(this.nameFields));
         this.fields.splice(index, 0, angular.copy(this.fieldOptions));
-        this.DocumentsFormService
-            .addNewForm(index)
-            .then(() => {
-                this.documents[index].rngWorkflowType = this.workflowtypeOptions[0].value;
-                this.documents[index].rngSpoed = this.speedtypeOptions[0].value;
-                this.fixNameData(index, document);
-            });
-        
+        this.names.splice(index, 0, angular.copy(this.nameFields));
+        this.DocumentsFormService.addNewForm(index)
+        .then(() => {
+            this.documents[index].rngWorkflowType = this.fields[index].workflowtypeOptions[0].value;
+            this.documents[index].rngSpoed = this.fields[index].speedtypeOptions[0].value;
+            this.fixNameData(index, this.documents[index]);
+        });
     }
 
     deleteForm(index) {

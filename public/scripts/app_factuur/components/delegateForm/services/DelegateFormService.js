@@ -86,10 +86,7 @@ class DelegateFormService {
 	cancelAssignment(comments) {
         const deferred = this.$q.defer();
         const data = this.OTFormService.getData();
-        let postbus = data.Postbus;
-        if(postbus === "[LL_FormTag_1_1_28_1 /]") { // only for demo locally, it has no impact in production
-            postbus = '';
-        }
+        let postbus = data.Postbus || '';
         const groep = postbus.toUpperCase() + '-Postverdeling';
         data.DelegateToUserName = data.DelegateToUserSavedName = groep;
         data.Opmerkingen = comments || '';

@@ -12,16 +12,16 @@ class DocumentsFormService {
         service.SessionService = SessionService;
     }
 
-    getMaxPageRange() {
-        return this.UnselectedPagesService.getPDFPages();
-    }
-
     getValidStartRange(pages, value, index) {
         return this.UnselectedPagesService.getValidStartRange(pages, value, index);
     }
 
     getValidEndRange(pages, value, index) {
         return this.UnselectedPagesService.getValidEndRange(pages, value, index);
+    }
+
+    getMaxPageRange() {
+        return this.UnselectedPagesService.getPDFPages();
     }
 
     isPossibleToAddAnotherRange() {
@@ -34,7 +34,7 @@ class DocumentsFormService {
         return this.OTFormService.getDocuments();
     }
     
-	getDocumentNamePatterns() {
+    getDocumentNamePatterns() {
         return this
                 .$http({
                     url: '',

@@ -21,13 +21,13 @@
   "Command is canceled": "Opdracht is geannuleerd",
   "RANGE DIVISION": "RANGE SPLITSING",
   "of": "van",
-  "Pagina": "Pagina",
+  "Page": "Pagina",
   "to": "t/m",
   "Delete": "Verwijder",
   "Invoice": "Factuur",
   "Workspace Category": "Workspace Categorie",
   "Business Workspace": "Business Workspace",
-  "Document type group": "Documenttype groep",
+  "Document type group": "Documenttype Groep",
   "Document Type": "Document Type",
   "This field is required.": "Dit veld is verplicht.",
   "Follow up reminder": "Follow up herinnering",
@@ -39,7 +39,7 @@
   "Result": "Resultaat",
   "There are invalid characters": "Er staan ongeldige karakters",
   "Document name": "Document Naam",
-  "Your session has expired. Reload the page to continue please": "Uw sessie is verlopen. Herlaadt de pagina om verder te werken s.v.p.",
+  "Your session has expired. Reload the page to continue please (F5)": "Uw sessie is verlopen. Herlaadt de pagina om verder te werken s.v.p. (F5)",
   "Direct": "Direct",
   "7 days": "7 Dagen",
   "14 days": "14 Dagen",
@@ -54,7 +54,5 @@
   "Assignment is canceled, you will be redirected": "Opdracht is geannuleerd, u wordt doorverwezen",
   "Workflow is deleted, you will be redirected": "Workflow is verwijderd, u wordt doorverwezen",
   "Processing Order": "Bewerkingsorder",
-
-  "Workflow Type": "Workflow Type",
-  "Speed": "Spoed"
+  "Target folder": "Doel folder"
 }

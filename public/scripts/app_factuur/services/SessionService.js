@@ -18,7 +18,7 @@ class SessionService {
     startTimer() {
         this.idleTimer = this.$timeout(() => {
             this.stopTimer();
-            this.MessageService.toggleWarning(this.$filter('translate')("Your session has expired. Reload the page to continue please"));
+            this.MessageService.toggleWarning(this.$filter('translate')("Your session has expired. Reload the page to continue please (F5)"));
         }, this.sessionTimeout);
     }
 

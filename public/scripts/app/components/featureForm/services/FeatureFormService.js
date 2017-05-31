@@ -27,6 +27,7 @@ class FeatureFormService {
     
     validateOrSaveAndFinish() {
         var deferred = this.$q.defer();
+        
         this
             .saveForm()
             .then((response) => {

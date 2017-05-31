@@ -1,3 +1,5 @@
+import EventBus from 'krasimir/EventBus';
+
 class UnselectedPagesFormController {
     constructor(UnselectedPagesService) {
         const ctrl = this;
@@ -19,7 +21,15 @@ class UnselectedPagesFormController {
                     document.rngRange.rangeStart = 1;
                     document.rngRange.rangeEnd = maxPages;
                 }
-            })
+                EventBus.addEventListener('unselected:request', () => {
+                    var ranges = this.getRangesFromUndefinedPages(maxPages);
+                    EventBus.dispatch('unselected:get', ranges);
+                });
+            });
+    }
+
+    getRangesFromUndefinedPages(pages) {
+        return this.UnselectedPagesService.getRangesFromUndefinedPages(pages);
     }
 
     getUnselectedPages() {

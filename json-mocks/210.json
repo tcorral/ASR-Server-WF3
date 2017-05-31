@@ -1,57 +1,7 @@
 {
-   "actualRows":25,
-   "filteredRows":25,
+   "actualRows":15,
+   "filteredRows":15,
    "myRows":[
-      {
-         "DataID":104611,
-         "Name":"2100.2 - grond te Gramsbergen",
-         "SubType":848
-      },
-      {
-         "DataID":104641,
-         "Name":"2100.3 - grond te Appingedam en Bierum",
-         "SubType":848
-      },
-      {
-         "DataID":104671,
-         "Name":"2100.4 - grond te Meeden",
-         "SubType":848
-      },
-      {
-         "DataID":104701,
-         "Name":"2100.5 - grond te Burum",
-         "SubType":848
-      },
-      {
-         "DataID":104707,
-         "Name":"2100.1 - grond te Gendringen",
-         "SubType":848
-      },
-      {
-         "DataID":105036,
-         "Name":"2100.54 - grond te Schijndel",
-         "SubType":848
-      },
-      {
-         "DataID":105066,
-         "Name":"2100.55 - grond te Grijpskerk",
-         "SubType":848
-      },
-      {
-         "DataID":105096,
-         "Name":"2100.56 - grond te Odoorn",
-         "SubType":848
-      },
-      {
-         "DataID":105126,
-         "Name":"2100.57 - grond te Dronten",
-         "SubType":848
-      },
-      {
-         "DataID":106491,
-         "Name":"2100.6 - grond te Borculo en Eibergen",
-         "SubType":848
-      },
       {
          "DataID":106521,
          "Name":"2100.7 - grond te Dalen",

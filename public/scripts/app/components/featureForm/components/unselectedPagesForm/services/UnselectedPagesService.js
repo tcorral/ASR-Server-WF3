@@ -46,6 +46,9 @@ class UnselectedPagesService {
         const possibleRanges = [];
 
         documents.forEach(function (document, _index) {
+            if(!document.rngRange) {
+                document.rngRange = {};
+            }
             const start = document.rngRange.rangeStart;
             const end = document.rngRange.rangeEnd;
             for(let page = start; page <= end; page++) {
@@ -108,7 +111,7 @@ class UnselectedPagesService {
         
         value = value || 0; // If value is undefined or null it's set to 0;
 
-        if(document && (document.rngRange.rangeStart > document.rngRange.rangeEnd)) {
+        if(document && document.rngRange && (document.rngRange.rangeStart > document.rngRange.rangeEnd)) {
             value = document.rngRange.rangeEnd;
         } else if(nextPossibleRange && nextPossibleRange.length) {
             if(value < nextPossibleRange[0]) {
@@ -178,6 +181,9 @@ class UnselectedPagesService {
 
         //identify undefined pages by comparing defined pages with PDF range
         for (i = 0; i < service.documents.length; i++) {
+            if(!service.documents[i].rngRange) {
+                service.documents[i].rngRange = {};
+            }
             for (let j = (service.documents[i].rngRange.rangeStart || 1); j <= service.documents[i].rngRange.rangeEnd; j++) {
                 namedPages[j] = true;
             }

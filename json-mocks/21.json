@@ -1,0 +1,130 @@
+{
+   "actualRows":24,
+   "filteredRows":24,
+   "myRows":[
+      {
+         "DataID":104641,
+         "Name":"2100.3 - grond te Appingedam en Bierum",
+         "SubType":848
+      },
+      {
+         "DataID":104671,
+         "Name":"2100.4 - grond te Meeden",
+         "SubType":848
+      },
+      {
+         "DataID":104701,
+         "Name":"2100.5 - grond te Burum",
+         "SubType":848
+      },
+      {
+         "DataID":104707,
+         "Name":"2100.1 - grond te Gendringen",
+         "SubType":848
+      },
+      {
+         "DataID":105036,
+         "Name":"2100.54 - grond te Schijndel",
+         "SubType":848
+      },
+      {
+         "DataID":105066,
+         "Name":"2100.55 - grond te Grijpskerk",
+         "SubType":848
+      },
+      {
+         "DataID":105096,
+         "Name":"2100.56 - grond te Odoorn",
+         "SubType":848
+      },
+      {
+         "DataID":105126,
+         "Name":"2100.57 - grond te Dronten",
+         "SubType":848
+      },
+      {
+         "DataID":106491,
+         "Name":"2100.6 - grond te Borculo en Eibergen",
+         "SubType":848
+      },
+      {
+         "DataID":106521,
+         "Name":"2100.7 - grond te Dalen",
+         "SubType":848
+      },
+      {
+         "DataID":106551,
+         "Name":"2100.8 - grond te Nieuw - Vossemeer",
+         "SubType":848
+      },
+      {
+         "DataID":106581,
+         "Name":"2100.9 - grond te Hasselt",
+         "SubType":848
+      },
+      {
+         "DataID":106611,
+         "Name":"2100.10 - grond te Blankenham",
+         "SubType":848
+      },
+      {
+         "DataID":106641,
+         "Name":"2100.12 - grond te Anna Paulowna",
+         "SubType":848
+      },
+      {
+         "DataID":106671,
+         "Name":"2100.13 - grond te Noordoostpolder",
+         "SubType":848
+      },
+      {
+         "DataID":106701,
+         "Name":"2100.14 - grond te Dalen",
+         "SubType":848
+      },
+      {
+         "DataID":106731,
+         "Name":"2100.15 - grond te Hoogeveen",
+         "SubType":848
+      },
+      {
+         "DataID":106761,
+         "Name":"2100.16 - grond te Oploo",
+         "SubType":848
+      },
+      {
+         "DataID":106791,
+         "Name":"2100.17 - grond te Wieringermeer",
+         "SubType":848
+      },
+      {
+         "DataID":106821,
+         "Name":"2100.18 - grond te Oostburg",
+         "SubType":848
+      },
+      {
+         "DataID":106851,
+         "Name":"2100.19 - grond te Noordoostpolder",
+         "SubType":848
+      },
+      {
+         "DataID":106881,
+         "Name":"2100.20 - grond te Borculo en Eibergen",
+         "SubType":848
+      },
+      {
+         "DataID":106911,
+         "Name":"2100.21 - grond te Lelystad",
+         "SubType":848
+      },
+      {
+         "DataID":106941,
+         "Name":"2100.22 - grond te Zoetermeer",
+         "SubType":848
+      }
+   ],
+   "sourceID":7334380,
+   "success":true,
+   "totalRows":25,
+   "totalSourceRows":25
+}

@@ -1,4 +1,3 @@
-import angular from 'angular';
 import 'angular-bootstrap';
 import 'angular-sanitize';
 import 'angular-translate';

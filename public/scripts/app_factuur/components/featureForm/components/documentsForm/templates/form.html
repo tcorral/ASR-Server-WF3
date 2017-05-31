@@ -15,7 +15,6 @@
         </div>
     </div>
     <div class="panel-body grey-background" ng-hide="$ctrl.isCollapsed($index)">
-        <!--=== {{$ctrl.isFormHidden(document)}} ===-->
         <div class="row">
             <div>
                 <span class="form-group">
@@ -93,18 +92,18 @@
                                     class="input-inline col-sm-4" 
                                     name="docNameTimestamp[{{$index}}]" 
                                     ng-pattern="$ctrl.validationPatterns.timestampPattern"
-                                    ng-model="$ctrl.names[$index].timestamp"
+                                    ng-model="$ctrl.names[$index].docNameTimestamp"
                                     disabled />
                                 <input 
                                     class="input-inline col-sm-4" 
                                     name="docNameDocType[{{$index}}]" 
-                                    ng-model="$ctrl.names[$index].doctype" 
+                                    ng-model="$ctrl.names[$index].docNameDocType"
                                     disabled/>
                                 <input 
                                     class="input-inline col-sm-4" 
                                     name="docName[{{$index}}]" 
                                     ng-change="$ctrl.setDocumentName(document, $index)" 
-                                    ng-model="$ctrl.names[$index].docname"
+                                    ng-model="$ctrl.names[$index].docName"
                                     ng-pattern="$ctrl.validationPatterns.docnamePattern"/>
                             </div>
                             

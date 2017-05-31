@@ -1,8 +1,83 @@
 import Events from 'krasimir/EventBus';
+import angular from 'angular';
+import Cookies from 'js-cookie';
 
-function getConfigEnvironment(environments) {
-    const subdomain = (window.document.location.host.replace(/^www\./, '').split(/([\.\:])/))[0];
-    return configs[environments[subdomain]] || configs['dev'];
+const envs = ['dev', 'acc', 'prod'];
+const commonConfig = {
+    "otFormId": "llForm",
+    "otDateFormat": "MM/dd/yyyy",
+    "scriptHome": "/img/cgcustom/workflows/ASRFormKenmerken/",
+    "cgiUrlPrefix": "/otcs/llisapi.dll",
+    "csEmulation": false,
+    "currentUserLogin": currentUserLogin,
+    "currentUserFullName": currentUserFullName,
+    "currentUserId": currentUserId,
+    "attachFolder": "",
+    "pdfjsViewerPath": "vendor/pdfjs/web/viewer.html",
+    "pageLimit": 13
+};
+
+function requestObjId(config) {
+    const url = config.url;
+    const key = config.key;
+    const objId = config.objId;
+    const finalConfig = config.config;
+    const iteration = config.iteration;
+    const iterationsLength = config.iterationsLength;
+    return $.ajax({
+        async: false,
+        method: 'GET',
+        dataType: 'html',
+        url: url,
+        data: {
+            func: 'll',
+            objAction: 'RunReport',
+            objId: objId
+        },
+        success: function (response) {
+            response = typeof response === 'string' ? response : '';
+            if(response.toLowerCase().indexOf('content server -') === -1) {
+                finalConfig[key] = objId;
+            } 
+        }
+    })
+}
+
+function getConfigEnvironment(commonConfig, configs, envs) {
+    let config = angular.copy(commonConfig);
+    const lenCommonConfigKeys = Object.keys(commonConfig).length;
+    const iterationsLength = Object.keys(configs.dev).length;
+    let iteration = 0;
+    const asrConfig = Cookies.get('asr-env-config');
+    const url = commonConfig.cgiUrlPrefix;
+    const deferreds = [];
+    if(asrConfig) {
+        config = JSON.parse(asrConfig);
+    } else {
+        for(let index = 0, len = envs.length; index < len; index++) {
+            let envConfig = configs[envs[index]];
+            for(let key in envConfig) {
+                if(envConfig.hasOwnProperty(key)) {
+                    iteration++;
+                    let objId = envConfig[key];
+                    requestObjId({ 
+                        url, 
+                        key,
+                        iteration,
+                        iterationsLength,
+                        objId, 
+                        config});
+                }
+            }
+        }
+        console.log(config);
+        if(Object.keys(config).length === lenCommonConfigKeys) {
+            config = angular.extend(config, configs['dev']);
+        }
+        Cookies.set('asr-env-config', JSON.stringify(config));
+    }
+
+    return config;
 }
 
 function simpleInputGetter(input) {
@@ -22,9 +97,6 @@ const workflowtypeOptions = [
 
 const configs = {
     dev: {
-        "otFormId": "llForm",
-        "otDateFormat": "MM/dd/yyyy",
-        "scriptHome": "/img/cgcustom/workflows/ASRFormKenmerken/",
         "userByLoginService": 113696,
         "autocompleteUsernameService": 113694,
         "getworkflowattachmentService": 113689,
@@ -36,20 +108,9 @@ const configs = {
         "getsubfolderid": 11200712,
         "getsubfolders": 11199172,
         "getexclusionpatterns": 11199569,
-        "getgroup": 113695,
-        "cgiUrlPrefix": "/otcs/llisapi.dll",
-        "csEmulation": false,
-        "currentUserLogin": currentUserLogin,
-        "currentUserFullName": currentUserFullName,
-        "currentUserId": currentUserId,
-        "attachFolder": "",
-        "pdfjsViewerPath": "vendor/pdfjs/web/viewer.html",
-        "pageLimit": 13
+        "getgroup": 113695
     },
     acc: {
-        "otFormId": "llForm",
-        "otDateFormat": "MM/dd/yyyy",
-        "scriptHome": "/img/cgcustom/workflows/ASRFormKenmerken/",
         "userByLoginService": 113696,
         "autocompleteUsernameService": 113694,
         "getworkflowattachmentService": 113689,
@@ -59,22 +120,11 @@ const configs = {
         "getbusinessworkspace": 7334381,
         "getbusinessworkspacename": 14520258,
         "getsubfolderid": 14473737,
-        "getsubfolders": 14474719, /*11199172,*/
+        "getsubfolders": 14474719, 
         "getexclusionpatterns": 14488971,
-        "getgroup": 113695,
-        "cgiUrlPrefix": "/otcs/llisapi.dll",
-        "csEmulation": false,
-        "currentUserLogin": currentUserLogin,
-        "currentUserFullName": currentUserFullName,
-        "currentUserId": currentUserLogin,
-        "attachFolder": "",
-        "pdfjsViewerPath": "vendor/pdfjs/web/viewer.html",
-        "pageLimit": 13
+        "getgroup": 113695
     },
     prod: {
-        "otFormId": "llForm",
-        "otDateFormat": "MM/dd/yyyy",
-        "scriptHome": "/img/cgcustom/workflows/ASRFormKenmerken/",
         "userByLoginService": 113696,
         "autocompleteUsernameService": 113694,
         "getworkflowattachmentService": 113689,
@@ -82,30 +132,14 @@ const configs = {
         "getdocumenttypes": 113690,
         "getdocumentgroups": 113693,
         "getbusinessworkspace": 7334381,
-        "getbusinessworkspacename": 14520258,
-        "getsubfolderid": 14473737,
-        "getsubfolders": 11199172,
-        "getexclusionpatterns": 14488971,
-        "getgroup": 113695,
-        "cgiUrlPrefix": "/otcs/llisapi.dll",
-        "csEmulation": false,
-        "currentUserLogin": currentUserLogin,
-        "currentUserFullName": currentUserFullName,
-        "currentUserId": currentUserId,
-        "attachFolder": "",
-        "pdfjsViewerPath": "vendor/pdfjs/web/viewer.html",
-        "pageLimit": 13
+        "getbusinessworkspacename": 15566117,
+        "getsubfolderid": 15570352,
+        "getsubfolders": 15569905,
+        "getexclusionpatterns": 15620016,
+        "getgroup": 113695
     }
 };
 
-const environments = {
-    'OTA2153': 'dev',
-	'xecm-acc': 'acc',
-	'xecm-ot': 'dev',
-    'OTA2310': 'acc',
-    'OTA2156': 'acc',
-    'OTA2157': 'acc'
-};
 
 const context = [
     {
@@ -175,7 +209,7 @@ const otMappingSetter = {
             return Number(value);
         },
         rngFolderID: function (value) {
-            return value || 0;
+            return Number(value || 0);
         },
         rngBehandelaarID: function (obj, doc, index, documentsLength) {
             var selector = 'data-js-id-' + ((documentsLength - 1) - index);
@@ -292,13 +326,13 @@ const followUpOptions = [{
     name: 'Direct',
     value: 2
     },{
-    name: '7 Days',
+    name: '7 days',
     value: 7
     },{
-    name: '14 Days',
+    name: '14 days',
     value: 14
     },{
-    name: '28 Days',
+    name: '28 days',
     value: 28
 }];
 
@@ -309,7 +343,7 @@ const behandelaarPattern = /^[0-9a-zA-Z_\-\(\)\S\s]*$/;
 
 export default {
     workflowtypeOptions,
-    configEnv: getConfigEnvironment(environments),
+    configEnv: getConfigEnvironment(commonConfig, configs, envs),
     context,
     mailbox,
     Events,
@@ -323,4 +357,4 @@ export default {
         doctypePattern,
         behandelaarPattern
     }
-}
+};

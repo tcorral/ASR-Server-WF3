@@ -28,9 +28,16 @@ class DelegateFormController {
                 .getMailbox()
                 .then((response) => {
                     this.fields.mailbox = response;
+                    this.populate();
                 });
+        
         EventBus.addEventListener('workflow:cancelled', this.cancelWorkflow, this);
         EventBus.addEventListener('workflow:closed', this.closeWorkflow, this);
+    }
+
+    populate() {
+        var data = this.OTFormService.getData();
+        this.model.comments = data.Opmerkingen;
     }
 
     getToggleClass() {
@@ -65,11 +72,15 @@ class DelegateFormController {
     activateProgress($event) {
         var $this = $($event.target);
         this.lastButton = $this;
-        this.lastButton.button('loading');
+        if(this.lastButton.button) {
+            this.lastButton.button('loading');
+        }
     }
 
     cancelProgress() {
-        this.lastButton.button('reset');
+        if(this.lastButton.button){
+            this.lastButton.button('reset');
+        }
     }
 
     closeWorkflow() {
